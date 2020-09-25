@@ -115,7 +115,7 @@ class Admonition(nodes.Admonition, nodes.Element):
 
 def visit_admonition_node(self, node):
     name = type(node).__name__ + ('s' if node.plural else '')
-    self.visit_admonition(node, name=name)
+    #self.visit_admonition(node, name=name)
 
 
 def depart_admonition_node(self, node):
