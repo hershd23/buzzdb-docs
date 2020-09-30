@@ -32,7 +32,6 @@ portable development environments. VirtualBox is a general-purpose full
 virtualizer for x86 hardware.
 
 #. Download and install Virtualbox
-
     - (Windows) Turn off Hyper-V in "Turn Windows features on or off"
     - Download and install `VirtualBox 
       <https://www.virtualbox.org/wiki/Download_Old_Builds_6_0>`__ 
@@ -105,6 +104,32 @@ this course:
     # Reference: https://hackernoon.com/oh-my-zsh-made-for-cli-lovers-bea538d42ec1
     [host] $ sudo apt-get -y zsh
     [host] $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
+Installing Editor
+~~~~~~~~~~~~~~~~~
+
+We recommend using Visual Studio Code for the programming assignments.
+
+#. Download and install `Visual Studio Code <https://code.visualstudio.com/>`_
+    - Here's a guide for `Getting started with Visual Studio Code<https://code.visualstudio.com/docs>`_. 
+    - Install these two extensions: 
+    - `C++ <https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools>`_
+    - `Remote SSH <https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh>`_
+    
+#. Connect Visual Studio Code with Vagrant
+
+.. code-block:: sh
+    # Get the Vagrant SSH configuration
+    [host] $ vagrant ssh-config
+    
+    # Copy the output to the end of the local SSH configuration file
+    [host] $ vi ~/.ssh/config
+    
+    # You should be able to connect to the host via SSH (user@hostname)
+    [host] $ ssh vagrant@default
+
+#. You can now use the `Remote SSH extension in VSCode <https://code.visualstudio.com/docs/remote/ssh#_connect-to-a-remote-host>`__
 
 Tool Guide
 ----------
