@@ -63,21 +63,24 @@ virtualizer for x86 hardware.
 	
 	# Enter into the VM
         [host] $ vagrant ssh
-	[host] $ cd /vagrant/
-	[host] $ ls
-	
-	# To copy files from host to VM 
-	# vagrant scp <some_local_file_or_dir> [vm_name]:<somewhere_on_the_vm>
-	
-	# If you are not sure about the VM name, look at the generated `Vagrantfile` within the `buzzdb` folder
-	# https://www.vagrantup.com/docs/vagrantfile/machine_settings#config-vm-hostname
-
-        # To copy files from VM to host 
-	# vagrant scp [vm_name]:<somewhere_on_the_vm> <some_local_file_or_dir> 
-	
+	[vm] $ pwd
+	[vm] $ ls
+			
 	# To exit the VM (at any point in time)
-	[host] $ exit
+	[vm] $ exit
 	
+	# Check hostname of VM (e.g., "default")
+	[host] $ vagrant status
+
+        # Get the Vagrant SSH configuration
+        [host] $ vagrant ssh-config
+    
+        # Copy the output of the previous command to the end of the local SSH configuration file
+        [host] $ vi ~/.ssh/config
+    
+        # You should be able to connect to the vm via SSH (user@hostname)
+        [host] $ ssh vagrant@default
+
 Bump up the amount of DRAM assigned to the VM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The default setting is 1~GB. You should uncomment and modify the generated `Vagrantfile` within the `buzzdb` folder to increase memory size (to 2~GB or higher if possible).
@@ -91,8 +94,7 @@ The default setting is 1~GB. You should uncomment and modify the generated `Vagr
 Installing Packages
 ~~~~~~~~~~~~~~~~~~~
 
-Once you have Ubuntu OS up and running, install all required packages for 
-this course:
+Once you have Ubuntu OS up and running, install all required packages for this course:
 
 .. code-block:: sh
 
@@ -102,7 +104,7 @@ this course:
     [host] $ sudo apt-get -y install unzip git cmake llvm valgrind clang clang-tidy clang-format googletest zlib1g-dev libgflags-dev libbenchmark-dev
     [host] $ cd /usr/src/googletest; sudo mkdir build; cd build; sudo cmake ..; sudo make; sudo cp googlemock/*.a googlemock/gtest/*.a /usr/lib; cd /vagrant/;
 
-    # Install zsh + oh-my-zsh | for automated command completions and reverse search through command history
+    # Install zsh + oh-my-zsh | for automated command completion and reverse search through command history
     # Reference: https://hackernoon.com/oh-my-zsh-made-for-cli-lovers-bea538d42ec1
     [host] $ sudo apt-get -y zsh
     [host] $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -110,32 +112,22 @@ this course:
 Installing Editor
 ~~~~~~~~~~~~~~~~~
 
-We recommend using Visual Studio Code for the programming assignments.
+We recommend using `VSCode <https://code.visualstudio.com/>`_ for the programming assignments.
 
-#. Download and install `Visual Studio Code <https://code.visualstudio.com/>`_
-    - Here's a guide for `Getting started with Visual Studio Code<https://code.visualstudio.com/docs>`_. 
-    - Install these two extensions: 
+#. Here's a guide for `Getting started with VSCode<https://code.visualstudio.com/docs>`_. 
+
+#. Install these two extensions in VSCode: 
     - `C++ <https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools>`_
     - `Remote SSH <https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh>`_
     
-#. Connect Visual Studio Code with Vagrant
+#. You can now connect to the remote host (i.e., the VM) using the `Remote SSH extension <https://code.visualstudio.com/docs/remote/ssh#_connect-to-a-remote-host>`__
 
-.. code-block:: sh
-    # Get the Vagrant SSH configuration
-    [host] $ vagrant ssh-config
-    
-    # Copy the output to the end of the local SSH configuration file
-    [host] $ vi ~/.ssh/config
-    
-    # You should be able to connect to the host via SSH (user@hostname)
-    [host] $ ssh vagrant@default
-
-#. You can now use the `Remote SSH extension in VSCode <https://code.visualstudio.com/docs/remote/ssh#_connect-to-a-remote-host>`__
+#. VSCode comes with a built-in terminal. 
 
 Tool Guide
 ----------
 
-Familiarity with these powerful tools is crucial for productive development and debugging. Don't take our word for it, though. Read the relevant manuals.
+Familiarity with these powerful tools is crucial for productive development and debugging.
 
 .. note::
 
@@ -150,7 +142,7 @@ Reference
 CMake
 ~~~~~
 
-Our Makefile includes a number of targets to test and run buzzdb.
+`CMake <https://cmake.org/>`_ is a cross-platform tool for managing the build process of software systems.
 
 cmake -DCMAKE_BUILD_TYPE=Debug ..
     Generate a Makefile in Debug mode
@@ -160,15 +152,15 @@ make
     Build database system. 
 make check
     Run all of the test cases.
-./build/test/foo_test
-	Directly run a particular unit test
+./build/test/unit/foo_test
+    Directly run a particular unit test
 make clean 
     Clean the directory.
 
 GDB
 ~~~
 
-See the `GDB manual <http://sourceware.org/gdb/current/onlinedocs/gdb/>`__ for a detailed guide. Here are some particularly useful GDB commands for this course.
+`GDB <https://www.gnu.org/software/gdb/>`_ is a widely used debugger. Here are some useful GDB commands for this course.
 
 Ctrl-c
     Halt the program and break in to GDB at the current instruction. 
@@ -179,8 +171,6 @@ si (or stepi)
     Execute one machine instruction.
 b function or b file\:line (or breakpoint)
     Set a breakpoint at the given function or line.
-b \*\ *addr* (or breakpoint)
-    Set a breakpoint at the EIP *addr*.
 set print pretty
     Enable pretty-printing of arrays and structs.
 thread *n*
@@ -189,14 +179,16 @@ thread *n*
 info threads
     List all threads (i.e., CPUs), including their state (active or
     halted) and what function they are in.
+    
+See the `GDB manual <http://sourceware.org/gdb/current/onlinedocs/gdb/>`__ for a detailed guide.     
 
 Valgrind
 ~~~~~~~~
 
-Valgrind is useful for detecting memory leaks. Here's a particularly useful valgrind command for this course.
+`Valgrind <https://valgrind.org/docs/manual/mc-manual.html>` is useful for detecting memory leaks. Here's an useful valgrind command for this course.
 
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./build/test/foo_test
-    Usese memcheck for detecting common memory errors.
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./build/test/unit/foo_test
+    Uses memcheck for detecting common bugs related to memory management.
     
 --------------
 
