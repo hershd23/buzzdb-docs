@@ -39,27 +39,37 @@ virtualizer for x86 hardware.
         - Use **6.0.24** version.
         - Vagrant does currently not work with version *6.1* of VirtualBox.
 
-#. Download and install `Vagrant <http://www.vagrantup.com/downloads.html>`__
-		- Use **2.2.6** version.
+#. Download and install `Vagrant <http://www.vagrantup.com/downloads.html>`_
 
 #. Add the Ubuntu Virtual Machine (VM)
 
     .. code-block:: sh
-
-        # Add Ubuntu VM
+        # Open Terminal (e.g., `Terminal` in Mac)
+	
+        # Download the VM
         [host] $ vagrant box add ubuntu/bionic64
 
         # Access the VM
+	[host] $ cd Desktop
         [host] $ mkdir buzzdb
-        [host] $ cd buzzdb
-        [host] $ vagrant init ubuntu/bionic64
-        [host] $ vagrant up
-        [host] $ vagrant ssh
 
+        # Initialize the VM
+        [host] $ vagrant init ubuntu/bionic64
+	
+	# Start the VM
+        [host] $ vagrant up
+	
+	# Enter into the VM
+        [host] $ vagrant ssh
+	[host] $ cd /vagrant/
+	[host] $ ls
+	
+	# To exit the VM (at any point in time)
+	[host] $ exit
+	
 Bump up the amount of DRAM assigned to the VM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The default setting is 1GB. You should uncomment and modify the `Vagrantfile` 
-as follows to increase the memory size.
+The default setting is 1~GB. You should uncomment and modify the generated `Vagrantfile` within the `buzzdb` folder to increase memory size (to 2~GB or higher if possible).
      
 .. code-block:: ruby
 
@@ -70,17 +80,30 @@ as follows to increase the memory size.
 Installing Packages
 ~~~~~~~~~~~~~~~~~~~
 
-Once you have Ubuntu guest OS up and running, install all required packages for 
+Once you have Ubuntu OS up and running, install all required packages for 
 this course:
 
 .. code-block:: sh
 
-    # install git
-    $ sudo apt-get install git
+    # Install packages
+    [host] $ sudo apt-get -y update
+    [host] $ sudo apt-get -y install build-essential 
+    [host] $ sudo apt-get -y install unzip git cmake llvm valgrind clang clang-tidy clang-format googletest
 
-    # install other packages
-    $ sudo sh packages.sh
-    
+    # Download lab zip file from Canvas and put it in the buzzdb folder
+    [host] $ mv lab1.zip buzzdb
+    [host] $ cd buzzdb
+    [host] $ unzip lab1.zip
+    [host] $ cd lab1
+
+[Optional] 
+
+.. code-block:: sh
+
+    # Install Oh-my-zsh
+    [host] $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
 Tool Guide
 ----------
 
