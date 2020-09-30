@@ -59,7 +59,7 @@ See the `GDB manual <http://sourceware.org/gdb/current/onlinedocs/gdb/>`__ for a
 Valgrind
 ~~~~~~~~
 
-`Valgrind <https://valgrind.org/docs/manual/mc-manual.html>` is useful for detecting memory leaks. Here's an useful valgrind command for this course.
+`Valgrind <https://valgrind.org/docs/manual/mc-manual.html>`_ is useful for detecting memory leaks. Here's an useful valgrind command for this course.
 
 valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./build/test/unit/foo_test
     Uses memcheck for detecting common bugs related to memory management.
