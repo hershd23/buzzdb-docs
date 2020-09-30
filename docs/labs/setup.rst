@@ -10,7 +10,7 @@ This page contains information on how you could download and install the Ubuntu 
 Ubuntu 18.04 LTS
 ----------------
 
-If you are already using Ubuntu 18.04 on your laptop, then you can skip these steps and directly proceed to `Installing Packages <#installing-packages>`__. If that is not the case, then you should install a virtual machine.
+If you are already using Ubuntu 18.04 on your laptop, then you can skip these steps and directly proceed to `Package Installation <#package-installation>`__. If that is not the case, then you should install a virtual machine.
 
 Virtual Machine Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -89,7 +89,7 @@ Our recommended way of setting up your virtual machine is to use `Vagrant <https
     end 
 
 Package Installation 
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 Once you have Ubuntu OS up and running, install all the required packages for the programming assignments:
 
@@ -106,20 +106,19 @@ Once you have Ubuntu OS up and running, install all the required packages for th
     [host] $ sudo apt-get -y zsh
     [host] $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+
 Editor Installation
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 We recommend using `VSCode <https://code.visualstudio.com/>`_ for the programming assignments.
 
-#. Here's a guide for `Getting started with VSCode <https://code.visualstudio.com/docs>`_. 
+#. Here's a guide for `Getting started with VSCode <https://code.visualstudio.com/docs>`_. VSCode comes with a built-in terminal. 
 
 #. Install these two extensions in VSCode: 
     - `C++ <https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools>`_
-    - `Remote SSH <https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh>`_
+    - `Remote SSH <https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh>`_ (only need if you are using a VM)
     
 #. You can now connect to the remote host (i.e., the VM) using the `Remote SSH extension <https://code.visualstudio.com/docs/remote/ssh#_connect-to-a-remote-host>`__
-
-#. VSCode comes with a built-in terminal. 
     
 --------------
 
