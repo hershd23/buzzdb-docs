@@ -47,6 +47,9 @@ virtualizer for x86 hardware.
 	
         # Download the VM
         [host] $ vagrant box add ubuntu/bionic64
+	
+	# Install scp plugin for copying files between host and VM
+	[host] $ vagrant plugin install vagrant-scp
 
         # Access the VM
 	[host] $ cd Desktop
@@ -62,6 +65,15 @@ virtualizer for x86 hardware.
         [host] $ vagrant ssh
 	[host] $ cd /vagrant/
 	[host] $ ls
+	
+	# To copy files from host to VM 
+	# vagrant scp <some_local_file_or_dir> [vm_name]:<somewhere_on_the_vm>
+	
+	# If you are not sure about the VM name, look at the generated `Vagrantfile` within the `buzzdb` folder
+	# https://www.vagrantup.com/docs/vagrantfile/machine_settings#config-vm-hostname
+
+        # To copy files from VM to host 
+	# vagrant scp [vm_name]:<somewhere_on_the_vm> <some_local_file_or_dir> 
 	
 	# To exit the VM (at any point in time)
 	[host] $ exit
@@ -90,21 +102,10 @@ this course:
     [host] $ sudo apt-get -y install unzip git cmake llvm valgrind clang clang-tidy clang-format googletest zlib1g-dev libgflags-dev libbenchmark-dev
     [host] $ cd /usr/src/googletest; sudo mkdir build; cd build; sudo cmake ..; sudo make; sudo cp googlemock/*.a googlemock/gtest/*.a /usr/lib; cd /vagrant/;
 
-    # Download lab zip file from Canvas and put it in the buzzdb folder
-    [host] $ mv lab1.zip buzzdb
-    [host] $ cd buzzdb
-    [host] $ unzip lab1.zip
-    [host] $ cd lab1
-
-[Optional] 
-
-.. code-block:: sh
-
-    # Install zsh + oh-my-zsh | For automated command completions and reverse search through command history
+    # Install zsh + oh-my-zsh | for automated command completions and reverse search through command history
     # Reference: https://hackernoon.com/oh-my-zsh-made-for-cli-lovers-bea538d42ec1
     [host] $ sudo apt-get -y zsh
     [host] $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 
 Installing Editor
 ~~~~~~~~~~~~~~~~~
