@@ -31,7 +31,8 @@ Our recommended way of setting up your virtual machine is to use `Vagrant <https
 
 #. Install the Ubuntu Virtual Machine (VM)
 
-    .. code-block:: sh
+.. code-block:: sh
+
         # Open Terminal (e.g., `Terminal` in Mac)
 	
         # Download the VM
@@ -40,11 +41,12 @@ Our recommended way of setting up your virtual machine is to use `Vagrant <https
 	# Install scp plugin for copying files between host and VM
 	[host] $ vagrant plugin install vagrant-scp
 
-        # Access the VM
+        # Setup buzzdb folder
 	[host] $ cd Desktop
         [host] $ mkdir buzzdb
+	[host] $ cd buzzdb
 
-        # Initialize the VM
+        # Initialize the VM -- generates a Vagrantfile within the buzzdb folder
         [host] $ vagrant init ubuntu/bionic64
 	
 	# Start the VM
@@ -77,7 +79,13 @@ Our recommended way of setting up your virtual machine is to use `Vagrant <https
     - Search for `VirtualBox` in the `Vagrantfile` generated within the `buzzdb` folder
     - Increase memory size (to 2 GB or higher if possible)
     - Increase number of CPUs (to 4 or higher if possible)
-     
+
+.. code-block:: sh
+
+        # Edit the Vagrantfile
+        [host] $ cd buzzdb
+	[host] $ vi Vagrantfile
+
 .. code-block:: ruby
 
     config.vm.provider "virtualbox" do |vb|
