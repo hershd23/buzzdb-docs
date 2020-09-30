@@ -88,7 +88,8 @@ this course:
     # Install packages
     [host] $ sudo apt-get -y update
     [host] $ sudo apt-get -y install build-essential 
-    [host] $ sudo apt-get -y install unzip git cmake llvm valgrind clang clang-tidy clang-format googletest
+    [host] $ sudo apt-get -y install unzip git cmake llvm valgrind clang clang-tidy clang-format googletest zlib1g-dev libgflags-dev libbenchmark-dev
+    [host] $ cd /usr/src/googletest; sudo mkdir build; cd build; sudo cmake ..; sudo make; sudo cp googlemock/*.a googlemock/gtest/*.a /usr/lib; cd /vagrant/;
 
     # Download lab zip file from Canvas and put it in the buzzdb folder
     [host] $ mv lab1.zip buzzdb
@@ -100,16 +101,15 @@ this course:
 
 .. code-block:: sh
 
-    # Install Oh-my-zsh
+    # Install zsh + oh-my-zsh | For automated command completions and reverse search through command history
+    # Reference: https://hackernoon.com/oh-my-zsh-made-for-cli-lovers-bea538d42ec1
+    [host] $ sudo apt-get -y zsh
     [host] $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 
 Tool Guide
 ----------
 
-Familiarity with your environment is crucial for productive development and 
-debugging. Don't take our word for it, though. Read the relevant manuals. 
-These are powerful tools that are worth learning more about.
+Familiarity with these powerful tools is crucial for productive development and debugging. Don't take our word for it, though. Read the relevant manuals.
 
 .. note::
 
@@ -142,9 +142,7 @@ make clean
 GDB
 ~~~
 
-See the `GDB
-manual <http://sourceware.org/gdb/current/onlinedocs/gdb/>`__ for a detailed
-guide. Here are some particularly useful GDB commands for this course.
+See the `GDB manual <http://sourceware.org/gdb/current/onlinedocs/gdb/>`__ for a detailed guide. Here are some particularly useful GDB commands for this course.
 
 Ctrl-c
     Halt the program and break in to GDB at the current instruction. 
@@ -169,6 +167,11 @@ info threads
 Valgrind
 ~~~~~~~~
 
+Valgrind is useful for detecting memory leaks. Here's a particularly useful valgrind command for this course.
+
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./build/test/foo_test
+    Usese memcheck for detecting common memory errors.
+    
 --------------
 
 Questions or comments regarding cs4420?
