@@ -1,46 +1,35 @@
-Setup Development Environment
-=============================
+Development Environment
+=======================
 
-Before hacking on the labs, you will need to setup the development environment 
-described below.
+Before hacking on the programming assignments, you will need to setup the development environment as described below.
 
-Our labs are designed to run on 
-`Ubuntu 18.04 <https://en.wikipedia.org/wiki/Ubuntu>`__ 
-(Linux Distribution).
-We recommend that you install this specific version of the operating system 
-(**18.04**).
-Otherwise, you may face issues with running the shell scripts in the labs.
+Our labs are designed to run on `Ubuntu 18.04 <https://en.wikipedia.org/wiki/Ubuntu>`__  (Linux Distribution). We recommend that you install this specific version of the operating system (**18.04**). Otherwise, you may face issues with running the shell scripts in the labs.
 
-This page contains information on how you could download and install the 
-Ubuntu development environment. We will assume familiarity with Unix commands 
-throughout.
+This page contains information on how you could download and install the Ubuntu development environment. We will assume familiarity with Unix commands throughout.
 
 Ubuntu 18.04 LTS
 ----------------
-If you are already using Ubuntu 18.04 on your laptop, then you can skip these
-steps and directly proceed to `Installing Packages <#installing-packages>`__. 
-If that is not the case, then you should install a virtual machine.
 
-Install Virtual Machine
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+If you are already using Ubuntu 18.04 on your laptop, then you can skip these steps and directly proceed to `Installing Packages <#installing-packages>`__. If that is not the case, then you should install a virtual machine.
 
-Our recommended way of setting up your virtual machine is to use 
-`Vagrant <https://www.vagrantup.com/intro>`__  along with 
-`VirtualBox <https://www.virtualbox.org/manual/ch01.html#virt-why-useful>`__.
-Vagrant enables users to create and configure lightweight, reproducible, and 
-portable development environments. VirtualBox is a general-purpose full 
-virtualizer for x86 hardware.
+Virtual Machine Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Our recommended way of setting up your virtual machine is to use `Vagrant <https://www.vagrantup.com/intro>`__  along with  `VirtualBox <https://www.virtualbox.org/manual/ch01.html#virt-why-useful>`__. 
+
+- Vagrant enables users to create and configure lightweight, reproducible, and  portable development environments. 
+- VirtualBox is a general-purpose full virtualizer for x86 hardware.
 
 #. Download and install Virtualbox
     - (Windows) Turn off Hyper-V in "Turn Windows features on or off"
     - Download and install `VirtualBox 
       <https://www.virtualbox.org/wiki/Download_Old_Builds_6_0>`__ 
-        - Use **6.0.24** version.
-        - Vagrant does currently not work with version *6.1* of VirtualBox.
+        - Install **6.0.24** version.
+        - Vagrant currently does not work with version *6.1* of VirtualBox.
 
 #. Download and install `Vagrant <http://www.vagrantup.com/downloads.html>`_
 
-#. Add the Ubuntu Virtual Machine (VM)
+#. Install the Ubuntu Virtual Machine (VM)
 
     .. code-block:: sh
         # Open Terminal (e.g., `Terminal` in Mac)
@@ -66,8 +55,11 @@ virtualizer for x86 hardware.
 	[vm] $ pwd
 	[vm] $ ls
 			
-	# To exit the VM (at any point in time)
+	# To temporarily exit the VM and return to the host (at any point in time)
 	[vm] $ exit
+	
+	# To shutdown the VM and return to the host
+	[vm] $ sudo shutdown now
 	
 	# Check hostname of VM (e.g., "default")
 	[host] $ vagrant status
@@ -78,23 +70,28 @@ virtualizer for x86 hardware.
         # Copy the output of the previous command to the end of the local SSH configuration file
         [host] $ vi ~/.ssh/config
     
-        # You should be able to connect to the vm via SSH (user@hostname)
+        # You should now be able to ssh into the VM (user@hostname)
         [host] $ ssh vagrant@default
 
-Bump up the amount of DRAM assigned to the VM
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The default setting is 1~GB. You should uncomment and modify the generated `Vagrantfile` within the `buzzdb` folder to increase memory size (to 2~GB or higher if possible).
+#. Bump up the resources assigned to the VM
+    - Search for `VirtualBox` in the `Vagrantfile` generated within the `buzzdb` folder
+    - Increase memory size (to 2 GB or higher if possible)
+    - Increase number of CPUs (to 4 or higher if possible)
      
 .. code-block:: ruby
 
     config.vm.provider "virtualbox" do |vb|
+        # Customize the amount of memory assigned to the VM
         vb.memory = "2048"
+	
+	# Customize the number of CPUs
+	vb.cpus = 4
     end 
 
-Installing Packages
-~~~~~~~~~~~~~~~~~~~
+Package Installation 
+~~~~~~~~~~~~~~~~~~~~
 
-Once you have Ubuntu OS up and running, install all required packages for this course:
+Once you have Ubuntu OS up and running, install all the required packages for the programming assignments:
 
 .. code-block:: sh
 
@@ -104,13 +101,13 @@ Once you have Ubuntu OS up and running, install all required packages for this c
     [host] $ sudo apt-get -y install unzip git cmake llvm valgrind clang clang-tidy clang-format googletest zlib1g-dev libgflags-dev libbenchmark-dev
     [host] $ cd /usr/src/googletest; sudo mkdir build; cd build; sudo cmake ..; sudo make; sudo cp googlemock/*.a googlemock/gtest/*.a /usr/lib; cd /vagrant/;
 
-    # Install zsh + oh-my-zsh | for automated command completion and reverse search through command history
+    # Install zsh + oh-my-zsh | for command completion and searching through command history
     # Reference: https://hackernoon.com/oh-my-zsh-made-for-cli-lovers-bea538d42ec1
     [host] $ sudo apt-get -y zsh
     [host] $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-Installing Editor
-~~~~~~~~~~~~~~~~~
+Editor Installation
+~~~~~~~~~~~~~~~~~~~
 
 We recommend using `VSCode <https://code.visualstudio.com/>`_ for the programming assignments.
 
