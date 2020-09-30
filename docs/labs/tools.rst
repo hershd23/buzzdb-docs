@@ -3,15 +3,10 @@ Tool Guide
 
 Familiarity with these powerful tools is crucial for productive development and debugging.
 
-.. note::
-
-    Reference:
       - `CMake <#cmake>`__
       - `GDB <#gdb>`__
       - `Valgrind <#valgrind>`__
 
-Reference
----------
 
 CMake
 ~~~~~
