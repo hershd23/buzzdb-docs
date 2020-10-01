@@ -22,12 +22,12 @@ Our recommended way of setting up your virtual machine is to use `Vagrant <https
 
 #. Download and install Virtualbox
     - (Windows) Turn off Hyper-V in "Turn Windows features on or off"
-    - Download and install `VirtualBox 
-      <https://www.virtualbox.org/wiki/Download_Old_Builds_6_0>`__ 
+    - Download and install `VirtualBox <https://www.virtualbox.org/wiki/Download_Old_Builds_6_0>`__ 
         - Install **6.0.24** version.
         - Vagrant currently does not work with version *6.1* of VirtualBox.
 
 #. Download and install `Vagrant <http://www.vagrantup.com/downloads.html>`_
+	- Install **2.2.10** version.
 
 #. Install the Ubuntu Virtual Machine (VM)
 
@@ -65,15 +65,17 @@ Our recommended way of setting up your virtual machine is to use `Vagrant <https
 	
 	# Check hostname of VM (e.g., "default")
 	[host] $ vagrant status
-
-        # Get the Vagrant SSH configuration
-        [host] $ vagrant ssh-config
     
-        # Copy the output of the previous command to the end of the local SSH configuration file
-        [host] $ vi ~/.ssh/config
+        # Copy the Vagrant SSH configuration to the end of the local SSH configuration file
+        [host] $ vagrant ssh-config >> vi ~/.ssh/config
     
         # You should now be able to ssh into the VM (user@hostname)
         [host] $ ssh vagrant@default
+
+.. admonition:: Warning: Remote connection disconnect. Retrying...
+    :class: warning
+
+        If you get this error while running ``vagrant up``, you might want to run ``vagrant destroy`` to stop the running machine and destroy all the created resources during the machine creation process. **Note it will delete all your work**. In case you have already started working, the following reference might help `<https://github.com/hashicorp/vagrant/issues/9834>`__.
 
 #. Bump up the resources assigned to the VM
     - Search for `VirtualBox` in the `Vagrantfile` generated within the `buzzdb` folder
@@ -104,15 +106,15 @@ Once you have Ubuntu OS up and running, install all the required packages for th
 .. code-block:: sh
 
     # Install packages
-    [host] $ sudo apt-get -y update
-    [host] $ sudo apt-get -y install build-essential 
-    [host] $ sudo apt-get -y install zip unzip git cmake llvm valgrind clang clang-tidy clang-format googletest zlib1g-dev libgflags-dev libbenchmark-dev
-    [host] $ cd /usr/src/googletest; sudo mkdir build; cd build; sudo cmake ..; sudo make; sudo cp googlemock/*.a googlemock/gtest/*.a /usr/lib; cd /vagrant/;
+    [vm] $ sudo apt-get -y update
+    [vm] $ sudo apt-get -y install build-essential 
+    [vm] $ sudo apt-get -y install zip unzip git cmake llvm valgrind clang clang-tidy clang-format googletest zlib1g-dev libgflags-dev libbenchmark-dev
+    [vm] $ cd /usr/src/googletest; sudo mkdir build; cd build; sudo cmake ..; sudo make; sudo cp googlemock/*.a googlemock/gtest/*.a /usr/lib; cd /vagrant/;
 
     # Install zsh + oh-my-zsh | for command completion and searching through command history
     # Reference: https://hackernoon.com/oh-my-zsh-made-for-cli-lovers-bea538d42ec1
-    [host] $ sudo apt-get -y zsh
-    [host] $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    [vm] $ sudo apt-get -y install zsh
+    [vm] $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 
 Editor Installation
