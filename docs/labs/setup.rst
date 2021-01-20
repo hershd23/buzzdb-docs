@@ -132,5 +132,5 @@ We recommend using `VSCode <https://code.visualstudio.com/>`_ for the programmin
     
 --------------
 
-Questions or comments regarding cs4420?
+Questions or comments regarding the course?
 Send an e-mail to `arulraj@gatech.edu <mailto:arulraj@gatech.edu>`__.
