@@ -7,3 +7,4 @@ BuzzDB Labs
    :maxdepth: 2
 
    labs/index
+   spring2021/index

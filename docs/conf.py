@@ -112,6 +112,9 @@ html_theme_path = ['themes']
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+html_css_files = [
+    'css/hack.css',
+]
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
 #
@@ -202,5 +205,4 @@ epub_copyright = copyright
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
-
 

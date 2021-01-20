@@ -33,7 +33,7 @@ Our recommended way of setting up your virtual machine is to use `Vagrant <https
 
 .. code-block:: sh
 
-        # Open Terminal (e.g., `Terminal` in Mac)
+        # Open Terminal (e.g., `Terminal` in Mac, `Powershell` in Windows)
 	
         # Download the VM
         [host] $ vagrant box add ubuntu/bionic64
