@@ -6,10 +6,10 @@ Labs
     :hidden:
 
     setup
-    lab1
-    lab2
+    
+    
     lab3
-    lab4
+    
     tools
 
 In this course, you will be building a toy database system, called **buzzdb**, 

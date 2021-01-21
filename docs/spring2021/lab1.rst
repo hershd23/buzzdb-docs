@@ -168,6 +168,7 @@ You need to follow the instructions mentioned in the :doc:`setup.rst` document.
 Download the handout shared via Canvas. We need to copy the handout to the VM (skip this if you are not using VM).
 
 .. code-block:: bash
+
    # Copy the handout to the VM
    [host] $ vagrant scp [path_to_handout] default:buzzdb-cpp_tutorial.zip
    
@@ -216,6 +217,7 @@ Submitting Your Assignment
 ---------------------------
 
 .. code-block:: bash
+
    bash submit.sh <name>
 
 You will be submitting your assignment on Gradescope. You are expected to run :red:`sumit.sh` and submit the generated zip to the autograder.
