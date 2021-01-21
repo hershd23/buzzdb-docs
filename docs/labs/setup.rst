@@ -67,9 +67,11 @@ Our recommended way of setting up your virtual machine is to use `Vagrant <https
 	[host] $ vagrant status
     
         # Copy the Vagrant SSH configuration to the end of the local SSH configuration file
+        # Skip this, if using windows. To enable ssh in windows, you can setup putty (https://www.putty.org/)
         [host] $ vagrant ssh-config >> vi ~/.ssh/config
     
-        # You should now be able to ssh into the VM (user@hostname)
+        # You should now be able to ssh into the VM (user@hostname) 
+        # Skip this if using windows
         [host] $ ssh vagrant@default
 
 .. admonition:: Warning: Remote connection disconnect. Retrying...
@@ -86,7 +88,7 @@ Our recommended way of setting up your virtual machine is to use `Vagrant <https
 
         # Edit the Vagrantfile
         [host] $ cd buzzdb
-	[host] $ vi Vagrantfile
+	[host] $ vi Vagrantfile or [windows] $ notepad Vagrantfile
 
 .. code-block:: ruby
 
@@ -104,7 +106,10 @@ Package Installation
 Once you have Ubuntu OS up and running, install all the required packages for the programming assignments:
 
 .. code-block:: sh
-
+    # Start the vm
+    [host] $ cd buzzdb
+    [host] $ vagrant ssh
+    
     # Install packages
     [vm] $ sudo apt-get -y update
     [vm] $ sudo apt-get -y install build-essential 

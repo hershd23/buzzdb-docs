@@ -141,44 +141,60 @@ For this assignment, I am not concerned with the efficiency of the load command.
 
 Code Description
 -----------------
+**TODO**
 The skeleton code provided to you has the following directory structure:
 
-1. CMakeLists.txt: CMake file for building the project (You need not modify this file)
+1. src/tutorial/tutorial.cc and src/include/tutorial/tutorial.h: Your code goes here. Please don’t change signature of the constructor and existing functions.
 
-2. src/tutorial/tutorial.cc and src/include/tutorial/tutorial.h: Your code goes here. Please don’t change signature of the constructor and existing functions.
+2. test/unit/tutorial/tutorial_test.cc: Unit test for testing the implementation. (You can add more testcase)
 
-3. test/unit/tutorial/tutorial_test.cc: Unit test for testing the implementation. (You need not modify this file)
+3. test/unit/data/*: Sample text files to test your implementation. (You can add new .txt files to test your implementation)
 
-4. script/* : supporting scripts (You need not modify this file)
+4. submit.sh: script to generate zip file which you need to upload to Gradescope
 
-5. third_party/* : (You need not modify this file)
+5. REPORT.md: Add design related informatin, See :ref:`submit` for more information.
 
-6. .clang-format : tool to automatically format code (You need not modify this file)
+6. CMakeLists.txt: CMake file for building the project (You need not modify this file)
 
-7. .clang-tidy: clang-based C++ "linter" tool (clang-based C++ “linter” tool)
+7. script/*, third_party/*, .clang-format, .clang-tidy : supporting build scripts (You need not modify this file)
+
 
 
 Prerequisites
 ~~~~~~~~~~~~~~
 
-**TODO**
-You need to follow the instructions mentioned in the <setup.html>`__ document.
+You need to follow the instructions mentioned in the :doc:`setup.rst` document. 
 
+Download the handout shared via Canvas. We need to copy the handout to the VM (skip this if you are not using VM).
+
+.. code-block:: bash
+   # Copy the handout to the VM
+   [host] $ vagrant scp [path_to_handout] default:buzzdb-cpp_tutorial.zip
+   
+   [host] $ cd buzzdb
+   
+   # Get into VM 
+   [host] $ vagrant ssh
+   
+   # unzip the handout 
+   [vm] $ unzip buzzdb-cpp_tutorial.zip
+
+
+ 
 Instructions for execution
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-**TODO change**
 .. highlight:: bash
    
 
 .. code-block:: bash
    
-   mkdir build 
-   cd build
-   cmake ..
-   make
-   cd ..
-   ./build/bin/test_suite //For running the tests 
-   ./build/bin/wl //For testing the console
+   [vm] $ cd buzzdb-cpp_tutorial 
+   [vm] $ mkdir build 
+   [vm] $ cd build
+   [vm] $ cmake -DCMAKE_BUILD_TYPE=Release ..
+   [vm] $ make
+   [vm] $ ctest
+
 We treat compiler warnings as errors. Your project will fail to build if there are any compiler warnings.
 
 
@@ -187,20 +203,24 @@ General Instructions
 
 Your program must be written only in C++. Your coding style should have well-defined classes and clean interfaces. The code should be well-documented. Each file should start with a header describing the purpose of the file and should also contain your name, GT UserID, and GT email address.
 
-**TODO**
-Testing for correctness involves more than just seeing if a few test cases produce the correct output. There are certain types of errors (memory errors and memory leaks) that usually surface after the system has been running for a longer period of time. You should use valgrind to isolate such errors. This can be done by simply adding valgrind to the command line, for example valgrind ./build/bin/test suite You will get a listing of memory errors in your program. If you have programmed in Java you should keep in mind that C++ does not have automatic garbage collection, so each new must ultimately be matched by a corresponding delete. Otherwise all the memory in the system might be used up. Val- grind can be used to detect such ``memory leaks`` as well. More information about valgrind can be found at: http://www.valgrind.org/docs/manual/index.html.
+Testing for correctness involves more than just seeing if a few test cases produce the correct output. There are certain types of errors (memory errors and memory leaks) that usually surface after the system has been running for a longer period of time. 
+You should use valgrind to isolate such errors. Command to run valgrind can be found :doc:`tools.rst`
+You will get a listing of memory errors in your program. If you have programmed in Java you should keep in mind that C++ does not have automatic garbage collection, so each new must ultimately be matched by a corresponding delete. Otherwise all the memory in the system might be used up. Valgrind can be used to detect such ``memory leaks`` as well. More information about valgrind can be found at: http://www.valgrind.org/docs/manual/index.html.
 
-In addition to the test driver that we provide, your assignment will be tested against our (more compre- hensive) test driver. You can submit your code to the Gradescope autograder. Please note that getting a full score on auto-grader doesn’t guarantee full credits, as the final score depends on design choices, implementation, coding style, clarity, etc.
+In addition to the test driver that we provide, your assignment will be tested against our (more comprehensive) test driver. You can submit your code to the Gradescope autograder. Please note that getting a full score on auto-grader doesn’t guarantee full credits, as the final score depends on design choices, implementation, coding style, clarity, etc.
 We encourage students to follow the Google C++ style guide for coding conventions.
 
 
+.. _submit:
 Submitting Your Assignment
 ---------------------------
 
-**TODO**
-You will be submitting your assignment on Gradescope. You are expected to compress the src folder and submit it to the autograder.
+.. code-block:: bash
+   bash submit.sh <name>
 
-In addition to submitting your code, you will also submit a design report that describes the following design and program criteria:
+You will be submitting your assignment on Gradescope. You are expected to run :red:`sumit.sh` and submit the generated zip to the autograder.
+
+Use :red:`REPORT.md` to describe the following design and program criteria:
 
 1. Explain your choice of the data structure that you implemented. Did you consider any other data structures besides the one that you implemented? How did you arrive at your final choice of the data structure?
 

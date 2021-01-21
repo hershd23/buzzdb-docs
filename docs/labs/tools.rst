@@ -29,6 +29,15 @@ make clean
 GDB
 ~~~
 
+.. code-block:: sh
+    # Example use
+
+    $ cmake -DCMAKE_BUILD_TYPE=Debug ..
+    
+    $ make
+    
+    $ gdb ./test/<executable>
+     
 `GDB <https://www.gnu.org/software/gdb/>`_ is a widely used debugger. Here are some useful GDB commands for this course.
 
 Ctrl-c
@@ -48,6 +57,8 @@ thread *n*
 info threads
     List all threads (i.e., CPUs), including their state (active or
     halted) and what function they are in.
+info sources
+    Lists source files mentioned in the loaded symbols
     
 See the `GDB manual <http://sourceware.org/gdb/current/onlinedocs/gdb/>`__ for a detailed guide.     
 
@@ -56,5 +67,5 @@ Valgrind
 
 `Valgrind <https://valgrind.org/docs/manual/mc-manual.html>`_ is useful for detecting memory leaks. Here's an useful valgrind command for this course.
 
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./build/test/unit/foo_test
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./test/<executable>
     Uses memcheck for detecting common bugs related to memory management.
