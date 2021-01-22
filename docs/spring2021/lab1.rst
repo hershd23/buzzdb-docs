@@ -7,9 +7,7 @@
 CS 8803 Lab 1: CPP - Tutorial
 ==============================
 
-**Assigned: 09/28/2020**
-
-**Due: 10/19/2020 11:59 PM EDT**
+**Due: 2/5/2020 11:59 PM EST**
 
 Project Description
 -------------------
