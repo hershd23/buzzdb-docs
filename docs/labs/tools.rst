@@ -29,7 +29,8 @@ make clean
 GDB
 ~~~
 
-.. code-block:: sh
+.. code-block:: bash
+
     # Example use
 
     $ cmake -DCMAKE_BUILD_TYPE=Debug ..

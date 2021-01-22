@@ -4,9 +4,8 @@
 .. include:: ../.colors.rst
 
 
-
 CS 8803 Lab 1: CPP - Tutorial
-===========================
+==============================
 
 **Assigned: 09/28/2020**
 
@@ -19,7 +18,7 @@ The goal of this assignment is to help you brush up your C++ programming skills,
 
 Program Specification
 -----------------------
-For this programming assignment, you are provided with a skeleton code which you are expected to complete and submit. You are expected to fill the :red:`execute` function of :red:`CommandExecutor` class, present in these files: :red:`buzzdb/src/tutorial/tutorial.cc` and :red:`buzzdb/src/include/tutorial/tutorial.h`. You are free to add your own helper functions and classes to complete the assignment. Please don’t change the signature of the constructor and execute function. The execute function is expected to accept one of the following commands:
+For this programming assignment, you are provided with a skeleton code which you are expected to complete and submit. You are expected to fill the :command:`execute` function of :command:`CommandExecutor` class, present in these files: :file:`buzzdb/src/tutorial/tutorial.cc` and :file:`buzzdb/src/include/tutorial/tutorial.h`. You are free to add your own helper functions and classes to complete the assignment. Please don’t change the signature of the constructor and execute function. The execute function is expected to accept one of the following commands:
 
 1. ``"load <filename>"``: This command loads the specified file. The file may be specified by either an absolute or a relative pathname. Running this command should result in your program parsing and storing the words in this file in a data structure that can be queried using the locate command (described below). A word is defined as a sequence of upper and lower case letters in the English alphabet (i.e. characters ’a’ to ’z’, and ’A’ to ’Z’), numbers, and the apostrophe. All other characters are considered as white space and will therefore be treated as terminating a word. Two successive load commands should be treated as if there is an intermediate ``"new"`` command (see below) in between the two commands.
 
@@ -42,7 +41,6 @@ Your program should respond to incorrect commands in the following ways:
 * All the command keywords are case insensitive, so ``"LoCATe sing 2"`` is a valid command, and should be treated as ``"locate sing 2"``. 
 
 
-**TODO**: Edit this* We also provide you with src/console.cc to test your implementation. We don’t expect you to make any changes to this code, this is only a convenience file for you to test your code. (More details in ``Code Description`` section)
 
 
 Example
@@ -134,36 +132,35 @@ The following is a sample run:
 
 Design Task
 ---------------
-Your main design task is to pick a **tree-based** data structure (`so do not use a hash-based index structure!`) that allows `efficient` execution of the locate command. You may have several design choices, and I want you to pick the most efficient data structure that you can think of. **You can’t use in-built C++ STL data structures for this key data structure.**
+Your main design task is to pick a **tree-based** data structure (`so do not use a hash-based index structure!`) that allows `efficient` execution of the locate command. You may have several design choices, and I want you to pick the most efficient data structure that you can think of.
 
 For this assignment, I am not concerned with the efficiency of the load command. However, you do have a restriction on the amount of space that you can use for running your program. The memory footprint of your program, which includes the memory used by your code and the data structure that you build, should not exceed four times the size of the input load file, when measured in bytes. Don't worry about exceeding this limit on very small files. For example, it is okay if your program exceeds this limit when loading the small sample load file sample.txt, but on the large file wrnpc.txt it should meet this requirement. You can use the command ``ps -l`` to check the program size. If you are not familiar with ``ps``, please read the `man` page.
 
 
 Code Description
 -----------------
-**TODO**
 The skeleton code provided to you has the following directory structure:
 
-1. src/tutorial/tutorial.cc and src/include/tutorial/tutorial.h: Your code goes here. Please don’t change signature of the constructor and existing functions.
+1. :file:`src/tutorial/tutorial.cc` and :file:`src/include/tutorial/tutorial.h`: Your code goes here. Please don’t change signature of the constructor and existing functions.
 
-2. test/unit/tutorial/tutorial_test.cc: Unit test for testing the implementation. (You can add more testcase)
+2. :file:`test/unit/tutorial/tutorial_test.cc`: Unit test for testing the implementation. (You can add more testcase)
 
-3. test/unit/data/*: Sample text files to test your implementation. (You can add new .txt files to test your implementation)
+3. :file:`test/unit/data/*`: Sample text files to test your implementation. (You can add new .txt files to test your implementation)
 
-4. submit.sh: script to generate zip file which you need to upload to Gradescope
+4. :file:`submit.sh`: script to generate zip file which you need to upload to Gradescope
 
-5. REPORT.md: Add design related informatin, See :ref:`submit` for more information.
+5. :file:`REPORT.md`: Add design related information. See :ref:`submit <submit>` instruction for more information.
 
-6. CMakeLists.txt: CMake file for building the project (You need not modify this file)
+6. :file:`CMakeLists.txt`: CMake file for building the project (You need not modify this file)
 
-7. script/*, third_party/*, .clang-format, .clang-tidy : supporting build scripts (You need not modify this file)
+7. :file:`script/*, third_party/*, .clang-format, .clang-tidy` : supporting build scripts (You need not modify this file)
 
 
 
 Prerequisites
 ~~~~~~~~~~~~~~
 
-You need to follow the instructions mentioned in the :doc:`setup.rst` document. 
+You need to follow the instructions mentioned in the `setup <setup.html>`__ document. 
 
 Download the handout shared via Canvas. We need to copy the handout to the VM (skip this if you are not using VM).
 
@@ -171,12 +168,9 @@ Download the handout shared via Canvas. We need to copy the handout to the VM (s
 
    # Copy the handout to the VM
    [host] $ vagrant scp [path_to_handout] default:buzzdb-cpp_tutorial.zip
-   
    [host] $ cd buzzdb
-   
    # Get into VM 
    [host] $ vagrant ssh
-   
    # unzip the handout 
    [vm] $ unzip buzzdb-cpp_tutorial.zip
 
@@ -205,14 +199,13 @@ General Instructions
 Your program must be written only in C++. Your coding style should have well-defined classes and clean interfaces. The code should be well-documented. Each file should start with a header describing the purpose of the file and should also contain your name, GT UserID, and GT email address.
 
 Testing for correctness involves more than just seeing if a few test cases produce the correct output. There are certain types of errors (memory errors and memory leaks) that usually surface after the system has been running for a longer period of time. 
-You should use valgrind to isolate such errors. Command to run valgrind can be found :doc:`tools.rst`
-You will get a listing of memory errors in your program. If you have programmed in Java you should keep in mind that C++ does not have automatic garbage collection, so each new must ultimately be matched by a corresponding delete. Otherwise all the memory in the system might be used up. Valgrind can be used to detect such ``memory leaks`` as well. More information about valgrind can be found at: http://www.valgrind.org/docs/manual/index.html.
+You should use `valgrind` to isolate such errors. Command to run `valgrind` can be found `here <tools.html#valgrind>`__.
 
-In addition to the test driver that we provide, your assignment will be tested against our (more comprehensive) test driver. You can submit your code to the Gradescope autograder. Please note that getting a full score on auto-grader doesn’t guarantee full credits, as the final score depends on design choices, implementation, coding style, clarity, etc.
-We encourage students to follow the Google C++ style guide for coding conventions.
+You will get a listing of memory errors in your program. If you have programmed in Java you should keep in mind that C++ does not have automatic garbage collection, so each new must ultimately be matched by a corresponding delete. Otherwise all the memory in the system might be used up. Valgrind can be used to detect such memory leaks as well. More information about valgrind can be found at: http://www.valgrind.org/docs/manual/index.html.
 
 
 .. _submit:
+
 Submitting Your Assignment
 ---------------------------
 
@@ -220,9 +213,9 @@ Submitting Your Assignment
 
    bash submit.sh <name>
 
-You will be submitting your assignment on Gradescope. You are expected to run :red:`sumit.sh` and submit the generated zip to the autograder.
+You will be submitting your assignment on Gradescope. You are expected to run :file:`submit.sh` and submit the generated zip to the autograder.
 
-Use :red:`REPORT.md` to describe the following design and program criteria:
+You can use :file:`REPORT.md` to describe the following design and program criteria (**optional**). In case you don't complete all the testcases, we will award you partial points based on the report.
 
 1. Explain your choice of the data structure that you implemented. Did you consider any other data structures besides the one that you implemented? How did you arrive at your final choice of the data structure?
 
@@ -233,8 +226,5 @@ Use :red:`REPORT.md` to describe the following design and program criteria:
 
 Grading
 ---------
-**FIX**
-This assignment is worth 5% of your grade. The maximum score on this assignment is 100. For this assignment, 70% of the grade is for correctness, 30% for your design report and programming style. You will be not get any credits if you use any C++ STL data structure for indexing words.
 
-The programming style points are to make sure that you follow good programming practices. Your software should have a modular design, and should be well commented and structured so that any other programmer can easily understand your code and design.
-
+This assignment is worth 5% of your grade. The maximum score on this assignment is 100.
