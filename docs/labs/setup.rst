@@ -106,6 +106,7 @@ Package Installation
 Once you have Ubuntu OS up and running, install all the required packages for the programming assignments:
 
 .. code-block:: sh
+
     # Start the vm
     [host] $ cd buzzdb
     [host] $ vagrant ssh
