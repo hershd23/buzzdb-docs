@@ -134,6 +134,7 @@ We recommend using `VSCode <https://code.visualstudio.com/>`_ for the programmin
     - `Remote SSH <https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh>`_ (only need if you are using a VM)
     
 #. You can now connect to the remote host (i.e., the VM) using the `Remote SSH extension <https://code.visualstudio.com/docs/remote/ssh#_connect-to-a-remote-host>`__
+#. If you are using windows, you might find `Visual Studio Code with Vagrant <https://medium.com/@lopezgand/connect-visual-studio-code-with-vagrant-in-your-local-machine-24903fb4a9de>`__ helpful.
     
 --------------
 
