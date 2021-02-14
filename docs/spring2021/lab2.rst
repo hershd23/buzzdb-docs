@@ -15,7 +15,7 @@ The goal of the lab is to implement ``Logging`` and ``Recovery`` mechanism in bu
 
 Program Specification
 -----------------------
-We have provided you with ``LogManager``stub that contains APIs that you need to implement.
+We have provided you with ``LogManager`` stub that contains APIs that you need to implement.
 You should not modify the signature of the pre-defined functions. You should also not modify any predefined member variables.
 You are however allowed to add new helper private functions/member variables in order to correctly realize the functionality.
 
@@ -31,23 +31,150 @@ correctly calling the ``Log Manager``. The `HeapSegment` will explicitly call th
 
 
 API Requirements and Hints
-----------------------------
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 .. highlight:: c++
 
 .. code-block:: c++
    
-   
    // Returns the count of total number of log records in the log file 
-   get_total_log_records() 
+   void LogManager::get_total_log_records()
 
-   //
+   /** 
+   * Increment the ABORT_RECORD count.
+   * Rollback the provided transaction.
+   * Add abort log record to the log file.
+   * Remove from the active transactions.
+   */
+   void LogManager::log_abort(uint64_t txn_id, BufferManager& buffer_manager)
+
+   /**
+   * Increment the COMMIT_RECORD count
+   * Add commit log record to the log file
+   * Remove from the active transactions
+   */ 
+   void LogManager::log_commit(uint64_t txn_id)
+   
+   /**
+   * Increment the UPDATE_RECORD count
+   * Add the update log record to the log file
+   */
+   void LogManager::log_update(uint64_t txn_id, uint64_t page_id, uint64_t length, uint64_t offset, std::byte* before_img, std::byte* after_img)
+   
+
+   /**
+   * Increment the BEGIN_RECORD count
+   * Add the begin log record to the log file
+   * Add to the active transactions
+   */ 
+   void LogManager::log_txn_begin( uint64_t txn_id)
+
+   /**
+   * Increment the CHECKPOINT_RECORD count
+   * Flush all dirty pages to the disk (USE: buffer_manager.flush_all_pages())
+   * Add the checkpoint log record to the log file
+   */ 
+   void LogManager::log_checkpoint( BufferManager& buffer_manager)
+
+
+Task #2 - Recovery
+~~~~~~~~~~~~~~~~~~
+
+The next part of the lab is to implement the ability for the DBMS to recover its state from the log file.
+
+
+API Requirements and Hints
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+.. highlight:: c++
+
+.. code-block:: c++
+
+
+   /**
+   * Recover the state of the DBMS after crash. It is broken down into three phases:
+   *
+   * @Analysis Phase: 
+   * 		1. Get the active transactions and commited transactions 
+   * 		2. Restore the txn_id_to_first_log_record
+   * @Redo Phase:
+   * 		1. Redo the entire log tape to restore the buffer page
+   * 		2. For UPDATE logs: write the after_img to the buffer page
+   * 		3. For ABORT logs: rollback the transactions
+   * 	@Undo Phase
+   * 		1. Rollback the transactions which are active and not commited
+   */ 
+   void LogManager::recovery(BufferManager& buffer_manager)
+
+
+   /**
+    * Use txn_id_to_first_log_record to get the begin of the current transaction
+   * Walk through the log tape and rollback the changes by writing the before
+   * image of the tuple on the buffer page.
+   * Note: There might be other transactions' log records interleaved, so be careful to
+   * only undo the changes corresponding to current transactions.  
+   */ 
+   void LogManager::rollback_txn(uint64_t txn_id,  BufferManager& buffer_manager);
+
+
+For this lab, you are free to choose any data structure for the log record. Here, we provide an example log record structure that you might find helpful.
+
+.. code-block:: json
+
+   {
+      "BEGIN_RECORD or COMMIT_RECORD or ABORT_RECORD":[
+         "LOGTYPE",
+         "TXN_ID"
+      ],
+      "UPDATE_RECORD":[
+         "LOGTYPE",
+         "TXN_ID",
+         "PAGEID",
+         "LENGTH",
+         "OFFSET",
+         "BEFORE_IMG",
+         "AFTER_IMG"
+      ],
+      "CHECKPOINT_RECORD":[
+         "LOGTYPE",
+         "ACTIVE_TXNS",
+         "TXN_1",
+         "TXN_1_FIRST_LOG_OFFSET",
+         "...",
+         "TXN_K",
+         "TXN_K_FIRST_LOG_OFFSET"
+      ]
+   }
+
+In order to simplify the complexity of the lab, we provide you with an implementation of ``BufferManager``. We have also provided you with
+a ``File`` class which has read/write interfaces that will be helpful. 
+
+.. code-block:: c++
+
+   /**
+   * Functionality of the buffer manager that might be handy
+
+   Flush all the dirty pages to the disk 
+      buffer_manager.flush_all_pages(): 
+
+   Write @data of @length at an @offset the buffer page @page_id 
+      BufferFrame& frame = buffer_manager.fix_page(page_id, true);
+      memcpy(&frame.get_data()[offset], data, length);
+      buffer_manager.unfix_page(frame, true);
+
+   * Read and Write from/to the log_file
+      log_file_->read_block(offset, size, data);
+      
+      Usage:
+      uint64_t txn_id;
+      log_file_->read_block(offset, sizeof(uint64_t), reinterpret_cast<char *>(&txn_id));
+      log_file_->write_block(reinterpret_cast<char *> (&txn_id), offset, sizeof(uint64_t));
+   */
 
 
 
 To successfully pass all the test cases, you need to add required implementation in the ``log_manager.cc`` and ``log_manager.h``.
-You are free to choose the logging 
-We have added detailed comments for what needs to be done in each function.
+We have also added detailed comments in the code skeleton.
 
 
 Prerequisites
@@ -89,8 +216,6 @@ We treat compiler warnings as errors. Your project will fail to build if there a
 General Instructions
 ----------------------
 
-Your program must be written only in C++. Your coding style should have well-defined classes and clean interfaces. The code should be well-documented. Each file should start with a header describing the purpose of the file and should also contain your name, GT UserID, and GT email address.
-
 Testing for correctness involves more than just seeing if a few test cases produce the correct output. There are certain types of errors (memory errors and memory leaks) that usually surface after the system has been running for a longer period of time. 
 You should use `valgrind` to isolate such errors. Command to run `valgrind` can be found `here <tools.html#valgrind>`__.
 
@@ -109,12 +234,6 @@ Submitting Your Assignment
 You will be submitting your assignment on Gradescope. You are expected to run :file:`submit.sh` and submit the generated zip to the autograder.
 
 You can use :file:`REPORT.md` to describe the following design and program criteria (**optional**). In case you don't complete all the testcases, we will award you partial points based on the report.
-
-1. Explain your choice of the data structure that you implemented. Did you consider any other data structures besides the one that you implemented? How did you arrive at your final choice of the data structure?
-
-2. What is the best, average, and worst case complexity of your implementation of the locate command in terms of the number of words in the file that you are querying? (you need to provide all three - best, average, and worst-case analysis). For the complexity, I am only interested in the big-Oh analysis.
-
-3. What is the average case space complexity of your data structure in terms of the number of words in the input file? In other words, using the big-Oh notation what is the expected average size of your data structure in terms of the number of words.
 
 
 Grading
