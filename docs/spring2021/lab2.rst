@@ -29,7 +29,9 @@ API Requirements and Hints
 ----------------------------
 
 .. code-block:: c++
-   
+   get_total_log_records()
+
+Returns the count of total number of log records in the log file 
 
 To successfully pass all the test cases, you need to add required implementation in the ``log_manager.cc`` and ``log_manager.h``.
 You are free to choose the logging 
