@@ -4,14 +4,14 @@
 .. include:: ../.colors.rst
 
 
-CS 8803 Lab 2: CPP - Tutorial
+CS 8803 Lab 2: Logging And Recovery
 ==============================
 
 **Due: 3/1/2021 11:59 PM EST**
 
 Project Description
 -------------------
-The goal of the lab is to implement ``Logging`` and ``Recovery`` mechanism in buzzdb. You need to implement a write ahead logging (WAL) under No-Force/Steal policy. You need to log every page-level write operation and trasacation command.
+The goal of the lab is to implement ``Logging`` and ``Recovery`` mechanism in buzzdb. You need to implement a write ahead logging (WAL) under No-Force/Steal policy. You need to log every page-level write operation and trasancation command.
 
 Program Specification
 -----------------------
@@ -187,12 +187,12 @@ Download the handout shared via Canvas. You need to copy the handout to the VM (
 .. code-block:: bash
 
    # Copy the handout to the VM
-   [host] $ vagrant scp [path_to_handout] default:buzzdb-logging_recovery.zip
+   [host] $ vagrant scp [path_to_handout] default:buzzdb-logging-recovery.zip
    [host] $ cd buzzdb
    # Get into VM 
    [host] $ vagrant ssh
    # unzip the handout 
-   [vm] $ unzip buzzdb-logging_recovery.zip
+   [vm] $ unzip buzzdb-logging-recovery.zip
 
 
  
@@ -203,7 +203,7 @@ Instructions for execution
 
 .. code-block:: bash
    
-   [vm] $ cd buzzdb-logging_recovery
+   [vm] $ cd buzzdb-logging-recovery
    [vm] $ mkdir build 
    [vm] $ cd build
    [vm] $ cmake -DCMAKE_BUILD_TYPE=Release ..
@@ -239,4 +239,4 @@ You can use :file:`REPORT.md` to describe the following design and program crite
 Grading
 ---------
 
-This assignment is worth 5% of your grade. The maximum score on this assignment is 100.
+This assignment is worth 15% of your grade. The maximum score on this assignment is 100.
