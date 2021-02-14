@@ -20,18 +20,30 @@ You should not modify the signature of the pre-defined functions. You should als
 You are however allowed to add new helper private functions/member variables in order to correctly realize the functionality.
 
 The lab can be divided into two tasks: 
-Task #1: Logging
+
+Task #1 - Logging
+~~~~~~~~~~~~~~~~~~
 
 To achieve the goal of atomicity and durability, the database system must output to stable storage information describing the modifications made by any transaction, this information can help us ensure that all modifications performed by committed transactions are reflected in the database (perhaps during the course of recovery actions after a crash). It can also help us ensure that no modifications made by an aborted or crashed transaction persist in the database. The most widely used structure for recording database modifications is the log. The log is a sequence of log records, recording all the update activities in the database. 
-The buzzbd database system has a global ``LogManager`` object which is responsible logging information. The `HeapSegment` will explicitly call the `log_update` API before making any update operations. 
+The buzzdb database system has a global ``LogManager`` object which is responsible logging information. 
+You need not worry about making the calls to the LogManager. The other components of the system are responsible for 
+correctly calling the ``Log Manager``. The `HeapSegment` will explicitly call the `log_update` before making any update operations. The ``TransactionManager`` will invoke ``log_txn_begin`` when a transaction begins, ``log_commit`` before commiting a transaction and ``log_abort`` in case a transaction has to be aborted.
+
 
 API Requirements and Hints
 ----------------------------
 
-.. code-block:: c++
-   get_total_log_records()
+.. highlight:: c++
 
-Returns the count of total number of log records in the log file 
+.. code-block:: c++
+   
+   
+   // Returns the count of total number of log records in the log file 
+   get_total_log_records() 
+
+   //
+
+
 
 To successfully pass all the test cases, you need to add required implementation in the ``log_manager.cc`` and ``log_manager.h``.
 You are free to choose the logging 
