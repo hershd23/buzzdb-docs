@@ -11,7 +11,7 @@ CS 8803 Lab 4: Query Optimizer
 
 Project Description
 -------------------
-In this lab, you will implement a query optimizer on top of SimpleDB. The main tasks include implementing a selectivity estimation framework and a cost-based optimizer. You have freedom as to exactly what you implement, but we recommend using something similar to the Selinger cost-based optimizer discussed in class.
+In this lab, you will implement a query optimizer on top of BuzzDB. The main tasks include implementing a selectivity estimation framework and a cost-based optimizer. You have freedom as to exactly what you implement, but we recommend using something similar to the Selinger cost-based optimizer discussed in class.
 The remainder of this document describes what is involved in adding optimizer support and provides a basic outline of how you might add this support to your database.
 
 As with the previous lab, we recommend that you start as early as possible.
