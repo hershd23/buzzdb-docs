@@ -134,25 +134,29 @@ Now that you have implemented methods for estimating costs, you will implement t
 For these methods, joins are expressed as a list of join nodes (e.g., predicates over two tables).
 
 Join Ordering Pseudocode
+
 .. highlight:: c++
 .. code-block:: c++
+   :linenos:
 
-   1. j = set of join nodes
-   2. for (i in 1...|j|):
-   3.     for s in {all length i subsets of j}
-   4.       bestPlan = {}
-   5.       for s' in {all length d-1 subsets of s}
-   6.            subplan = optjoin(s')
-   7.            plan = best way to join (s-s') to subplan
-   8.            if (cost(plan) < cost(bestPlan))
-   9.               bestPlan = plan
-   10.      optjoin(s) = bestPlan
-   11. return optjoin(j)
+   j = set of join nodes
+   for (i in 1...|j|):
+       for s in {all length i subsets of j}
+         bestPlan = {}
+         for s' in {all length d-1 subsets of s}
+              subplan = optjoin(s')
+              plan = best way to join (s-s') to subplan
+              if (cost(plan) < cost(bestPlan))
+                 bestPlan = plan
+        optjoin(s) = bestPlan
+   return optjoin(j)
+
 
 To help you implement this algorithm, we have provided several classes and methods to assist you. 
 First, the method ``enumerate_subsets(vector<LogicalJoinNode> v, int size)`` in JoinOptimizer will return a set of all of the subsets of v of size size.
 
 Second, we have provided the method:
+
 .. highlight:: c++
 .. code-block:: c++
 
@@ -246,4 +250,4 @@ You can use :file:`REPORT.md` to describe the following design and program crite
 Grading
 ---------
 
-This assignment is worth 12.5% of your grade. The maximum score on this assignment is 100.
+This assignment is worth 12.5% of your grade. The maximum score on this assignment is 140.
