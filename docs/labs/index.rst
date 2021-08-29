@@ -6,8 +6,9 @@ Labs
     :hidden:
 
     setup
-    
-    
+
+    lab1
+
     lab3
     
     tools
