@@ -1,16 +1,5 @@
-CS 4420/6422 Lab 3: B+-Tree
-===========================
-
-**Assigned: 09/28/2020**
-
-**Due: 10/19/2020 11:59 PM EDT**
-
-In the lab assignments for CS4420/6422, you will implement an end-to-end
-toy database management system codenamed BuzzDB. All the labs are
-written in C++17. We recommend using an IDE for the labs (e.g.,
-`CLion <https://www.jetbrains.com/clion/>`__,
-`Eclipse <http://www.eclipse.org/cdt/>`__,
-`VSCode <https://code.visualstudio.com/>`__).
+Programming Assignment 3: B+-Tree
+=================================
 
 For the third lab, you will implement the B+Tree data structure. We have
 provided you with a set of unimplemented functions. You will need to
@@ -20,45 +9,10 @@ Test <https://github.com/google/googletest>`__). We have provided a set
 of unit tests that you may find useful in verifying that your code
 works.
 
-We **strongly recommend** that you start as early as possible on this
-lab. It requires you to write a fair amount of code!
-
-Environment Setup
------------------
-
-**Start by downloading the code for lab 3 from Canvas.**
-
-We will be using a Linux-based Operating System (OS) for the programming
-assignments. **Make sure you use Ubuntu OS (version 18.04) for running
-your code.** We will be testing your code on this version of the OS. If
-you do not have native access to this OS, you should create a virtual
-machine (VM) instance on
-`VirtualBox <https://www.virtualbox.org/wiki/Downloads>`__. Follow the
-instructions given
-`here <https://linuxhint.com/install_ubuntu_18-04_virtualbox/>`__ to set
-up the VM.
-
-Here's a list of software dependencies that you will need to install in
-the OS.
-
-::
-
-    apt-get install -yqq cmake
-
-    apt-get install -yqq llvm
-
-    apt-get install -yqq clang-tidy
-
-    apt-get install -yqq clang
-
-    apt-get install -yqq clang-format
-
-    apt-get install -yqq valgrind
-
-    apt-get install -yqq libgl-dev libglu-dev libglib2.0-dev libsm-dev libxrender-dev libfontconfig1-dev libxext-dev
-
 Getting started
 ---------------
+
+**Start by downloading the code for lab 3 from Canvas.**
 
 Description
 ~~~~~~~~~~~
