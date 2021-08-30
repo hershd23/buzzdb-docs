@@ -27,7 +27,7 @@ We will be using a Linux-based Operating System (OS) for the programming assignm
   apt-get install -yqq clang-tidy
   apt-get install -yqq clang
   apt-get install -yqq clang-format
-  apt-get install -yqq valgrind
+  apt-get install -yqq valgrind git-all
   apt-get install -yqq libgl-dev libglu-dev libglib2.0-dev libsm-dev libxrender-dev libfontconfig1-dev libxext-dev
 
 
