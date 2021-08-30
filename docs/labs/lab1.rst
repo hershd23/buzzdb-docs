@@ -39,8 +39,6 @@ Description
 
 In this lab, you need to implement the external sort algorithm. Specifically, you will be provided with a memory constraint that your sorting program should not exceed. You will need to divide the input into K individual runs each smaller than the given memory constraint, and then sort the run in memory. You should then implement a K-way merge algorithm to merge the K sorted runs that each fit in memory. 
 
-Be careful to handle special cases in which a simple ``sort -> K-way merge`` might not be sufficient (i.e., when K is too large to fit in memory). Note that the number of partitions (k) depends on the file size and memory size -- k = f/m. But, the number of elements in each partition (p) solely depends on the memory size, p = m/ (size of one element).
-
 Implementation Details
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -110,7 +108,7 @@ You should submit your code as a zip file via Gradescope. We have set up an auto
 
 .. code-block:: sh
 
-  bash submit.sh <name>
+  bash submit.sh <last-name-in-lowercase-letters-without-spaces>
 
 > :warning: **WARNING** Do not add additional files to the zip file, use the ``submit.sh`` script.  
 
@@ -118,3 +116,69 @@ Grading
 -------
 
 95% of your grade will be based on whether or not your code passes the autograder test suite. These tests will be a superset of the tests we have provided. 5% is for code quality. We will award partial marks for submissions that fail the autograder test suite (based on the writeup).
+
+
+Detailed Instructions
+---------------------
+
+1. Debugging
+
+.. code-block:: sh
+
+  cmake -DCMAKE_BUILD_TYPE=Debug .. 
+  make
+
+Debugging tips: http://www.unknownroad.com/rtfm/gdbtut/gdbsegfault.html
+Information about other tools: https://buzzdb-docs.readthedocs.io/en/latest/labs/tools.html
+
+2. Here are two techniques for reading and writing data -- using traditional pointers and using smart pointers.
+
+.. code-block:: c++
+
+    std::unique_ptr<File> chunk_file;
+    chunk_file = std::move(File::make_temporary_file());
+    size_t num_bytes = num_values * sizeof(uint64_t);
+    
+    // unique_ptr -- smart pointer for automatically releasing memory 
+    auto chunk = std::make_unique<uint64_t[]>(num_values);    
+    input.read_block(0, num_bytes, reinterpret_cast<char *>(chunk.get()));
+    chunk_file->write_block( reinterpret_cast<char *>(chunk.get()), 0, num_bytes);
+    
+    // traditional pointer -- creating chunk in heap memory
+    uint64_t *chunk2 = new uint64_t[num_values];
+    input.read_block(0, num_bytes, (char *)(chunk2));    
+    chunk_file->write_block((char *)chunk2, 0, num_bytes);    
+    // Manually deleting chunk to avoid memory leak
+    delete[] chunk2;
+
+3. Run ``cmake`` from the ``build`` sub-directory that you created. ``..`` refers to the parent directory (i.e., the lab1-handout folder) containing the ``CMakeFile``.
+
+4. To run ``valgrind`` during development to avoid memory leaks, use these commands:
+
+.. code-block:: sh
+
+  ctest -V -R external_sort_test_valgrind
+  
+Here's a `helpful explanation <https://stackoverflow.com/a/44989219>`_ to use ``valgrind`` for debugging memory leaks.
+
+5. Do not forget to resize the temporary file as needed.
+
+.. code-block:: c++
+  
+  temp_file->resize(input.size());
+
+6. Another code snippet for parsing the read data:
+
+.. code-block:: c++
+
+  struct element {
+    uint64_t value;
+    size_t chunk_id = -1;
+  };
+
+  uint64_t value_buffer;
+
+  chunk_file_registry[e.chunk_id]->read_block(read_offset, sizeof(uint64_t), reinterpret_cast<char *>(&value_buffer));
+
+  struct element e1 = {.value = value_buffer, .chunk_id = e.chunk_id}
+
