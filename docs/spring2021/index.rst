@@ -1,5 +1,5 @@
 ================
-Spring21 - Labs
+Database System Implementation (Part II) - Programming Assignments
 ================
 
 
@@ -19,7 +19,7 @@ in `C++ <https://en.cppreference.com/w/>`__.
 These are the topics that we will cover in this course:
 
 - `Setup Development Environment <setup.html>`__
-- `Lab 1: Cpp Tutorial <lab1.html>`__
+- `Lab 1: C++ Tutorial <lab1.html>`__
 - `Lab 2: Logging and Recovery <lab2.html>`__
 - `Lab 3: Concurrency Control <lab3.html>`__
 - `Lab 4: Query Optimizer <lab4.html>`__
