@@ -128,8 +128,8 @@ Detailed Instructions
   cmake -DCMAKE_BUILD_TYPE=Debug .. 
   make
 
-Debugging tips: http://www.unknownroad.com/rtfm/gdbtut/gdbsegfault.html
-Information about other tools: https://buzzdb-docs.readthedocs.io/en/latest/labs/tools.html
+`Debugging Tips <http://www.unknownroad.com/rtfm/gdbtut/gdbsegfault.html>`__
+`Information about other tools <https://buzzdb-docs.readthedocs.io/en/latest/labs/tools.html>`__
 
 2. Here are two techniques for reading and writing data -- using traditional pointers and using smart pointers.
 
