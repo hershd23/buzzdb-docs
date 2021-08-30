@@ -53,15 +53,11 @@ Build instructions:
 
 Enter BuzzDB's directory and run
 
-::
-
+.. code-block:: sh
 
     mkdir build
-
     cd build
-
     cmake -DCMAKE_BUILD_TYPE=Release ..
-
     make
 
 Test Instructions:
@@ -69,8 +65,7 @@ Test Instructions:
 
 To run the entire test suite, use:
 
-::
-
+.. code-block:: sh
 
     ctest
 
@@ -83,8 +78,7 @@ test your code against these test-cases.
 Similar to labs 1 and 2, your implementation will be checked for memory
 leaks. You can check for memory leaks using valgrind.
 
-::
-
+.. code-block:: sh
 
     ctest -V -R btree_test_valgrind
 
@@ -179,38 +173,26 @@ above methods.
 Logistics
 ---------
 
-You must submit your code (see below) as well as an one-page writeup (in
-``REPORT.md``) describing your solution. In the writeup, mention 1) the
-design decisions you made, and 2) the missing components in your code.
-We will award partial credits based on this writeup (if you are unable
-to finish the implementation before the due date or if it fails any test
-cases).
+You must submit your code (see below) as well as an one-page writeup (in a file named `REPORT.md`) describing your solution. In the writeup, mention: (1) the design decisions you made, and (2) the missing components in your code. We will award partial credits based on this writeup (if you are unable to finish the implementation before the due date and/or if it fails any test cases).
 
 Collaboration
 ~~~~~~~~~~~~~
 
 This is an individual assignment. No collaboration is allowed.
 
-Submitting your assignment
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Submitting your assignment 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You should submit your code on Gradescope. We have set up an autograder
-that will test your implementation. You are allowed to make multiple
-submissions and we will use the latest submission to grade your lab.
+You should submit your code as a zip file via Gradescope. We have set up an autograder that will test your implementation. You are allowed to make multiple submissions and we will use the latest submission to grade your lab.
 
-::
+.. code-block:: sh
 
+  bash submit.sh <name>
 
-    bash submit.sh <name>
+> :warning: **WARNING** Do not add additional files to the zip file, use the ``submit.sh`` script.  
 
-***Important***
-
-Do not add additional files to the zip file, use the script above.
 
 Grading
 ~~~~~~~
 
-95% of your grade will be based on whether or not your code passes the
-autograder test suite. 5% is for code quality. We will award partial
-marks for submissions that fail the autograder test suite (based on the
-writeup).
+95% of your grade will be based on whether or not your code passes the autograder test suite. 5% is for code quality. We will award partial marks for submissions that fail the autograder test suite (based on the writeup).
