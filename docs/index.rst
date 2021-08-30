@@ -1,6 +1,6 @@
 .. buzzdb documentation master file
 
-BuzzDB Labs
+BuzzDB -- Programming Assignments
 ###########
 
 .. toctree::
