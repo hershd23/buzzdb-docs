@@ -1,16 +1,13 @@
 ====
-Labs
+Database System Implementation (Part I)
 ====
 
 .. toctree::
     :hidden:
 
     setup
-
     lab1
-
     lab3
-    
     tools
 
 In this course, you will be building a toy database system, called **buzzdb**, 
