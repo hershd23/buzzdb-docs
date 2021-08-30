@@ -37,7 +37,9 @@ Getting started
 Description
 ~~~~~~~~~~~
 
-In this lab, you need to implement the external sort algorithm. Specifically, you will be provided with a memory constraint that your sorting program should not exceed. You will need to divide the input into K individual runs each smaller than the given memory constraint, and then sort the run in memory. You should then implement a K-way merge algorithm to merge the K sorted runs that each fit in memory. Be careful to handle special cases in which a simple ``sort -> K-way merge`` might not be sufficient.
+In this lab, you need to implement the external sort algorithm. Specifically, you will be provided with a memory constraint that your sorting program should not exceed. You will need to divide the input into K individual runs each smaller than the given memory constraint, and then sort the run in memory. You should then implement a K-way merge algorithm to merge the K sorted runs that each fit in memory. 
+
+Be careful to handle special cases in which a simple ``sort -> K-way merge`` might not be sufficient (i.e., when K is too large to fit in memory). Note that the number of partitions (k) depends on the file size and memory size -- k = f/m. But, the number of elements in each partition (p) solely depends on the memory size, p = m/ (size of one element).
 
 Implementation Details
 ~~~~~~~~~~~~~~~~~~~~~~
