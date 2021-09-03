@@ -68,7 +68,7 @@ Our recommended way of setting up your virtual machine is to use `Vagrant <https
     
         # Copy the Vagrant SSH configuration to the end of the local SSH configuration file
         # Skip this, if using windows. To enable ssh in windows, you can setup putty (https://www.putty.org/)
-        [host] $ vagrant ssh-config >> vi ~/.ssh/config
+        [host] $ vagrant ssh-config >> ~/.ssh/config
     
         # You should now be able to ssh into the VM (user@hostname) 
         # Skip this if using windows
