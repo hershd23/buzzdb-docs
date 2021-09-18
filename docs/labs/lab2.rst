@@ -22,33 +22,20 @@ Environment Setup
 **Start by downloading the code for lab 2 from Canvas.**
 
 We will be using a Linux-based Operating System (OS) for the programming
-assignments. **Make sure you use Ubuntu OS (version 18.04) for running
-your code.** We will be testing your code on this version of the OS. If
-you do not have native access to this OS, you should create a virtual
-machine (VM) instance on
-`VirtualBox <https://www.virtualbox.org/wiki/Downloads>`__. Follow the
-instructions given
-`here <https://linuxhint.com/install_ubuntu_18-04_virtualbox/>`__ to set
-up the VM.
+assignments.
 
-Here’s a list of software dependencies that you will need to install in
+We will be using the same development environment as the Programming Assignment 1. If you have not already installed them, here’s a list of software dependencies that you will need to install in
 the OS.
 
-::
+.. code-block:: sh
 
 
    apt-get install -yqq cmake
-
    apt-get install -yqq llvm
-
    apt-get install -yqq clang-tidy
-
    apt-get install -yqq clang
-
    apt-get install -yqq clang-format
-
    apt-get install -yqq valgrind
-
    apt-get install -yqq libgl-dev libglu-dev libglib2.0-dev libsm-dev libxrender-dev libfontconfig1-dev libxext-dev
 
 Getting started
@@ -107,15 +94,11 @@ Build instructions:
 
 Enter BuzzDB’s directory and run
 
-::
-
+.. code-block:: sh
 
    mkdir build
-
    cd build
-
    cmake -DCMAKE_BUILD_TYPE=Release ..
-
    make
 
 Test Instructions:
@@ -123,8 +106,7 @@ Test Instructions:
 
 To run the entire test suite, use:
 
-::
-
+.. code-block:: sh
 
    ctest
 
@@ -137,8 +119,7 @@ test your code against these test-cases.
 Similar to lab1, your implementation will be checked for memory leaks.
 You can check for memory leaks using valgrind.
 
-::
-
+.. code-block:: sh
 
    ctest -V -R buffer_manager_test_valgrind
 
@@ -164,8 +145,7 @@ You should submit your code on Gradescope. We have set up an autograder
 that will test your implementation. You are allowed to make multiple
 submissions and we will use the latest submission to grade your lab.
 
-::
-
+.. code-block:: sh
 
    bash submit.sh <name>
 
