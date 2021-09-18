@@ -1,9 +1,9 @@
 CS 4420/6422 Lab 2: Buffer Manager
 ==================================
 
-**Assigned: 09/07/2020**
+**Assigned: 09/18/2021**
 
-**Due: 09/23/2020 11:59 PM EDT**
+**Due: 10/06/2021 11:59 PM EDT**
 
 In the lab assignments for CS4420/6422, you will implement an end-to-end
 toy database management system codenamed BuzzDB. All the labs are
