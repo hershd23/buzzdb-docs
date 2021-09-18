@@ -3,14 +3,7 @@ CS 4420/6422 Lab 2: Buffer Manager
 
 **Assigned: 09/18/2021**
 
-**Due: 10/06/2020 11:59 PM EDT**
-
-In the lab assignments for CS4420/6422, you will implement an end-to-end
-toy database management system codenamed BuzzDB. All the labs are
-written in C++17. We recommend using an IDE for the labs (e.g.,
-`CLion <https://www.jetbrains.com/clion/>`__,
-`Eclipse <http://www.eclipse.org/cdt/>`__,
-`VSCode <https://code.visualstudio.com/>`__).
+**Due: 10/06/2021 11:59 PM EDT**
 
 For the second lab, you will implement the buffer manager that uses the
 2Q replacement strategy. We have provided you with a set of
