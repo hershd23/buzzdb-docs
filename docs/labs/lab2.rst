@@ -91,7 +91,7 @@ It may be useful to use the class ``buzzdb::File`` from
 ``File.write_block()`` are thread-safe. Also, using multiple ``File``
 objects that refer to the same file concurrently also leads to
 unexpected results. Also, to ensure thread-safety you can use
-`std::mutex <https://en.cppreference.com/w/cpp/thread/mutex)>`__
+`std::mutex <https://en.cppreference.com/w/cpp/thread/mutex>`__
 and
 `std::shared_mutex <https://en.cppreference.com/w/cpp/thread/shared_mutex>`__.
 
