@@ -3,7 +3,7 @@ CS 4420/6422 Lab 2: Buffer Manager
 
 **Assigned: 09/18/2021**
 
-**Due: 10/06/2021 11:59 PM EDT**
+**Due: 10/06/2020 11:59 PM EDT**
 
 In the lab assignments for CS4420/6422, you will implement an end-to-end
 toy database management system codenamed BuzzDB. All the labs are
@@ -91,9 +91,9 @@ It may be useful to use the class ``buzzdb::File`` from
 ``File.write_block()`` are thread-safe. Also, using multiple ``File``
 objects that refer to the same file concurrently also leads to
 unexpected results. Also, to ensure thread-safety you can use
-```std::mutex`` <%5Bhttps://en.cppreference.com/w/cpp/thread/mutex%5D(https://en.cppreference.com/w/cpp/thread/mutex)>`__
+`std::mutex <https://en.cppreference.com/w/cpp/thread/mutex)>`__
 and
-```std::shared_mutex`` <https://en.cppreference.com/w/cpp/thread/shared_mutex>`__.
+`std::shared_mutex <https://en.cppreference.com/w/cpp/thread/shared_mutex>`__.
 
 Your implementation should pass all of tests starting with
 ``BufferManagerTest``. Tests whose name contains ``Multithread`` are
