@@ -114,7 +114,7 @@ Once you have Ubuntu OS up and running, install all the required packages for th
     # Install packages
     [vm] $ sudo apt-get -y update
     [vm] $ sudo apt-get -y install build-essential 
-    [vm] $ sudo apt-get -y install zip unzip git cmake llvm valgrind clang clang-tidy clang-format googletest zlib1g-dev libgflags-dev libbenchmark-dev
+    [vm] $ sudo apt-get -y install zip unzip git cmake llvm valgrind clang clang-format googletest zlib1g-dev libgflags-dev libbenchmark-dev libgtest-dev
     [vm] $ cd /usr/src/googletest; sudo mkdir build; cd build; sudo cmake ..; sudo make; sudo cp googlemock/*.a googlemock/gtest/*.a /usr/lib; cd /vagrant/;
 
     # Install zsh + oh-my-zsh | for command completion and searching through command history
