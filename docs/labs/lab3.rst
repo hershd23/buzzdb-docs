@@ -23,9 +23,7 @@ The B+-Tree must support the following operations:
 
 * ``lookup`` Returns a value or indicates that the key was not found. 
 * ``insert`` Inserts a new key-value pair into the tree. 
-* ``erase`` Deletes a specified key.
-
-You may simplify the logic by accepting full pages.
+* ``erase`` Deletes a specified key. You may simplify the logic by accepting under full pages.
 
 You will use page ids and the buffer manager instead of pointers to
 resolve child nodes in the tree. You can assume that the
