@@ -106,9 +106,7 @@ for structures that represent different nodes in the B+-Tree:
 Note that ``InnerNode`` and ``LeafNode`` inherit members from the base
 ``Node`` object.
 
-Following are some of the important members from ``InnerNode`` and
-
-* ``LeafNode`` that you will need to implement: 
+Following are some of the important members from ``InnerNode`` and ``LeafNode`` that you will need to implement: 
 * ``static constexpr uint32_t kCapacity`` - The capacity of a node. 
 * ``std::pair<uint32_t, bool> lower_bound(const KeyT &key)`` - Get the index of the first key that is not less than than a provided key. 
 * ``void insert(const KeyT &key, uint64_t split_page)`` - Insert a key.
