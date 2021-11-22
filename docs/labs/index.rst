@@ -20,6 +20,7 @@ These are the topics that we will cover in this course:
 - `Lab 2: Buffer Management <lab2.html>`__
 - `Lab 3: B-Tree <lab3.html>`__
 - `Lab 4: Query Execution <lab4.html>`__
+- `Lab 5: Slotted Pages <lab5.html>`__
 - `Tool Guide <tools.html>`__
 
 These programming assignments are derived from courses developed by:  
