@@ -8,21 +8,24 @@ CS-8803-ASI
 
     setup
     lab1
+    cpp
     tools
 
 In this course, you will be building a toy database system, called **buzzdb**, 
 in `C++ <https://en.cppreference.com/w/>`__.
 
 Useful Resources:
-- `Setup Development Environment <setup.html>`__
-- `Tool Guide <tools.html>`__
-- `Cpp Resources <cpp.html>`
+
+* `Setup Development Environment <setup.html>`_
+* `Tool Guide <tools.html>`_
+* `C++ Resources <cpp.html>`_
 
 These are the topics that we will cover in this course:
-- `Lab 1: Cpp Tutorial <lab1.html>`__
-- `Lab 2: Logging and Recovery <>`__
-- `Lab 3: Concurrency Control <>`__
-- `Lab 4: Query Optimizer <>`__
+
+* `Lab 1: C++ Tutorial <lab1.html>`__
+* Lab 2: Logging and Recovery 
+* Lab 3: Concurrency Control
+* Lab 4: Query Optimizer 
 
 
 These programming assignments are derived from courses developed by:  
