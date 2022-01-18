@@ -68,7 +68,7 @@ Our recommended way of setting up your virtual machine is to use `Vagrant <https
     
         # Copy the Vagrant SSH configuration to the end of the local SSH configuration file
         # Skip this, if using windows. To enable ssh in windows, you can setup putty (https://www.putty.org/)
-        [host] $ vagrant ssh-config >> vi ~/.ssh/config
+        [host] $ vagrant ssh-config >> ~/.ssh/config
     
         # You should now be able to ssh into the VM (user@hostname) 
         # Skip this if using windows
@@ -114,7 +114,7 @@ Once you have Ubuntu OS up and running, install all the required packages for th
     # Install packages
     [vm] $ sudo apt-get -y update
     [vm] $ sudo apt-get -y install build-essential 
-    [vm] $ sudo apt-get -y install zip unzip git cmake llvm valgrind clang clang-tidy clang-format googletest zlib1g-dev libgflags-dev libbenchmark-dev
+    [vm] $ sudo apt-get -y install zip unzip git cmake llvm valgrind clang clang-format googletest zlib1g-dev libgflags-dev libbenchmark-dev libgtest-dev
     [vm] $ cd /usr/src/googletest; sudo mkdir build; cd build; sudo cmake ..; sudo make; sudo cp googlemock/*.a googlemock/gtest/*.a /usr/lib; cd /vagrant/;
 
     # Install zsh + oh-my-zsh | for command completion and searching through command history
