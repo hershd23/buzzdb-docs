@@ -217,9 +217,9 @@ You can use :file:`REPORT.md` to describe the following design and program crite
 
 1. Explain your choice of the data structure that you implemented. Did you consider any other data structures besides the one that you implemented? How did you arrive at your final choice of the data structure?
 
-2. What is the best, average, and worst case complexity of your implementation of the locate command in terms of the number of words in the file that you are querying? (you need to provide all three - best, average, and worst-case analysis). For the complexity, I am only interested in the big-Oh analysis.
+2. What is the best, average, and worst case complexity of your implementation of the locate command in terms of the number of words in the file that you are querying? (you need to provide all three - best, average, and worst-case analysis). For the complexity, we are only interested in the big-O analysis.
 
-3. What is the average case space complexity of your data structure in terms of the number of words in the input file? In other words, using the big-Oh notation what is the expected average size of your data structure in terms of the number of words.
+3. What is the average case space complexity of your data structure in terms of the number of words in the input file? In other words, using the big-O notation what is the expected average size of your data structure in terms of the number of words.
 
 
 Grading
