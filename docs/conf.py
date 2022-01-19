@@ -106,7 +106,7 @@ html_sidebars = {
 #
 html_theme_options = {
     "repository_url": "https://github.com/georgia-tech-db/buzzdb-docs",
-    "use_repository_button": True,
+    "use_repository_button": False,
     "use_issues_button": True,
     "use_edit_page_button": True,
     "path_to_docs": "docs",
