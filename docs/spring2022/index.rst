@@ -8,6 +8,7 @@ CS-8803-ASI
 
     setup
     lab1
+    lab2
     cpp
     tools
 
@@ -23,7 +24,7 @@ Useful Resources:
 These are the topics that we will cover in this course:
 
 * `Lab 1: C++ Tutorial <lab1.html>`__
-* Lab 2: Logging and Recovery 
+* `Lab 2: Logging and Recovery <lab2.html>`__ 
 * Lab 3: Concurrency Control
 * Lab 4: Query Optimizer 
 
