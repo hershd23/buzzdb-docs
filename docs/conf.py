@@ -35,9 +35,28 @@ sys.path.insert(0, os.path.abspath('..'))
 extensions = [
     'sphinx.ext.autodoc', 'sphinx.ext.doctest', 'sphinx.ext.intersphinx',
     'sphinx.ext.todo', 'sphinx.ext.mathjax', 'sphinx.ext.viewcode',
-    'sphinx.ext.napoleon', 'sphinx.ext.graphviz', 
-    'extensions.mps',    
-    'sphinx.ext.ifconfig']
+    'sphinx.ext.napoleon', 'sphinx.ext.graphviz',     
+    'sphinx.ext.ifconfig', "myst_parser", 
+    "sphinx.ext.coverage"]
+
+myst_enable_extensions = [
+    # "dollarmath",
+    # "amsmath",
+    # "deflist",
+    # "fieldlist",
+    "html_admonition",
+    "html_image",
+    # "colon_fence",
+    # "smartquotes",
+    # "replacements",
+    # "linkify",
+    # "strikethrough",
+    # "substitution",
+    # "tasklist",
+]
+
+# This is used to suppress warnings about explicit "toctree" directives.
+suppress_warnings = ["etoc.toctree"]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -83,10 +102,10 @@ language = None
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = 'lovelace'
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
-todo_include_todos = True
+todo_include_todos = False
 
 
 # -- Options for HTML output ----------------------------------------------
