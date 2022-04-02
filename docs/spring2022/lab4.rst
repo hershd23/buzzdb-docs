@@ -7,7 +7,7 @@
 CS 8803 Lab 4: Query Optimizer
 ==============================
 
-**Due: 4/21/2021 11:59 PM EST**
+**Due: 4/21/2022 11:59 PM EST**
 
 Project Description
 -------------------
@@ -250,4 +250,4 @@ You can use :file:`REPORT.md` to describe the following design and program crite
 Grading
 ---------
 
-This assignment is worth 12.5% of your grade. The maximum score on this assignment is 140.
+This assignment is worth 10% of your grade. The maximum score on this assignment is 140.

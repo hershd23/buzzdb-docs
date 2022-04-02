@@ -28,7 +28,7 @@ These are the topics that we will cover in this course:
 * `Lab 1: C++ Tutorial <lab1.html>`__
 * `Lab 2: Logging and Recovery <lab2.html>`__ 
 * `Lab 3: Concurrency Control <lab3.html>`__
-* Lab 4: Query Optimizer 
+* `Lab 4: Query Optimizer <lab4.html>`__ 
 
 
 These programming assignments are derived from courses developed by:  
