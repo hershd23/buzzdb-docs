@@ -10,6 +10,7 @@ CS-8803-ASI
     lab1
     lab2
     lab3
+    lab4
     cpp
     tools
 
