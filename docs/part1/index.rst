@@ -1,5 +1,5 @@
 ====
-Database System Implementation (Part I)
+Database System Implementation (Part 1)
 ====
 
 .. toctree::
@@ -22,9 +22,3 @@ These are the topics that we will cover in this course:
 - `Lab 4: Query Execution <lab4.html>`__
 - `Lab 5: Slotted Pages <lab5.html>`__
 - `Tool Guide <tools.html>`__
-
-These programming assignments are derived from courses developed by:  
-`Thomas Neumann <https://db.in.tum.de/~neumann/?lang=en>`__,
-`Andy Pavlo <https://www.cs.cmu.edu/~pavlo/>`__,
-`Jignesh M. Patel <http://pages.cs.wisc.edu/~jignesh/>`__, and
-`Sam Madden <https://db.csail.mit.edu/madden/>`__.

@@ -1,1 +1,0 @@
-.. include:: ../labs/setup.rst
