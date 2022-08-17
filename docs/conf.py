@@ -61,9 +61,6 @@ suppress_warnings = ["etoc.toctree"]
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
-# The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
-
 highlight_language = 'c++'
 
 # The suffix(es) of source filenames.
