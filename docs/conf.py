@@ -113,8 +113,6 @@ todo_include_todos = False
 #html_theme = 'alabaster'
 html_theme = 'furo'
 
-templates_path = ['_templates']
-
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
