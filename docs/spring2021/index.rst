@@ -1,13 +1,16 @@
-====
-Database System Implementation (Part I)
-====
+================
+Database System Implementation (Part II) 
+================
+
 
 .. toctree::
     :hidden:
 
     setup
     lab1
+    lab2
     lab3
+    lab4
     tools
 
 In this course, you will be building a toy database system, called **buzzdb**, 
@@ -16,11 +19,10 @@ in `C++ <https://en.cppreference.com/w/>`__.
 These are the topics that we will cover in this course:
 
 - `Setup Development Environment <setup.html>`__
-- `Lab 1: External Sort <lab1.html>`__
-- `Lab 2: Buffer Management <lab2.html>`__
-- `Lab 3: B-Tree <lab3.html>`__
-- `Lab 4: Query Execution <lab4.html>`__
-- `Lab 5: Slotted Pages <lab5.html>`__
+- `Lab 1: C++ Tutorial <lab1.html>`__
+- `Lab 2: Logging and Recovery <lab2.html>`__
+- `Lab 3: Concurrency Control <lab3.html>`__
+- `Lab 4: Query Optimizer <lab4.html>`__
 - `Tool Guide <tools.html>`__
 
 These programming assignments are derived from courses developed by:  

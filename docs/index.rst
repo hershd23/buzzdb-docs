@@ -1,9 +1,10 @@
 .. buzzdb documentation master file
 
-BuzzDB Labs
+BuzzDB -- Programming Assignments
 ###########
 
 .. toctree::
    :maxdepth: 2
 
    labs/index
+   spring2022/index
