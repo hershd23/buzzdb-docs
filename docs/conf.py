@@ -113,7 +113,7 @@ todo_include_todos = False
 #html_theme = 'alabaster'
 html_theme = 'furo'
 
-THEME_TEMPLATES_OVERRIDES = ['_templates']
+templates_path = ['_templates']
 
 # -- Options for HTMLHelp output ------------------------------------------
 
