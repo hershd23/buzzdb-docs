@@ -1,5 +1,5 @@
-Programming Assignment 5: Slotted Pages
-=======================================
+Assignment 5: Slotted Pages
+============================
 
 For the last lab, you will implement slotted pages. We have provided you
 with a set of unimplemented functions. You will need to fill in these

@@ -4,7 +4,7 @@
 .. include:: ../.colors.rst
 
 
-CS 8803 Lab 3: Concurrency Control
+Assignment 3: Concurrency Control
 ===================================
 
 **Due: 3/31/2022 11:59 PM EST**

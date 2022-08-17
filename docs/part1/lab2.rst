@@ -1,4 +1,4 @@
-CS 4420/6422 Lab 2: Buffer Manager
+Assignment 2: Buffer Manager
 ==================================
 
 **Assigned: 09/18/2021**

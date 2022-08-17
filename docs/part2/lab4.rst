@@ -4,7 +4,7 @@
 .. include:: ../.colors.rst
 
 
-CS 8803 Lab 4: Query Optimizer
+Assignment 4: Query Optimizer
 ==============================
 
 **Due: 4/21/2022 11:59 PM EST**

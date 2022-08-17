@@ -1,6 +1,5 @@
-====
 Database System Implementation (Part 2)
-====
+========================================
 
 
 .. toctree::
@@ -14,10 +13,9 @@ Database System Implementation (Part 2)
     cpp
     tools
 
-In this course, you will be building a toy database system, called **buzzdb**, 
-in `C++ <https://en.cppreference.com/w/>`__.
+In this course, we will continue building **buzzdb** database system. 
 
-Useful Resources:
+Resources:
 
 * `Setup Development Environment <setup.html>`_
 * `Tool Guide <tools.html>`_

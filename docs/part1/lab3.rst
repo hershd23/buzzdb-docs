@@ -1,4 +1,4 @@
-Programming Assignment 3: B+-Tree
+Assignment 3: B+-Tree
 =================================
 
 For the third lab, you will implement the B+Tree data structure. We have

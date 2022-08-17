@@ -1,4 +1,4 @@
-Programming Assignment 1: External Sort
+Assignment 1: External Sort
 =======================================
 
 **Assigned: 08/30/2021**

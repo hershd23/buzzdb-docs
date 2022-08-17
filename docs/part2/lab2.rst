@@ -4,8 +4,8 @@
 .. include:: ../.colors.rst
 
 
-CS 8803 Lab 2: Logging And Recovery
-====================================
+Assignment 2: Logging And Recovery
+==================================
 
 **Due: 24/2/2022 11:59 PM EST**
 

@@ -1,1 +1,1 @@
-.. include:: ../labs/setup.rst
+.. include:: ../part1/setup.rst

@@ -1,6 +1,5 @@
-#  CS 4420/6422 Lab 4: Operators
-
-  
+Assignment 4: Operators
+=======================  
 
 **Assigned: 11/8/2021**
 
