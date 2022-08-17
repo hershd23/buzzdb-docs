@@ -76,8 +76,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'buzzdb'
-copyright = u'2020 -- 2021, Georgia Tech Database Group'
+project = u'BuzzDB'
+copyright = u'2020 -- 2022, Georgia Tech Database Group'
 author = u'Georgia Tech Database Group'
 
 # The version info for the project you're documenting, acts as replacement for
