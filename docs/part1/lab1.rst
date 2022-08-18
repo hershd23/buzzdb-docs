@@ -19,7 +19,7 @@ Environment Setup
 
 **Start by downloading the zip file provided for this assignment from Canvas.**
 
-Setup the development environment `using the instructions given here <https://buzzdb-docs.readthedocs.io/en/latest/labs/setup.html>`__.
+Setup the development environment `using the instructions given here <https://buzzdb-docs.readthedocs.io/part1/setup.html>`__.
 
 Getting started 
 ----------------
