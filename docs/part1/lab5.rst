@@ -1,15 +1,7 @@
 Assignment 5: Slotted Pages
 ============================
 
-For the last lab, you will implement slotted pages. We have provided you
-with a set of unimplemented functions. You will need to fill in these
-functions. We will grade your code by running a set of system tests
-written using `Google Test <https://github.com/google/googletest>`__).
-We have provided a set of unit tests that you may find useful in
-verifying that your code works.
-
-We **strongly recommend** that you start as early as possible on this
-lab. It requires you to write a fair amount of code!
+In this lab, you will be implementing support for slotted pages.
 
 Getting started
 ---------------

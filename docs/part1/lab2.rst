@@ -7,39 +7,16 @@ Assignment 2: Buffer Manager
 
 For the second lab, you will implement the buffer manager that uses the
 2Q replacement strategy. We have provided you with a set of
-unimplemented functions. You will need to fill in these functions. We
-will grade your code by running a set of system tests written using
-`Google Test <https://github.com/google/googletest>`__). We have
-provided a set of unit tests that you may find useful in verifying that
-your code works.
+unimplemented functions. You will need to fill in these functions.
 
 We **strongly recommend** that you start as early as possible on this
-lab. It requires you to write a fair amount of code!
+lab. It requires you to write a fair amount of code.
 
-Environment Setup
------------------
-
-**Start by downloading the code for lab 2 from Canvas.**
-
-We will be using a Linux-based Operating System (OS) for the programming
-assignments.
-
-We will be using the same development environment as the Programming Assignment 1. If you have not already installed them, here’s a list of software dependencies that you will need to install in
-the OS.
-
-.. code-block:: sh
-
-
-   apt-get install -yqq cmake
-   apt-get install -yqq llvm
-   apt-get install -yqq clang-tidy
-   apt-get install -yqq clang
-   apt-get install -yqq clang-format
-   apt-get install -yqq valgrind
-   apt-get install -yqq libgl-dev libglu-dev libglib2.0-dev libsm-dev libxrender-dev libfontconfig1-dev libxext-dev
 
 Getting started
 ---------------
+
+**Start by downloading the zip file provided for this assignment from Canvas.**
 
 Description
 ~~~~~~~~~~~

@@ -5,7 +5,7 @@ Assignment 1: External Sort
 
 **Due: 09/13/2021 11:59 PM EDT**
 
-In the programming assignments for this course, you will be implementing a the components of a toy database management system codenamed BuzzDB. All the labs are written in C++17. We recommend using an IDE for the labs (e.g., `VSCode <https://code.visualstudio.com/>`__ or `CLion <https://www.jetbrains.com/clion/>`__).
+In the programming assignments for this course, you will be implementing a the components of a toy database management system codenamed BuzzDB. All the labs are written in C++17.
 
 In the first assignment, you will implement the `external sort algorithm <https://en.wikipedia.org/wiki/External_sorting>`__. This algorithm allows us to sort a large dataset that does not fit into the main memory of the server.
 
@@ -16,20 +16,9 @@ We have provided you with a set of unimplemented functions. You will need to fil
 Environment Setup
 ----------------
 
-**Start by downloading the code for this assignment from Canvas.**
+**Start by downloading the zip file provided for this assignment from Canvas.**
 
-We will be using a Linux-based Operating System (OS) for the programming assignments. **Make sure you use Ubuntu OS (version 18.04) for running your code.** We will be testing your code on this version of the OS. If you do not have native access to this OS, you should create a virtual machine (VM) instance on `VirtualBox <https://www.virtualbox.org/wiki/Downloads>`__. Follow the instructions given `here <https://buzzdb-docs.readthedocs.io/en/latest/labs/setup.html>`__ to set up the VM and install the following software dependencies:
-
-.. code-block:: sh
-
-  apt-get install -yqq cmake
-  apt-get install -yqq llvm
-  apt-get install -yqq clang-tidy
-  apt-get install -yqq clang
-  apt-get install -yqq clang-format
-  apt-get install -yqq valgrind git-all
-  apt-get install -yqq libgl-dev libglu-dev libglib2.0-dev libsm-dev libxrender-dev libfontconfig1-dev libxext-dev
-
+Setup the development environment `using the instructions given here <https://buzzdb-docs.readthedocs.io/en/latest/labs/setup.html>`__.
 
 Getting started 
 ----------------

@@ -82,8 +82,8 @@ To build the buzzdb lab, run the following commands within the terminal on the U
 	
 	# Build the binaries using the generated Makefiles
 	[ubuntu] $ make
-	[ubuntu] $ pwd 
 
+That's it. You should now be able to work on the assignments.
 
 --------------
 
