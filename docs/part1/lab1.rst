@@ -1,9 +1,9 @@
 Assignment 1: External Sort
 =======================================
 
-**Assigned: 08/30/2021**
+**Assigned: 08/25/2022**
 
-**Due: 09/13/2021 11:59 PM EDT**
+**Due: 09/08/2022 11:59 PM EDT**
 
 In the programming assignments for this course, you will be implementing a the components of a toy database management system codenamed BuzzDB. All the labs are written in `C++ <https://en.cppreference.com/w/>`__.
 
@@ -100,7 +100,7 @@ You should submit your code as a zip file via Gradescope. We have set up an auto
 
   bash submit.sh <last-name-in-lowercase-letters-without-spaces>
 
-> :warning: **WARNING** Do not add additional files to the zip file, use the ``submit.sh`` script.  
+.. warning:: **WARNING** Do not add additional files to the zip file, use the ``submit.sh`` script.  
 
 Grading 
 -------
