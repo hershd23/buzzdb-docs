@@ -34,14 +34,14 @@ Our recommended way of setting up the Ubuntu development environment is to use `
 
 #. First, download and `install Docker <https://docs.docker.com/get-started/#download-and-install-docker>`__. Dowload the appropriate file based on your host OS (Mac/Windows).
 
-#. Next, build the Docker container.
+#. Next, follow the following instructions to verify if the docker container works on your system. 
 
 .. code-block:: sh
 
 	# Unzip the compressed folder
 	[host] $ unzip lab1.zip
 
-        # Enter the lab folder
+	# Enter the lab folder
 	[host] $ cd lab1
 	
 	# Build the docker image using the Dockerfile provided in the folder
@@ -61,7 +61,7 @@ Our recommended way of setting up the Ubuntu development environment is to use `
 	* `C++ Extension Pack <https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack>`__
 	* `Remote Containers <https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers>`__
 
-#. Next, `use the following technique to open the lab1 folder within the Ubuntu container <https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container>`__. We have provided a `devcontainer.json` to assist with this step.
+#. Next, `use the following technique to open the lab1 folder within the Ubuntu container <https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container>`__. We have provided a `devcontainer.json` to assist with this step. The VScode should automatically launch a new container.
 
 Building BuzzDB Labs
 --------------------
