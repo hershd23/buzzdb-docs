@@ -71,15 +71,15 @@ Additionally, your implementation will be checked for memory leaks. You can chec
 
 .. code-block:: sh
 
-  ctest -R external_sort_test_valgrind
+  ctest --verbose -R external_sort_test_valgrind
  
 To run the entire test suite, use:
 
 .. code-block:: sh
 
-  ctest 
+  ctest --verbose
 
-ctest has a flag option to emit verbose output. Please refer to `ctest manual <https://cmake.org/cmake/help/latest/manual/ctest.1.html#ctest-1>`__.
+Remove the `verbose` flag to only get summary information instead of detailed test output that is normally suppressed. Please refer to `ctest manual <https://cmake.org/cmake/help/latest/manual/ctest.1.html#ctest-1>`__.
 
 Logistics 
 ---------
@@ -111,16 +111,12 @@ Grade will be based on whether or not your code passes the autograder test suite
 Detailed Instructions
 ---------------------
 
-1. Debugging
+1. Configure cmake to generate Makefiles in `debug` mode. Use a debugger like GDB.
 
 .. code-block:: sh
 
   cmake -DCMAKE_BUILD_TYPE=Debug .. 
   make
-
-`Debugging Tips <http://www.unknownroad.com/rtfm/gdbtut/gdbsegfault.html>`__
-
-`Information about other tools <https://buzzdb-docs.readthedocs.io/en/latest/labs/tools.html>`__
 
 2. Here are two techniques for reading and writing data -- using traditional pointers and using smart pointers.
 
@@ -148,7 +144,7 @@ Detailed Instructions
 
 .. code-block:: sh
 
-  ctest -V -R external_sort_test_valgrind
+  ctest --verbose -R external_sort_test_valgrind
   
 Here's a `helpful explanation <https://stackoverflow.com/a/44989219>`_ to use ``valgrind`` for debugging memory leaks.
 
