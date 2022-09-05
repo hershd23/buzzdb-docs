@@ -4,7 +4,7 @@ BuzzDB Programming Assignments
 ##############################
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    part1/index
    part2/index
