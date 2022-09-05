@@ -2,7 +2,6 @@ Database System Implementation (Part 1)
 ========================================
 
 .. toctree::
-    :hidden:
 
     setup
     lab1
