@@ -7,9 +7,11 @@ Assignment 4: Operators
 
 In the fourth lab, you will be implementing physical operators using the iterator model. 
 
-##  Getting started
+Getting Started
+----------------
 
-###  Description
+Description
+~~~~~~~~~~~~
 
 In this lab, you will implement physical operators for your database.
 
@@ -33,14 +35,16 @@ Your code needs to support the following operations:
 * **Except**: Computes the difference of two inputs with set semantics.
 * **ExceptAll**: Computes the difference of two inputs with bag semantics.
 
-###  Implementation Details
+Implementation Details
+~~~~~~~~~~~~~~~~~~~~~~
 
 
 Add your implementation to the files `src/include/operators/operators.h` and `src/operators/operators.cc`. There you can find the `Register` class and one class for each operator. All definitions for the methods that you should implement are provided. You can add new member functions and member variables to all classes as needed.
 
 Your implementation should pass all tests starting with `OperatorsTest`. All other tests are optional and not required to pass to get full points for this task. We will of course check your code for correctness. Passing the tests is a requirement but does not automatically mean that you will get full points.
 
-###  Build instructions:
+Build instructions
+~~~~~~~~~~~~~~~~~~~
 
 Enter BuzzDB's directory and run
 
@@ -80,8 +84,9 @@ ctest -V -R operators_test_valgrind
 
 ```
 
+Detailed Instructions
+~~~~~~~~~~~~~~~~~~~~~~
 
-##  Detailed Instructions
 
 You will add your implementation to the `src/operators/operators.cc` and `src/include/operators/operators.h` files. We provide you with the skeleton code for all the operators introduced above (one class for each operator) and a `Register` class. You will need to add the necessary member variables to the class definitions of each operator in the `src/include/operators/operators.h` file. The functionality of each operator is provided in this header file. Please read through the header file carefully before you start your implementation.
 
@@ -158,24 +163,14 @@ std::vector<Register*> Print::get_output() {
 }
 ```
 
-
-##  Logistics
-
-  
+Logistics
+---------
 
 You must submit your code (see below) as well as an one-page writeup (in `REPORT.md`) describing your solution. In the writeup, mention 1) the design decisions you made, and 2) the missing components in your code. We will award partial credits based on this writeup (if you are unable to finish the implementation before the due date or if it fails any test cases).
 
-  
 
-###  Collaboration
-
-  
-
-This is an individual assignment. No collaboration is allowed.
-
-  
-
-###  Submitting your assignment
+Submitting your assignment
+~~~~~~~~~~~~~~~~~~~~~~
 
 You should submit your code on Gradescope. We have set up an autograder that will test your implementation. You are allowed to make multiple submissions and we will use the latest submission to grade your lab.
 
@@ -195,6 +190,7 @@ Do not add additional files to the zip file, use the script above.
 
   
 
-###  Grading
+Grading
+~~~~~~~
 
 95% of your grade will be based on whether or not your code passes the autograder test suite. 5% is for code quality. We will award partial marks for submissions that fail the autograder test suite (based on the writeup).
