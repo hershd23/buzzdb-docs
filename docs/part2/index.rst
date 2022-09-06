@@ -4,21 +4,18 @@ Database System Implementation (Part 2)
 
 .. toctree::
 
-    setup
     lab1
     lab2
     lab3
     lab4
-    cpp
-    tools
 
 In this course, we will continue building **buzzdb** database system. 
 
 Resources:
 
-* `Setup Development Environment <setup.html>`_
-* `Tool Guide <tools.html>`_
-* `C++ Resources <cpp.html>`_
+* `Setup Development Environment <../part1/setup.html>`_
+* `Tool Guide <../part1/tools.html>`_
+* `C++ Resources <../part1/cpp.html>`_
 
 These are the topics that we will cover in this course:
 
