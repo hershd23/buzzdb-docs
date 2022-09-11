@@ -1,9 +1,9 @@
 Assignment 2: Buffer Manager
 ==================================
 
-**Assigned: 09/18/2021**
+**Assigned: 09/11/2022**
 
-**Due: 10/06/2021 11:59 PM EDT**
+**Due: 09/29/2022 11:59 PM EDT**
 
 For the second lab, you will implement the buffer manager that uses the
 2Q replacement strategy. We have provided you with a set of
@@ -134,7 +134,7 @@ Grading
 ~~~~~~~
 
 85% of your grade will be based on whether or not your code passes the
-autograder test suite. 10% will be awarded if your implementation meets
+autograder test suite. Remaining, 15% will be awarded if your implementation meets
 the requirements listed in the implementation section(correctly handling
-the latches). 5% is for code quality. We will award partial marks for
+the latches). We will award partial marks for
 submissions that fail the autograder test suite (based on the writeup).
