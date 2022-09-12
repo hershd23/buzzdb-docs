@@ -66,6 +66,9 @@ reading from or writing to disk as this essentially blocks all other
 threads for the duration of the I/O operation which can be many
 milliseconds.
 
+While solving this assignment, we encourage you to first complete 
+the single-threaded implementation before moving to multi-thread test cases.
+
 Build instructions:
 ~~~~~~~~~~~~~~~~~~~
 
