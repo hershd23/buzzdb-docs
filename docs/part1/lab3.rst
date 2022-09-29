@@ -175,12 +175,16 @@ General Clarifications
    - The separator key in an inner node is equal to the leftmost key in its right child node. So that all keys less than this separator key are in the left child node and all keys >= this  separator key are in the right child node.
 
 2. Set kCapacity
+
 .. code-block:: c++
+
    static constexpr uint32_t kCapacity =
    (PageSize - sizeof(Node)) / (sizeof(KeyT) + sizeof(ValueT));
 
 3. You will need to add some more member variables in Node. Examples (this list is not complete -- you can get creative here):
+
 .. code-block:: c++
+
    /// node id
    uint64_t node_id = INVALID_NODE_ID;
    /// parent's node id
@@ -189,7 +193,9 @@ General Clarifications
    uint16_t level;
 
 4. Instantiate an object from the char buffer
+
 .. code-block:: c++
+
    KeyT split(char *buffer) {
    auto ``*right_inner_node`` = new (buffer) InnerNode();
    ...
@@ -197,7 +203,9 @@ General Clarifications
 5. Ignore the last element in keys for InnerNode (since it has kCapacity-1 keys and kCapacity values).
 
 6. Nodes are connected using node_id. Example:
+
 .. code-block:: c++
+
       node_id = inner->children[result.first];
       buffer_manager.unfix_page(*frame, false);
       frame = &buffer_manager.fix_page(node_id, false);
@@ -206,11 +214,15 @@ General Clarifications
 7. To simplify your implementation, you can allow underflow in nodes (i.e., you need not merge nodes with no keys).
 
 8. Initialize an inner node in this manner:
+
 .. code-block:: c++
+
    inner->children[0] = left_node_id;
    inner->count++;
    Then add an entry in this manner
+   
 .. code-block:: c++
+
    inner->insert(parent_key, parent_node_id)
    inner node can store kCapacity-1 keys and kCapacity pointers
    Do not use the last slot in keys for inner node.
