@@ -161,6 +161,60 @@ above methods.
 -  Capacity - Here, you will implement the logic to compute the capacity
    of a given node.
 
+Additional References
+---------
+
+`Check out this cool visualization of B+ trees <https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html>`
+
+General Clarifications
+---------
+
+1. Each node in the B+tree is a page. The B+tree index can be a large collection of pages on disk (that do not fit in the buffer pool). The B+tree index implementation uses the buffer manager to fetch the relevant pages while searching for a key or inserting/deleting a key.
+   - Values in inner nodes are page_ids (uint64_t) of other inner nodes or leaf nodes.
+   - Values in leaf nodes are of type ValueT.
+   - The separator key in an inner node is equal to the leftmost key in its right child node. So that all keys less than this separator key are in the left child node and all keys >= this  separator key are in the right child node.
+
+2. Set kCapacity
+   .. code-block:: c++
+      static constexpr uint32_t kCapacity =
+      (PageSize - sizeof(Node)) / (sizeof(KeyT) + sizeof(ValueT));
+
+3. You will need to add some more member variables in Node. Examples (this list is not complete -- you can get creative here):
+   .. code-block:: c++
+      /// node id
+      uint64_t node_id = INVALID_NODE_ID;
+      /// parent's node id
+      uint64_t parent_node_id = INVALID_NODE_ID;
+      /// The level in the tree.
+      uint16_t level;
+
+4. Instantiate an object from the char buffer
+   .. code-block:: c++
+      KeyT split(char *buffer) {
+      auto ``*right_inner_node`` = new (buffer) InnerNode();
+      ...
+
+5. Ignore the last element in keys for InnerNode (since it has kCapacity-1 keys and kCapacity values).
+
+6. Nodes are connected using node_id. Example:
+   .. code-block:: c++
+         node_id = inner->children[result.first];
+         buffer_manager.unfix_page(*frame, false);
+         frame = &buffer_manager.fix_page(node_id, false);
+         node = reinterpret_cast<Node *>(frame->get_data());
+
+7. To simplify your implementation, you can allow underflow in nodes (i.e., you need not merge nodes with no keys).
+
+8. Initialize an inner node in this manner:
+   .. code-block:: c++
+      inner->children[0] = left_node_id;
+      inner->count++;
+   Then add an entry in this manner
+   .. code-block:: c++
+      inner->insert(parent_key, parent_node_id)
+   inner node can store kCapacity-1 keys and kCapacity pointers
+   Do not use the last slot in keys for inner node.
+
 Logistics
 ---------
 
@@ -186,4 +240,34 @@ You should submit your code as a zip file via Gradescope. We have set up an auto
 Grading
 ~~~~~~~
 
-95% of your grade will be based on whether or not your code passes the autograder test suite. 5% is for code quality. We will award partial marks for submissions that fail the autograder test suite (based on the writeup).
+100% of your grade will be based on whether or not your code passes the autograder test suite. We will award partial marks for submissions that fail the autograder test suite (based on the writeup).
+
+FAQs
+---------
+1. Can you clarify the terminologies used in this assignment?
+   - Key - Key of an element you want to insert/lookup/erase from the dictionary
+
+   - Value - corresponding value associated with the key
+
+   - Page ID - same as what we had in Assignment 2 (linked to a page in the segment)
+
+   - Node ID - No such concept as node ID. But this can be treated to be same as Page ID because in our implementation, one node is stored per page
+
+2. What are differences between the split methods for inner node and leaf node?
+   - Both the inner and leaf node's split method should create one new node (it should use the memory address input ``*buffer`` to do so). So the node on which the split method is called will shrink and lend some keys and children/value to the newly created node
+   - The assigning of parent pointer can be done inside (since both the old and newly created node would have the same parent), while setting the child pointers in parent can be done outside the method (since the split key is anyway returned from the split method) 
+
+3. Will the node's keys array have duplicate values?
+   Repeated inserts with the same key should be treated as "updates".
+   Ex. if a (K1, V1) already exists in the tree and we call insert(K1, V2), then lookup(K1) should return V2.
+
+4. How to fix/unfix a page?
+   - BufferManager provides a way to access individual nodes (via page ID).
+   - In our implementation, we store one node per page (so you could presumably consider them to be one-to-one mapped). So, whenever you want to access any node of the tree, you would need to ask the buffer manager to fix the page (using PageID) which stores that node. The buffer manager would return you the buffer frame after fixing that page in the pool and you can then use the get_data() method on the frame to get the node.
+   - After you are done using that page, you should unfix the page by calling the appropriate method on the buffer manager.
+   - Inner Nodes have keys as regular keys and values as page IDs of its children inner/leaf nodes. Leaf Nodes have keys as regular keys and values as the actual values stored in the B+Tree.
+
+5. Is it mandatory to use Binary Search?
+   Yes, we recommend using a binary search. But we don't deduct a lot of points in the case you use linear search.
+
+
