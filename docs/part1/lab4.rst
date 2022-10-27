@@ -1,9 +1,9 @@
 Assignment 4: Operators
 =======================  
 
-**Assigned: 11/8/2021**
+**Assigned: 10/27/2022**
 
-**Due: 11/29/2021 11:59 PM EDT**    
+**Due: 11/10/2022 11:59 PM EDT**    
 
 In the fourth lab, you will be implementing physical operators using the iterator model. 
 
@@ -60,7 +60,8 @@ make
 
 ```
 
-###  Test Instructions:
+Test Instructions:
+~~~~~~~~~~~~~~~~~~~
 
 To run the entire test suite, use:
 
@@ -102,66 +103,67 @@ You will implement these functions for all the operators listed above. Where app
 
 To help you understand the semantics of the code, we are providing you with the implementation of the `Print` operator here. Note that the actual implementation for each operator may vary significantly.
 
-```cpp
-//operator.h
+.. code-block:: c++
+    //operator.h
 
-class Print : public UnaryOperator {
- private: // Add your member variables here
-  /// Stream of data
-  std::ostream& stream;
+    class Print : public UnaryOperator {
+     private: // Add your member variables here
+      /// Stream of data
+      std::ostream& stream;
 
- public:
-  Print(Operator& input, std::ostream& stream);
+     public:
+      Print(Operator& input, std::ostream& stream);
 
-  ~Print() override;
+      ~Print() override;
 
-  void open() override;
-  bool next() override;
-  void close() override;
-  std::vector<Register*> get_output() override;
-};
+      void open() override;
+      bool next() override;
+      void close() override;
+      std::vector<Register*> get_output() override;
+    };
 
-// operator.cc
+.. code-block:: c++
+    // operator.cc
 
-Print::Print(Operator& input, std::ostream& stream)
-    : UnaryOperator(input), stream(stream) {}
+    Print::Print(Operator& input, std::ostream& stream)
+        : UnaryOperator(input), stream(stream) {}
 
-Print::~Print() = default;
+    Print::~Print() = default;
 
-void Print::open() { input->open(); }
+    void Print::open() { input->open(); }
 
-bool Print::next() {
-  if (input->next()) {
-    std::vector<Register*> input_tuple = input->get_output();
-    size_t reg_itr = 0;
-    size_t tuple_size = input_tuple.size();
-    for (auto reg : input_tuple) {
-      if (reg->get_type() == Register::Type::INT64) {
-        stream << reg->as_int();
-      } else if (reg->get_type() == Register::Type::CHAR16) {
-        stream << reg->as_string();
+    bool Print::next() {
+      if (input->next()) {
+        std::vector<Register*> input_tuple = input->get_output();
+        size_t reg_itr = 0;
+        size_t tuple_size = input_tuple.size();
+        for (auto reg : input_tuple) {
+          if (reg->get_type() == Register::Type::INT64) {
+            stream << reg->as_int();
+          } else if (reg->get_type() == Register::Type::CHAR16) {
+            stream << reg->as_string();
+          }
+
+          if (reg_itr++ != tuple_size - 1) {
+            stream << ',';
+          }
+        }
+        stream.put('\n');
+        return true;
       }
-
-      if (reg_itr++ != tuple_size - 1) {
-        stream << ',';
-      }
+      return false;
     }
-    stream.put('\n');
-    return true;
-  }
-  return false;
-}
 
-void Print::close() {
-  input->close();
-  stream.clear();
-}
+    void Print::close() {
+      input->close();
+      stream.clear();
+    }
 
-std::vector<Register*> Print::get_output() {
-  // Print has no output
-  return {};
-}
-```
+    std::vector<Register*> Print::get_output() {
+      // Print has no output
+      return {};
+    }
+
 
 Logistics
 ---------
