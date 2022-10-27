@@ -48,28 +48,28 @@ Build instructions
 
 Enter BuzzDB's directory and run
 
-```
+.. code-block:: sh
 
-mkdir build
+  mkdir build
 
-cd build
+  cd build
 
-cmake -DCMAKE_BUILD_TYPE=Release ..
+  cmake -DCMAKE_BUILD_TYPE=Release ..
 
-make
+  make
 
-```
+
 
 Test Instructions:
 ~~~~~~~~~~~~~~~~~~~
 
 To run the entire test suite, use:
 
-```
+.. code-block:: sh
 
-ctest
+  ctest
 
-```
+
 
 ctest has a flag option to emit verbose output. Please refer to [ctest manual](https://cmake.org/cmake/help/latest/manual/ctest.1.html#ctest-1).
 
@@ -79,11 +79,11 @@ We have provided all the test cases for this lab. Gradescope will only test your
 
 Similar to labs 1, 2 and 3, your implementation will be checked for memory leaks. You can check for memory leaks using valgrind.
 
-```
+.. code-block:: sh
 
-ctest -V -R operators_test_valgrind
+  ctest -V -R operators_test_valgrind
 
-```
+
 
 Detailed Instructions
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -180,13 +180,10 @@ You should submit your code on Gradescope. We have set up an autograder that wil
 
   
 
-```
+.. code-block:: sh
 
-bash submit.sh <name>
+  bash submit.sh <name>
 
-```
-
-  
 
 ***Important***
 
