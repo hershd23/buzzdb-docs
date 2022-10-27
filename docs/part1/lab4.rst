@@ -194,4 +194,4 @@ Do not add additional files to the zip file, use the script above.
 Grading
 ~~~~~~~
 
-95% of your grade will be based on whether or not your code passes the autograder test suite. 5% is for code quality. We will award partial marks for submissions that fail the autograder test suite (based on the writeup).
+100% of your grade will be based on whether or not your code passes the autograder test suite. We will award partial marks for submissions that fail the autograder test suite (based on the writeup).
