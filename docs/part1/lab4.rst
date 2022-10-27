@@ -104,25 +104,27 @@ You will implement these functions for all the operators listed above. Where app
 To help you understand the semantics of the code, we are providing you with the implementation of the `Print` operator here. Note that the actual implementation for each operator may vary significantly.
 
 .. code-block:: c++
-    //operator.h
 
-    class Print : public UnaryOperator {
-     private: // Add your member variables here
-      /// Stream of data
-      std::ostream& stream;
+  //operator.h
 
-     public:
-      Print(Operator& input, std::ostream& stream);
+  class Print : public UnaryOperator {
+   private: // Add your member variables here
+    /// Stream of data
+    std::ostream& stream;
 
-      ~Print() override;
+   public:
+    Print(Operator& input, std::ostream& stream);
 
-      void open() override;
-      bool next() override;
-      void close() override;
-      std::vector<Register*> get_output() override;
-    };
+    ~Print() override;
+
+    void open() override;
+    bool next() override;
+    void close() override;
+    std::vector<Register*> get_output() override;
+  };
 
 .. code-block:: c++
+
     // operator.cc
 
     Print::Print(Operator& input, std::ostream& stream)
