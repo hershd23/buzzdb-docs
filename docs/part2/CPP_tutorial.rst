@@ -3,7 +3,7 @@
 =======================================
 
 Vector
-=======================================
+-------------------
 https://en.cppreference.com/w/cpp/container/vector
 
 https://cplusplus.com/reference/vector/vector/
@@ -11,7 +11,7 @@ https://cplusplus.com/reference/vector/vector/
 https://www.geeksforgeeks.org/vector-in-cpp-stl/
 
 Unique Pointers
-=======================================
+-------------------
 
 https://en.cppreference.com/w/cpp/memory/unique_ptr
 
@@ -23,7 +23,7 @@ https://stackoverflow.com/questions/16894400/how-to-declare-stdunique-ptr-and-wh
 
 
 Shared Pointers
-=======================================
+-------------------
 
 https://en.cppreference.com/w/cpp/memory/shared_ptr
 
@@ -33,7 +33,7 @@ https://cplusplus.com/reference/memory/shared_ptr/
 
 
 Mutex
-=======================================
+-------------------
 
 https://en.cppreference.com/w/cpp/thread/mutex
 
@@ -43,7 +43,7 @@ https://stackoverflow.com/questions/4989451/mutex-example-tutorial
 
 
 Heaps
-=======================================
+-------------------
 
 https://www.geeksforgeeks.org/heap-using-stl-c/
 
@@ -53,7 +53,7 @@ https://cplusplus.com/reference/algorithm/make_heap/
 
 
 Classes and Structs
-=======================================
+-------------------
 https://www.w3schools.com/cpp/cpp_classes.asp
 
 https://www.geeksforgeeks.org/c-classes-and-objects/
@@ -70,7 +70,7 @@ https://stackoverflow.com/questions/8550711/struct-in-class
 
 
 Additional References and Videos
-=======================================
+-------------------
 
 1. https://www.learncpp.com/ 
 2. https://youtu.be/vLnPwxZdW4Y (starting around the 2 hour 59 minute)
