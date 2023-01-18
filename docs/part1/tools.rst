@@ -31,13 +31,22 @@ GDB
 
 .. code-block:: bash
 
-    # Example use
-
+    # To set up GDB: (Run this from the build folder) 
     $ cmake -DCMAKE_BUILD_TYPE=Debug ..
-    
     $ make
+    $ gdb ./test/buffer_manager_test 
     
-    $ gdb ./test/<executable>
+    # Example uses 
+    
+    # If you want ot test a specific test case: 
+    $ (gdb) run --gtest_filter=BufferManagerTest.InsertTest
+    
+    # If you want to see the value of the variable, you can use the following command.
+    $ (gdb) print buffer_pool_manager_
+    
+    # If you want to see the backtrace of the crash, you can use the following command.
+    $ (gdb) bt
+    
      
 `GDB <https://www.gnu.org/software/gdb/>`_ is a widely used debugger. Here are some useful GDB commands for this course.
 
@@ -61,7 +70,7 @@ info threads
 info sources
     Lists source files mentioned in the loaded symbols
     
-See the `GDB manual <http://sourceware.org/gdb/current/onlinedocs/gdb/>`__ for a detailed guide.     
+See the `GDB manual <https://www.sourceware.org/gdb/documentation/>`__ for a detailed guide.     
 
 Valgrind
 ~~~~~~~~
