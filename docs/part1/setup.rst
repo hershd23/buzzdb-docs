@@ -32,7 +32,7 @@ Our recommended way of setting up the Ubuntu development environment is to use `
 - Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called container. In our case, the software is Ubuntu OS. We are going to run Ubuntu OS in a container on your host OS (Mac/Windows).
 - Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux.
 
-#. First, download and `install Docker <https://docs.docker.com/get-started/#download-and-install-docker>`__. Dowload the appropriate file based on your host OS (Mac/Windows).
+#. First, download and `install Docker <https://docs.docker.com/get-started/#download-and-install-docker>`__. Dowload the appropriate file based on your host OS (Mac/Windows). Make sure Docker is running. 
 
 #. Next, follow the following instructions to verify if the docker container works on your system. 
 
