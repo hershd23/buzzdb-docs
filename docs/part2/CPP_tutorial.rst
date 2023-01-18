@@ -68,6 +68,17 @@ https://www.javatpoint.com/cpp-structs
 
 https://stackoverflow.com/questions/8550711/struct-in-class
 
+File I/O
+-------------------
+
+https://www.learncpp.com/cpp-tutorial/186-basic-file-io/
+
+
+Bit Manipulation
+-------------------
+
+https://www.learncpp.com/cpp-tutorial/bit-manipulation-with-bitwise-operators-and-bit-masks
+
 
 Additional References and Videos
 -------------------
@@ -75,3 +86,12 @@ Additional References and Videos
 1. https://www.learncpp.com/ 
 2. https://youtu.be/vLnPwxZdW4Y (starting around the 2 hour 59 minute)
 3. https://youtu.be/eZ8yKZo-PGw (mutex)
+
+
+
+
+More generic references
+-------------------
+
+* `Debugging: <http://www.unknownroad.com/rtfm/gdbtut/gdbsegfault.html>`_
+* `Coding style guide: <https://google.github.io/styleguide/cppguide.html>`_
