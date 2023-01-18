@@ -8,6 +8,7 @@ BuzzDB Programming Assignments
 
    part1/index
    part2/index
+   resources/index
 
 
 Credits
