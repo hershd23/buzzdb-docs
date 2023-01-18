@@ -211,7 +211,7 @@ Submitting Your Assignment
 
    bash submit.sh <name>
 
-You will be submitting your assignment on Gradescope. You are expected to run :file:`submit.sh` and submit the generated zip to the autograder.
+You will be submitting your assignment on Gradescope. You are expected to run :file:`submit.sh` and submit the generated zip to the autograder. The autograder tests on a larger file as well. This larger file is not shared to encourage learning. 
 
 You can use :file:`REPORT.md` to describe the following design and program criteria (**optional**). In case you don't complete all the testcases, we will award you partial points based on the report.
 
