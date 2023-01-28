@@ -190,6 +190,19 @@ Instructions for execution
 
 We treat compiler warnings as errors. Your project will fail to build if there are any compiler warnings.
 
+Testing Instructions
+~~~~~~~~~~~~~~~~~~~~
+To run the test suite in verbose mode use
+
+.. code-block:: sh
+
+  ctest --verbose
+
+Remove the `verbose` flag to only get summary information instead of detailed test output that is normally suppressed. Please refer to `ctest manual <https://cmake.org/cmake/help/latest/manual/ctest.1.html#ctest-1>`__.
+
+  
+
+
 
 General Instructions
 ----------------------
@@ -217,9 +230,9 @@ You can use :file:`REPORT.md` to describe the following design and program crite
 
 1. Explain your choice of the data structure that you implemented. Did you consider any other data structures besides the one that you implemented? How did you arrive at your final choice of the data structure?
 
-2. What is the best, average, and worst case complexity of your implementation of the locate command in terms of the number of words in the file that you are querying? (you need to provide all three - best, average, and worst-case analysis). For the complexity, we are only interested in the big-O analysis.
+2. What is the complexity of your implementation of the locate command in terms of the number of words in the file that you are querying? For the complexity, we are only interested in the big-O analysis.
 
-3. What is the average case space complexity of your data structure in terms of the number of words in the input file? In other words, using the big-O notation what is the expected average size of your data structure in terms of the number of words.
+3. What is the space complexity of your data structure in terms of the number of words in the input file? In other words, using the big-O notation what is the expected average size of your data structure in terms of the number of words.
 
 
 Grading
