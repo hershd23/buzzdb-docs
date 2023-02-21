@@ -62,7 +62,18 @@ API Requirements and Hints:
    */
    void unfix_page(uint64_t txn_id, BufferFrame& page, bool is_dirty);
 
-You might find it helpful to define lock manager class to maintain state about transactions and locks.
+**NOTE: It is not mandatory for your Lock Manager implementation to follow the same outline as given below. This is given just for your reference and to guide your design process.**
+
+Hints for implementing the logic for managing the locks
+
+* Create a separate class for managing the locks. Let it have the functions for
+	* Acquiring locks
+	* Releasing locks
+	* checking for deadlocks (need to check if acquiring a lock might cause a deadlock. If yes, abort the transaction.
+	* ending a transaction (need to do the cleanup works)
+* Create a separate class for managing the locks on a Frame. It should keep track of transactions holding a lock on the frame and transactions waiting for a lock on the frame.
+* Ensure atomicity on the operations on the Lock Manager
+* Some resources that might be useful: `unique_lock <https://en.cppreference.com/w/cpp/thread/unique_lock>` and `condtional_variable<https://en.cppreference.com/w/cpp/thread/condition_variable>`
 After this you should be able to pass all the BufferManagerTest test cases.
 
 Transactions
@@ -172,4 +183,4 @@ You can use :file:`REPORT.md` to describe the following design and program crite
 Grading
 ---------
 
-This assignment is worth 10% of your grade. The maximum score on this assignment is 90.
+This assignment is worth 10% of your grade. The maximum score on this assignment is 100.
