@@ -73,7 +73,7 @@ Hints for implementing the logic for managing the locks
 	* ending a transaction (need to do the cleanup works)
 * Create a separate class for managing the locks on a Frame. It should keep track of transactions holding a lock on the frame and transactions waiting for a lock on the frame.
 * Ensure atomicity on the operations on the Lock Manager
-* Some resources that might be useful: `unique_lock <https://en.cppreference.com/w/cpp/thread/unique_lock>` and `condtional_variable<https://en.cppreference.com/w/cpp/thread/condition_variable>`
+* Some resources that might be useful: `unique_lock <https://en.cppreference.com/w/cpp/thread/unique_lock>`__ and  `conditional_variable https://en.cppreference.com/w/cpp/thread/condition_variable`__ .
 After this you should be able to pass all the BufferManagerTest test cases.
 
 Transactions
