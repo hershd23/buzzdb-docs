@@ -7,7 +7,7 @@
 Assignment 3: Concurrency Control
 ===================================
 
-**Due: 3/31/2022 11:59 PM EST**
+**Due: 3/18/2022 11:59 PM EST**
 
 Project Description
 -------------------
@@ -22,6 +22,7 @@ Program Specification
 We have provided you with ``BufferManager`` stub that contains APIs that you need to implement.
 You should not modify the signature of the pre-defined functions. You should also not modify any predefined member variables.
 You are however allowed to add new helper private functions/member variables in order to correctly realize the functionality.
+You have to work on the buffer_manager.cc and buffer_manager.h files.
 
 Granting Locks
 ~~~~~~~~~~~~~~~~
