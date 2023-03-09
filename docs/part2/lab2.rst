@@ -191,19 +191,7 @@ Prerequisites
 
 You need to follow the instructions mentioned in the `setup <setup.html>`__ document. 
 
-Download the handout shared via Canvas. You need to copy the handout to the VM (skip this if you are not using VM).
-
-.. code-block:: bash
-
-   # Copy the handout to the VM
-   [host] $ vagrant scp [path_to_handout] default:buzzdb-logging-recovery.zip
-   [host] $ cd buzzdb
-   # Get into VM 
-   [host] $ vagrant ssh
-   # unzip the handout 
-   [vm] $ unzip buzzdb-logging-recovery.zip
-
-
+Download the handout shared via Canvas.
  
 Instructions for execution
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
