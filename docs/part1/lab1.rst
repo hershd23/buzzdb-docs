@@ -1,79 +1,198 @@
-Assignment 1: External Sort
-=======================================
+.. role:: bash(code)
+   :language: bash
 
-**Assigned: 08/25/2022**
+.. include:: ../.colors.rst
 
-**Due: 09/08/2022 11:59 PM EDT**
 
-In the programming assignments for this course, you will be implementing a the components of a toy database management system codenamed BuzzDB. All the labs are written in `C++ <https://en.cppreference.com/w/>`__.
+Assignment 1: C++ Tutorial
+==========================
 
-In the first assignment, you will implement the `external sort algorithm <https://en.wikipedia.org/wiki/External_sorting>`__. This algorithm allows us to sort a large dataset that does not fit into the main memory of the server.
+**Due: 02/01/2023 11:59 PM EST**
 
-We have provided you with a set of unimplemented functions. You will need to fill in these functions. We will grade your code by running a set of system tests written using `Google Test <https://github.com/google/googletest>`__. We have provided a set of unit tests that you may find useful in verifying that your code works.
+Project Description
+-------------------
+The goal of this assignment is to help you brush up your C++ programming skills, and exercise your skills in Data Structure and Algorithm Design. In this assignment, you are to develop a ``word locator`` program written in C++, which will allow a user to check if a specified (re)occurrence of a specified query word appears in the input text file.
 
-.. warning::
-  We **strongly recommend** that you start as early as possible on this lab as it involves a fair amount of programming and you will also need to learn about C++.
 
-Environment Setup
-----------------
+Program Specification
+-----------------------
+For this programming assignment, you are provided with a skeleton code which you are expected to complete and submit. You are expected to fill the :command:`execute` function of :command:`CommandExecutor` class, present in these files: :file:`buzzdb/src/tutorial/tutorial.cc` and :file:`buzzdb/src/include/tutorial/tutorial.h`. You are free to add your own helper functions and classes to complete the assignment. Please don’t change the signature of the constructor and execute function. The execute function is expected to accept one of the following commands:
 
-**Start by downloading the zip file provided for this assignment from Canvas.**
+1. ``"load <filename>"``: This command loads the specified file. The file may be specified by either an absolute or a relative pathname. Running this command should result in your program parsing and storing the words in this file in a data structure that can be queried using the locate command (described below). A word is defined as a sequence of upper and lower case letters in the English alphabet (i.e. characters ’a’ to ’z’, and ’A’ to ’Z’), numbers, and the apostrophe. All other characters are considered as white space and will therefore be treated as terminating a word. Two successive load commands should be treated as if there is an intermediate ``"new"`` command (see below) in between the two commands.
 
-Setup the development environment `using the instructions given here <https://buzzdb-docs.readthedocs.io/part1/setup.html>`__.
+2. ``"locate <word> <n>"``: This command outputs the number of the word, counting from the beginning of the file, of the n :superscript:`th` occurrence of the word. Word numbering starts from 1, so the first word in the load file has a word number of 1. `The locate command is case insensitive`, i.e. to match the word in the locate command with a word in the load file you should use a case-insensitive string comparison method. If there are no matches for the locate command, print ``No matching entry``.
 
-Getting started 
-----------------
+   The syntax of the locate command is ``"locate <word> <n>"``. The ``<word>`` parameter will have a whitespace before and after it, and ``<n>`` should be an integer greater than 0.
 
-Description
-~~~~~~~~~~~
+   As an example, the following are legal commands: ``"locate sing 3"`` and ``"locate  sing  3"`` Both locate the 3rd occurrence of ``sing``, but the second command has a few additional blank spaces around the parameter ``sing``.
 
-In this lab, you need to implement the external sort algorithm. Specifically, you will be provided with a memory constraint that your sorting program should not exceed. You will need to divide the input into K individual runs each smaller than the given memory constraint, and then sort the run in memory. You should then implement a K-way merge algorithm to merge the K sorted runs that each fit in memory. 
+   The following commands are not legal: ``"locate sing3"``, ``"locate sing 3q"``. The first command does not specify a parameter `<n>`, and in the second command the parameter `<n>` is not an integer. Please note that the command ``"locate sing23 4"`` is a legal command for locating the fourth occurrence of the word ``sing23``.
 
-Implementation Details
-~~~~~~~~~~~~~~~~~~~~~~
+3. ``"new"``: This command resets the word list to the original (empty) state.
 
-We provide you with the skeleton code required to implement the algorithm. You only need to fill in the ``external_sort()`` function in ``src/external_sort/external_sort.cc`` file. You are allowed to add helper functions in this file. Do not change the signature of the ``external_sort()`` function. It should take an input file that contains unsigned 64 bit integers, the number of values in the input file, an output file, and a memory constraint value (in bytes). The output file should contain values from the input file in ascending order. Your implementation must not use more bytes of heap memory than the number specified as the memory constraint. 
+4. ``"end"``: This command terminates the program.
 
-You should use the ``File`` API provided in ``src/include/storage/file.h`` to handle disk I/O, and to create temporary files for individual runs. You should skim through ``src/include/storage/file.h`` to understand the file API. **You are required to create a new temporary file for each individual run.** 
+Your program should respond to incorrect commands in the following ways: 
+* If a bad command is entered, print the precise string ``ERROR: Invalid command``, and go to the next prompt. Examples of bad commands are: ``"find word 7"`` and ``"locate song"``. Other examples of bad command include the locate command having a word that is not legal as per the definition above. For example ``ra#s`` and ``rats!`` are invalid word parameters.
+* Note that if an incorrect load command is entered, such as ``"load"`` (no filename) then your data structure should not be reset. In other words, if you have a previously loaded file, subsequent locate commands should still query that previously loaded file. Similarly if the load command specifies an invalid file name, then you should not reset the data structure. In both cases of the invalid load command outlined above, please print the standard error message ``ERROR: Invalid command``.
+* If there is extraneous content in the command, such as ``"locate word 5 17"`` or ``"new 12"``, print out the standard error message: ``ERROR: Invalid command``
+* All the command keywords are case insensitive, so ``"LoCATe sing 2"`` is a valid command, and should be treated as ``"locate sing 2"``. 
 
-You are allowed to use the C++ Standard libary (std) functions for the individual runs, and for the K-way merge.  For the K-way-merge, the ``std::priority_queue`` data structure or these heap functions ``std::make_heap()``, ``std::push_heap()``, and ``std::pop_heap()`` will come in handy. 
 
-Build instructions
-~~~~~~~~~~~~~~~~~~~
 
-Enter BuzzDB's directory and run
 
-.. code-block:: sh
+Example
+---------------
 
-  mkdir build
-  cd build
-  cmake -DCMAKE_BUILD_TYPE=Release ..
-  make
+Given the following sample text file, sample.txt:
 
-Test Instructions
-~~~~~~~~~~~~~~~~~~
+.. topic::  sample.txt
 
-You can test your implementation by using the executable ``tool/external_sort_tool``. The tool allows you to create input file with specified number of integers, and generate the output file using the external sort algorithm (see `external_sort_tool --help` for more information).
+   Sing a song of sixpence,
 
-.. code-block:: sh
+   A pocket full of rye;
+   
+   Four and twenty blackbirds
+   
+   Baked in a pie.
+   
+   When the pie was opened,
+   
+   They all began to sing.
+   
+   Now, wasn't that a dainty dish
+   
+   To set before the King?
 
-  ./tool/external_sort_tool --help
+   The King was in his countinghouse,
+   
+   Counting out his money;
+   
+   The Queen was in the parlor
+   
+   Eating bread and honey.
+   
+   The maid was in the garden,
+   
+   Hanging out the clothes.
+   
+   Along there came a big black bird[[
+   
+   And snipped off her nose!
 
-You should also check your implementation against the unit tests provided in `test/unit/external_sort/external_sort_test.cc`. To run them, compile the project and then execute the ``test/external_sort_test`` binary.
 
-.. code-block:: sh
+The following is a sample run:
 
-  ./test/external_sort_test
+.. topic::  Sample Run
+
+   > load data/sample.txt 
+
+   > locate song 1
+   
+   3
+   
+   > locate Song 1
+   
+   3
+   
+   > locate SoNg 1
+   
+   3
+   
+   > locate pie 1
+   
+   18
+   
+   > locate pie 2
+   
+   21
+   
+   > locate pie 3
+   
+   No matching entry 
+   
+   > locate prince
+   
+   ERROR: Invalid command 
+   
+   > locate prince 1
+   
+   No matching entry
+   
+   > new
+   
+   > locate song 1
+   
+   No matching entry
+   
+   > end
+
+
+Design Task
+---------------
+Your main design task is to pick a **tree-based** data structure (`so do not use a hash-based index structure!`) that allows `efficient` execution of the locate command. You may have several design choices, and I want you to pick the most efficient data structure that you can think of.
+
+For this assignment, I am not concerned with the efficiency of the load command. However, you do have a restriction on the amount of space that you can use for running your program. The memory footprint of your program, which includes the memory used by your code and the data structure that you build, should not exceed four times the size of the input load file, when measured in bytes. Don't worry about exceeding this limit on very small files. For example, it is okay if your program exceeds this limit when loading the small sample load file sample.txt, but on the large file wrnpc.txt it should meet this requirement. You can use the command ``ps -l`` to check the program size. If you are not familiar with ``ps``, please read the `man` page.
+
+
+Code Description
+-----------------
+The skeleton code provided to you has the following directory structure:
+
+1. :file:`src/tutorial/tutorial.cc` and :file:`src/include/tutorial/tutorial.h`: Your code goes here. Please don’t change signature of the constructor and existing functions.
+
+2. :file:`test/unit/tutorial/tutorial_test.cc`: Unit test for testing the implementation. (You can add more testcase)
+
+3. :file:`test/unit/data/*`: Sample text files to test your implementation. (You can add new .txt files to test your implementation)
+
+4. :file:`submit.sh`: script to generate zip file which you need to upload to Gradescope
+
+5. :file:`REPORT.md`: Add design related information. See :ref:`submit <submit>` instruction for more information.
+
+6. :file:`CMakeLists.txt`: CMake file for building the project (You need not modify this file)
+
+7. :file:`script/*, third_party/*, .clang-format, .clang-tidy` : supporting build scripts (You need not modify this file)
+
+
+
+Prerequisites
+~~~~~~~~~~~~~~
+
+You need to follow the instructions mentioned in the `setup <setup.html>`__ document. 
+
+Download the handout shared via Canvas. We need to copy the handout to the VM (skip this if you are not using VM).
+
+.. code-block:: bash
+
+   # Copy the handout to the VM
+   [host] $ vagrant scp [path_to_handout] default:buzzdb-cpp_tutorial.zip
+   [host] $ cd buzzdb
+   # Get into VM 
+   [host] $ vagrant ssh
+   # unzip the handout 
+   [vm] $ unzip buzzdb-cpp_tutorial.zip
+
+
  
-Passing all the test cases is a requirement but does not automatically mean that you will get full points. We will test your implementation with more test cases.
+Instructions for execution
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. highlight:: bash
+   
 
-Additionally, your implementation will be checked for memory leaks. You can check for memory leaks using valgrind.
+.. code-block:: bash
+   
+   [vm] $ cd buzzdb-cpp_tutorial 
+   [vm] $ mkdir build 
+   [vm] $ cd build
+   [vm] $ cmake -DCMAKE_BUILD_TYPE=Release ..
+   [vm] $ make
+   [vm] $ ctest
 
-.. code-block:: sh
+We treat compiler warnings as errors. Your project will fail to build if there are any compiler warnings.
 
-  ctest --verbose -R external_sort_test_valgrind
- 
-To run the entire test suite, use:
+Testing Instructions
+~~~~~~~~~~~~~~~~~~~~
+To run the test suite in verbose mode use
 
 .. code-block:: sh
 
@@ -81,91 +200,42 @@ To run the entire test suite, use:
 
 Remove the `verbose` flag to only get summary information instead of detailed test output that is normally suppressed. Please refer to `ctest manual <https://cmake.org/cmake/help/latest/manual/ctest.1.html#ctest-1>`__.
 
-Logistics 
+  
+
+
+
+General Instructions
+----------------------
+
+Your program must be written only in C++. Your coding style should have well-defined classes and clean interfaces. The code should be well-documented. Each file should start with a header describing the purpose of the file and should also contain your name, GT UserID, and GT email address.
+
+Testing for correctness involves more than just seeing if a few test cases produce the correct output. There are certain types of errors (memory errors and memory leaks) that usually surface after the system has been running for a longer period of time. 
+You should use `valgrind` to isolate such errors. Command to run `valgrind` can be found `here <tools.html#valgrind>`__.
+
+You will get a listing of memory errors in your program. If you have programmed in Java you should keep in mind that C++ does not have automatic garbage collection, so each new must ultimately be matched by a corresponding delete. Otherwise all the memory in the system might be used up. Valgrind can be used to detect such memory leaks as well. More information about valgrind can be found at: http://www.valgrind.org/docs/manual/index.html.
+
+
+.. _submit:
+
+Submitting Your Assignment
+---------------------------
+
+.. code-block:: bash
+
+   bash submit.sh <name>
+
+You will be submitting your assignment on Gradescope. You are expected to run :file:`submit.sh` and submit the generated zip to the autograder. The autograder tests on a larger file as well. This larger file is not shared to encourage learning. 
+
+You can use :file:`REPORT.md` to describe the following design and program criteria (**optional**). In case you don't complete all the testcases, we will award you partial points based on the report.
+
+1. Explain your choice of the data structure that you implemented. Did you consider any other data structures besides the one that you implemented? How did you arrive at your final choice of the data structure?
+
+2. What is the complexity of your implementation of the locate command in terms of the number of words in the file that you are querying? For the complexity, we are only interested in the big-O analysis.
+
+3. What is the space complexity of your data structure in terms of the number of words in the input file? In other words, using the big-O notation what is the expected average size of your data structure in terms of the number of words.
+
+
+Grading
 ---------
 
-You must submit your code (see below) as well as an one-page writeup (in a file named `REPORT.md`) describing your solution. In the writeup, mention: (1) the design decisions you made, and (2) the missing components in your code. We will award partial credits based on this writeup (if you are unable to finish the implementation before the due date and/or if it fails any test cases).
-
-Collaboration 
-~~~~~~~~~~~~~
-
-This is an individual assignment. No collaboration is allowed.
-
-Submitting your assignment 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-You should submit your code as a zip file via Gradescope. We have set up an autograder that will test your implementation. You are allowed to make multiple submissions and we will use the latest submission to grade your lab.
-
-.. code-block:: sh
-
-  bash submit.sh <last-name-in-lowercase-letters-without-spaces>
-
-.. warning:: **WARNING** Do not add additional files to the zip file, use the ``submit.sh`` script.  
-
-Grading 
--------
-
-Grade will be based on whether or not your code passes the autograder test suite. These tests will be a superset of the tests we have provided. We will award partial marks for submissions that fail the autograder test suite (based on the writeup).
-
-
-Detailed Instructions
----------------------
-
-1. Configure cmake to generate Makefiles in `debug` mode. Use a debugger like GDB.
-
-.. code-block:: sh
-
-  cmake -DCMAKE_BUILD_TYPE=Debug .. 
-  make
-
-2. Here are two techniques for reading and writing data -- using traditional pointers and using smart pointers.
-
-.. code-block:: c++
-
-    std::unique_ptr<File> chunk_file;
-    chunk_file = std::move(File::make_temporary_file());
-    size_t num_bytes = num_values * sizeof(uint64_t);
-    
-    // unique_ptr -- smart pointer for automatically releasing memory 
-    auto chunk = std::make_unique<uint64_t[]>(num_values);    
-    input.read_block(0, num_bytes, reinterpret_cast<char *>(chunk.get()));
-    chunk_file->write_block( reinterpret_cast<char *>(chunk.get()), 0, num_bytes);
-    
-    // traditional pointer -- creating chunk in heap memory
-    uint64_t *chunk2 = new uint64_t[num_values];
-    input.read_block(0, num_bytes, (char *)(chunk2));    
-    chunk_file->write_block((char *)chunk2, 0, num_bytes);    
-    // Manually deleting chunk to avoid memory leak
-    delete[] chunk2;
-
-3. Run ``cmake`` from the ``build`` sub-directory that you created. ``..`` refers to the parent directory (i.e., the lab1-handout folder) containing the ``CMakeFile``.
-
-4. To run ``valgrind`` during development to avoid memory leaks, use these commands:
-
-.. code-block:: sh
-
-  ctest --verbose -R external_sort_test_valgrind
-  
-Here's a `helpful explanation <https://stackoverflow.com/a/44989219>`_ to use ``valgrind`` for debugging memory leaks.
-
-5. Do not forget to resize the temporary file as needed.
-
-.. code-block:: c++
-  
-  temp_file->resize(input.size());
-
-6. Another code snippet for parsing the read data:
-
-.. code-block:: c++
-
-  struct element {
-    uint64_t value;
-    size_t chunk_id = -1;
-  };
-
-  uint64_t value_buffer;
-
-  chunk_file_registry[e.chunk_id]->read_block(read_offset, sizeof(uint64_t), reinterpret_cast<char *>(&value_buffer));
-
-  struct element e1 = {.value = value_buffer, .chunk_id = e.chunk_id}
-
+The maximum score on this assignment is 100. If you get 100 on the autograder that is your score. If you get score less than 100 we will award partial points based on the report.
