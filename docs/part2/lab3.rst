@@ -80,7 +80,7 @@ Transactions
 ~~~~~~~~~~~~~~~~
 In BuzzDB, each query has a txn_id. When a query is completed, the corresponding transaction calls 
 the *transaction_complete()* function. Calling this function ensures that all the dirty pages held by 
-this transaction are flushed to the disk, and all the corresponfing locks are released. 
+this transaction are flushed to the disk, and all the corresponding locks are released. 
 Similarly,  transaction_abort function is called if we need to abort the transaction. It discards all the changes
 made by the transaction and also releases all the locks.
 
