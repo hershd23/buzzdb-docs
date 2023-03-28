@@ -238,4 +238,4 @@ You can use :file:`REPORT.md` to describe the following design and program crite
 Grading
 ---------
 
-This assignment is worth 10% of your grade. The maximum score on this assignment is 140.
+The maximum score on this assignment is 140. If you get 140 on the autograder that is your score. If you get score less than 140 we will award partial points based on the report.
