@@ -40,8 +40,6 @@ Your program should respond to incorrect commands in the following ways:
 * If there is extraneous content in the command, such as ``"locate word 5 17"`` or ``"new 12"``, print out the standard error message: ``ERROR: Invalid command``
 * All the command keywords are case insensitive, so ``"LoCATe sing 2"`` is a valid command, and should be treated as ``"locate sing 2"``. 
 
-5. Make sure to copy the data files to test/unit/data/
-
 
 
 Example
@@ -167,6 +165,9 @@ Download the handout shared via Canvas. The handout contains the skeleton code a
  
 Instructions for execution
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Create a folder called data in test/unit/ and add the test files to it.
+
 .. highlight:: bash
    
 
