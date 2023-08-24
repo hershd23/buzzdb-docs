@@ -13,7 +13,7 @@ Project Description
 -------------------
 The goal of this assignment is to help you brush up your C++ programming skills, and exercise your skills in Data Structure and Algorithm Design. In this assignment, you are to develop a ``word locator`` program written in C++, which will allow a user to check if a specified (re)occurrence of a specified query word appears in the input text file.
 
-CS4420 students can use the Map data structure from Stl. CS6422 students are required to use a Tree-based data structure. The code submissions will be checked after submission to ensure that this is followed. 
+CS4420 students can use the unordered map data structure from Stl. CS6422 students are required to use a Tree-based data structure. The code submissions will be checked after submission to ensure that this is followed. 
 
 
 Program Specification
@@ -40,6 +40,7 @@ Your program should respond to incorrect commands in the following ways:
 * If there is extraneous content in the command, such as ``"locate word 5 17"`` or ``"new 12"``, print out the standard error message: ``ERROR: Invalid command``
 * All the command keywords are case insensitive, so ``"LoCATe sing 2"`` is a valid command, and should be treated as ``"locate sing 2"``. 
 
+5. Make sure to copy the data files to test/unit/data/
 
 
 
