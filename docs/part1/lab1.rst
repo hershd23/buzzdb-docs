@@ -166,7 +166,7 @@ Download the handout shared via Canvas. The handout contains the skeleton code a
 Instructions for execution
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Create a folder called data in test/unit/ and add the test files to it.
+Create a folder called data in test/unit/ and add the test files to it. The file in the example can be used with the name sample.txt. The large data file wrnpc.txt is hidden and is evaluated only when submitted to the Gradescope. So please ignore if that test fails in the local system.
 
 .. highlight:: bash
    
