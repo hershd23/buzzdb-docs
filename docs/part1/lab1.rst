@@ -13,6 +13,8 @@ Project Description
 -------------------
 The goal of this assignment is to help you brush up your C++ programming skills, and exercise your skills in Data Structure and Algorithm Design. In this assignment, you are to develop a ``word locator`` program written in C++, which will allow a user to check if a specified (re)occurrence of a specified query word appears in the input text file.
 
+CS4420 students can use the Map data structure from Stl. CS6422 students are required to use a Tree-based data structure. The code submissions will be checked after submission to ensure that this is followed. 
+
 
 Program Specification
 -----------------------
