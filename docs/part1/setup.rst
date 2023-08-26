@@ -72,6 +72,9 @@ To build the buzzdb lab, run the following commands within the terminal on the U
 
         # Enter the lab folder
 	[ubuntu] $ cd lab1
+
+	# Create the data directory.
+	[ubuntu] $ mkdir test/unit/data
 	
 	# Make a build directory
 	[ubuntu] $ mkdir build
