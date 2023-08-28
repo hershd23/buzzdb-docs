@@ -131,7 +131,7 @@ The following is a sample run:
 
 Design Task
 ---------------
-Your main design task is to pick a **tree-based** data structure (`so do not use a hash-based index structure!`) that allows `efficient` execution of the locate command. You may have several design choices, and I want you to pick the most efficient data structure that you can think of.
+Your main design task is to pick a **tree-based** data structure (6422 students `do not use a hash-based index structure!`. 4420 students can.) that allows `efficient` execution of the locate command. You may have several design choices, and I want you to pick the most efficient data structure that you can think of.
 
 For this assignment, I am not concerned with the efficiency of the load command. However, you do have a restriction on the amount of space that you can use for running your program. The memory footprint of your program, which includes the memory used by your code and the data structure that you build, should not exceed four times the size of the input load file, when measured in bytes. Don't worry about exceeding this limit on very small files. For example, it is okay if your program exceeds this limit when loading the small sample load file sample.txt, but on the large file wrnpc.txt it should meet this requirement. You can use the command ``ps -l`` to check the program size. If you are not familiar with ``ps``, please read the `man` page.
 
