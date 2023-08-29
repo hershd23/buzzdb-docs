@@ -202,8 +202,7 @@ General Instructions
 Your program must be written only in C++. Your coding style should have well-defined classes and clean interfaces. The code should be well-documented. Each file should start with a header describing the purpose of the file and should also contain your name, GT UserID, and GT email address.
 
 Testing for correctness involves more than just seeing if a few test cases produce the correct output. There are certain types of errors (memory errors and memory leaks) that usually surface after the system has been running for a longer period of time. 
-You should use `valgrind` to isolate such errors. Command to run `valgrind` can be found `here <../resources/tools.html#valgrind>`__.
-
+You should use `valgrind` to isolate such errors. Command to run `valgrind` can be found here: https://buzzdb-docs.readthedocs.io/resources/tools.html#valgrind
 You will get a listing of memory errors in your program. If you have programmed in Java you should keep in mind that C++ does not have automatic garbage collection, so each new must ultimately be matched by a corresponding delete. Otherwise all the memory in the system might be used up. Valgrind can be used to detect such memory leaks as well. More information about valgrind can be found at: http://www.valgrind.org/docs/manual/index.html.
 
 
