@@ -13,7 +13,12 @@ Project Description
 -------------------
 The goal of this assignment is to help you brush up your C++ programming skills, and exercise your skills in Data Structure and Algorithm Design. In this assignment, you are to develop a ``word locator`` program written in C++, which will allow a user to check if a specified (re)occurrence of a specified query word appears in the input text file.
 
-CS4420 students can use the unordered map data structure from Stl. CS6422 students are required to use a Tree-based data structure. The code submissions will be checked after submission to ensure that this is followed. 
+CS4420 students can use the unordered map data structure from Stl. CS6422 students are required to use a Tree-based data structure. The code submissions will be checked after submission to ensure that this is followed.
+
+Environment Setup
+----------------
+
+**NOTE** : Before jumping into the assignment, make sure to setup the development environment `following the instructions given here <https://buzzdb-docs.readthedocs.io/part1/setup.html>`__.
 
 
 Program Specification
@@ -154,17 +159,12 @@ The skeleton code provided to you has the following directory structure:
 
 7. :file:`script/*, third_party/*, .clang-format, .clang-tidy` : supporting build scripts (You need not modify this file)
 
-
-
-Prerequisites
-~~~~~~~~~~~~~~
-
-You need to follow the instructions mentioned in the `setup <setup.html>`__ document. 
-
-Download the handout shared via Canvas. The handout contains the skeleton code and the test files.
  
 Instructions for execution
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Download the handout shared via Canvas. The handout contains the skeleton code and the test files.
 
 Create a folder called data in test/unit/ and add the test files to it. The file in the example can be used with the name sample.txt. The large data file wrnpc.txt is hidden and is evaluated only when submitted to the Gradescope. So please ignore if that test fails in the local system.
 
