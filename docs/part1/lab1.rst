@@ -39,12 +39,14 @@ For this programming assignment, you are provided with a skeleton code which you
 
 4. ``"end"``: This command terminates the program.
 
-Your program should respond to incorrect commands in the following ways: 
-* If a bad command is entered, print the precise string ``ERROR: Invalid command``, and go to the next prompt. Examples of bad commands are: ``"find word 7"`` and ``"locate song"``. Other examples of bad command include the locate command having a word that is not legal as per the definition above. For example ``ra#s`` and ``rats!`` are invalid word parameters.
-* Note that if an incorrect load command is entered, such as ``"load"`` (no filename) then your data structure should not be reset. In other words, if you have a previously loaded file, subsequent locate commands should still query that previously loaded file. Similarly if the load command specifies an invalid file name, then you should not reset the data structure. In both cases of the invalid load command outlined above, please print the standard error message ``ERROR: Invalid command``.
-* If there is extraneous content in the command, such as ``"locate word 5 17"`` or ``"new 12"``, print out the standard error message: ``ERROR: Invalid command``
-* All the command keywords are case insensitive, so ``"LoCATe sing 2"`` is a valid command, and should be treated as ``"locate sing 2"``. 
+Here are some of the corner cases that you need to handle:
 
+- If a bad command is entered, print the precise string ``ERROR: Invalid command``, and go to the next prompt. Examples of bad commands are: ``"find word 7"`` and ``"locate song"``. Other examples of bad command include the locate command having a word that is not legal as per the definition above. For example ``ra#s`` and ``rats!`` are invalid word parameters.
+- Note that if an incorrect load command is entered, such as ``"load"`` (no filename) then your data structure should not be reset. In other words, if you have a previously loaded file, subsequent locate commands should still query that previously loaded file. Similarly if the load command specifies an invalid file name, then you should not reset the data structure. In both cases of the invalid load command outlined above, please print the standard error message ``ERROR: Invalid command``.
+- If there is extraneous content in the command, such as ``"locate word 5 17"`` or ``"new 12"``, print out the standard error message: ``ERROR: Invalid command``
+- All the command keywords are case insensitive, so ``"LoCATe sing 2"`` is a valid command, and should be treated as ``"locate sing 2"``.
+- Note that all of the characters apart from the alphabet, digits and apostrophe are considered as whitespace. So a term such as ``this.that`` should be treated as two
+  separate occurences of the words ``this`` and ``that``.
 
 
 Example
