@@ -5,7 +5,22 @@ You will need to setup a development environment to work on the programming assi
 
 Our labs are designed to run on the `Ubuntu 22.04 Operating System (OS) <https://en.wikipedia.org/wiki/Ubuntu>`__. Ubuntu is a Linux distribution. We recommend that you install this OS either natively or using Docker by following the instructions below. Otherwise, you could face issues while running the shell scripts in the programming assignments.
 
-This page contains information on setting up the Ubuntu OS development environment. We will assume familiarity with `Linux commands <https://ubuntu.com/tutorials/command-line-for-beginners#1-overview>`__ throughout.
+This page contains information on setting up the Ubuntu OS development environment. We will assume familiarity with the following concepts throughout:
+
+- `Linux commands <https://ubuntu.com/tutorials/command-line-for-beginners#1-overview>`__
+- `Docker <https://docs.docker.com/>`__
+- `cmake <https://buzzdb-docs.readthedocs.io/resources/tools.html#cmake>`__
+- `make <https://cplusplus.com/articles/jTbCpfjN/>`__
+- `ctest <https://cmake.org/cmake/help/latest/manual/ctest.1.html>`__
+
+If you are unfamiliar with any of the above, we highly recommend going through the corresponding links.
+
+We also recommend going through the `"Additional Resources" <https://buzzdb-docs.readthedocs.io/resources/index.html>`__.
+
+.. code-block:: sh
+
+	NOTE: While we will always try to keep the documentation up-to-date. If you ever get stuck on some topic or
+	      would like additional context, feel free to use the good old reliable ChatGPT =)
 
 Native Ubuntu OS
 ----------------
@@ -61,7 +76,9 @@ Our recommended way of setting up the Ubuntu development environment is to use `
 	* `C++ Extension Pack <https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack>`__
 	* `Remote Containers <https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers>`__
 
-#. Next, `use the following technique to open the lab1 folder within the Ubuntu container <https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container>`__. We have provided a `devcontainer.json` to assist with this step. The VScode should automatically launch a new container.
+#. Next, in order to open up the folder within the Ubuntu container, run the "**Dev Containers: Open Folder in Container...**" command from VS code Command Palette (F1)
+   or quick actions Status bar item and select the lab1 folder. We have already provided a `devcontainer.json` to assist as a starting point for the container. Once
+   done, VS Code will reload and start building the dev container. More information on this step can be found `here <https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container>`__.
 
 Building BuzzDB Labs
 --------------------
