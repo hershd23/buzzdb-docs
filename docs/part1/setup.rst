@@ -80,6 +80,39 @@ Our recommended way of setting up the Ubuntu development environment is to use `
    or quick actions Status bar item and select the lab1 folder. We have already provided a `devcontainer.json` to assist as a starting point for the container. Once
    done, VS Code will reload and start building the dev container. More information on this step can be found `here <https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container>`__.
 
+WSL Ubunutu
+-----------
+
+If you are using Windows you can also use `Windows Subsystem for linux <https://learn.microsoft.com/en-us/windows/wsl/install>`__ along with `VSCode <https://code.visualstudio.com/>`__. 
+
+- WSL allows developers to use linux applications directly on windows, without have to switch between different Operating System.
+
+#. We will first setup Visual Code. `Install it first <https://code.visualstudio.com/download>`__. This page contains some `useful resources <https://code.visualstudio.com/docs>`__.
+
+#. Install wsl on windows, along with a linux distribution (Ubuntu is recommended).
+
+.. code-block:: sh
+
+	# install wsl
+	wsl --install
+
+3. After installation you can open your wsl's terminal by running `wsl.exe` command
+
+.. code-block:: sh
+
+	# In a new powershell window
+	wsl.exe
+
+	# Try out a few commands
+	whoami
+
+	# Change directory to your lab folder
+	cd /mnt/drive/path/to/folder
+
+	# Open the folder in VSCode
+	code .
+
+
 Building BuzzDB Labs
 --------------------
 
