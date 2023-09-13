@@ -99,14 +99,14 @@ test your code against these test-cases.
 Similar to lab1, your implementation will be checked for memory leaks.
 You can check for memory leaks using valgrind.
 
-<b>Note: Students in CS4420 are not required to pass the multithreading
-test cases (The ones with their name starting with "Multithread").
-However, for students in CS6422, passing all test cases is mandatory to
-obtain full credit for the assignment.</b>
-
 .. code-block:: sh
 
    ctest -V -R buffer_manager_test_valgrind
+
+Note: Students in CS4420 are not required to pass the multithreading
+test cases (The ones with their name starting with "Multithread").
+However, for students in CS6422, passing all test cases is mandatory to
+obtain full credit for the assignment.
 
 Logistics
 ---------
