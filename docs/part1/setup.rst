@@ -80,7 +80,7 @@ Our recommended way of setting up the Ubuntu development environment is to use `
    or quick actions Status bar item and select the lab1 folder. We have already provided a `devcontainer.json` to assist as a starting point for the container. Once
    done, VS Code will reload and start building the dev container. More information on this step can be found `here <https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container>`__.
 
-WSL Ubunutu
+WSL Ubuntu
 -----------
 
 If you are using Windows you can also use `Windows Subsystem for linux <https://learn.microsoft.com/en-us/windows/wsl/install>`__ along with `VSCode <https://code.visualstudio.com/>`__. 
