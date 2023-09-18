@@ -8,6 +8,7 @@ Database System Implementation (Part 1)
     lab2
     lab3
     lab4
+    eva1
 
 In this course, we will be building a toy database system, called **buzzdb**, 
 in `C++ <https://en.cppreference.com/w/>`__.

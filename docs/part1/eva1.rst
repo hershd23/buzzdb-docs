@@ -1,3 +1,8 @@
+.. role:: bash(code)
+   :language: bash
+
+.. include:: ../.colors.rst
+
 .. _getting-started:
 
 Getting Started with EvaDB
