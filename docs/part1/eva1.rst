@@ -3,8 +3,6 @@
 
 .. include:: ../.colors.rst
 
-.. _getting-started:
-
 Getting Started with EvaDB
 =================
 
