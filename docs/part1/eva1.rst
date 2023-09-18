@@ -3,6 +3,11 @@
 Getting Started with EvaDB
 =================
 
+.. note::
+
+   You may refer to the latest EvaDB docs at `this link <https://evadb.readthedocs.io/en/latest/>`_.
+
+
 Install EvaDB 
 -------------
 
@@ -34,16 +39,17 @@ Now, activate the virtual environment:
 4. Inside the `evadb` directory, set the appropriate version to work with.
 
 .. code-block:: bash
+
     cd evadb
     git checkout v0.3.4
 
-4. Install EvaDB
+5. Install EvaDB
 
 .. code-block:: bash
 
    pip install -e ".[dev]"
 
-5. Run EvaDB
+6. Run EvaDB
 
 Copy the following Python program to a file called `run_evadb.py`.
 
