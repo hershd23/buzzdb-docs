@@ -108,12 +108,35 @@ test cases (The ones with their name starting with "Multithread").
 However, for students in CS6422, passing all test cases is mandatory to
 obtain full credit for the assignment.
 
+Pointers
+~~~~~~~
+
+- A basic structure of a BufferFrame is given below. This information should be sufficient to build a working implementation, but you are free to add other features based on your logic::
+
+         BufferFrame::BufferFrame()
+         : page_id(INVALID_PAGE_ID),
+         frame_id(INVALID_FRAME_ID),
+         dirty(false),
+         data(other.data),
+         exclusive(false) {}
+
+- Please do not modify any file other than `buffer_manager.cc` and `buffer_manager.h`. The other files we have provided have helper methods that you can call from your implementation and are not meant to be modified. You are, however, free to add new files that you would like to implement and use.
+
+- One file that we have provided, which should be of interest to you is `file.h`, which can be used for file operations. For example, a read and write can be performed as follows::
+
+         auto file_handle = File::open_file(std::to_string(segment_id).c_str(), File::WRITE);
+         file_handle->read_block(start, page_size_, pool_[frame_id]->data.data());
+
+- There are a lot of good references for understanding the 2Q algorithm. The course slide deck gives a good gist of it, which should be the basis of your implementation. `This <https://cmake.org/cmake/help/latest/manual/ctest.1.html#ctest-1>`__ is my favourite external reference to *understand* it.
+
+- Please note that you must get locks when accessing the queues: This is a simple mistake, but it is the crux of your implementation - without this, your buffer management implementation would not work.
+
 Logistics
 ---------
 
 You must submit your code (see below) as well as an one-page writeup (in
-``REPORT.md``) describing your solution. In the writeup, mention 1) the
-design decisions you made, and 2) the missing components in your code.
+``REPORT.md``) describing your solution. In the writeup, mention: (i) the
+design decisions you made, and (ii) the missing components in your code.
 We will award partial credits based on this writeup (if you are unable
 to finish the implementation before the due date or if it fails any test
 cases).
