@@ -207,6 +207,8 @@ Testing for correctness involves more than just seeing if a few test cases produ
 You should use `valgrind` to isolate such errors. Command to run `valgrind` can be found here: https://buzzdb-docs.readthedocs.io/resources/tools.html#valgrind
 You will get a listing of memory errors in your program. If you have programmed in Java you should keep in mind that C++ does not have automatic garbage collection, so each new must ultimately be matched by a corresponding delete. Otherwise all the memory in the system might be used up. Valgrind can be used to detect such memory leaks as well. More information about valgrind can be found at: http://www.valgrind.org/docs/manual/index.html.
 
+In case you encounter any issues when running the code, you can also use debuggers to identify and fix them. Debuggers are tools that allow you to execute your code step by step, inspect the values of variables, set breakpoints, and more. Some popular debuggers for C++ are `gdb`, `lldb`, and `Visual Studio`. You can find more information about how to use debuggers here: https://buzzdb-docs.readthedocs.io/resources/tools.html#debuggers
+
 
 .. _submit:
 
