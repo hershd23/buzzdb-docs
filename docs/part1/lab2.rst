@@ -31,6 +31,13 @@ disk, it must be stored in a file whose filename is the segment id. Your
 implementation should support different page and buffer sizes and be
 able to fix and unfix pages concurrently from different threads.
 
+Environment Setup
+----------------
+
+**NOTE** : Before jumping into the assignment, make sure to setup the development 
+environment `following the instructions given here <https://buzzdb-docs.readthedocs.io/part1/setup.html>`__.
+
+
 Implementation Details
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -69,6 +76,33 @@ milliseconds.
 While solving this assignment, we encourage you to first complete 
 the single-threaded implementation before moving to multi-thread test cases.
 
+
+Logistics
+---------
+
+You must submit your code (see below) as well as an one-page writeup (in
+``REPORT.md``) describing your solution. In the writeup, mention: (i) the
+design decisions you made, and (ii) the missing components in your code.
+We will award partial credits based on this writeup (if you are unable
+to finish the implementation before the due date or if it fails any test
+cases).
+
+Submitting your assignment
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You should submit your code on Gradescope. We have set up an autograder
+that will test your implementation. You are allowed to make multiple
+submissions and we will use the latest submission to grade your lab.
+
+.. code-block:: sh
+
+   bash submit.sh <name>
+
+**Important**
+
+Do not add additional files to the zip file, use the script above.
+
+
 Build instructions:
 ~~~~~~~~~~~~~~~~~~~
 
@@ -81,17 +115,18 @@ Enter BuzzDB’s directory and run
    cmake -DCMAKE_BUILD_TYPE=Release ..
    make
 
-Test Instructions:
-~~~~~~~~~~~~~~~~~~
+We treat compiler warnings as errors. Your project will fail to build if there are any compiler warnings.
 
-To run the entire test suite, use:
+Testing Instructions
+~~~~~~~~~~~~~~~~~~~~
+To run the test suite in verbose mode use
 
 .. code-block:: sh
 
-   ctest
+  ctest --verbose
 
-ctest has a flag option to emit verbose output. Please refer to `ctest
-manual <https://cmake.org/cmake/help/latest/manual/ctest.1.html#ctest-1>`__.
+Remove the `verbose` flag to only get summary information instead of detailed test output that is normally suppressed. Please refer to
+`ctest manual <https://cmake.org/cmake/help/latest/manual/ctest.1.html#ctest-1>`__.
 
 We have provided all the test cases for this lab. Gradescope will only
 test your code against these test-cases.
@@ -108,8 +143,8 @@ test cases (The ones with their name starting with "Multithread").
 However, for students in CS6422, passing all test cases is mandatory to
 obtain full credit for the assignment.
 
-Pointers
-~~~~~~~
+General Clarifications
+~~~~~~~~~~~~~~~~~~~~~~
 
 - A basic structure of a BufferFrame is given below. This information should be sufficient to build a working implementation, but you are free to add other features based on your logic::
 
@@ -131,35 +166,11 @@ Pointers
 
 - Please note that you must get locks when accessing the queues: This is a simple mistake, but it is the crux of your implementation - without this, your buffer management implementation would not work.
 
-Logistics
----------
-
-You must submit your code (see below) as well as an one-page writeup (in
-``REPORT.md``) describing your solution. In the writeup, mention: (i) the
-design decisions you made, and (ii) the missing components in your code.
-We will award partial credits based on this writeup (if you are unable
-to finish the implementation before the due date or if it fails any test
-cases).
 
 Collaboration
 ~~~~~~~~~~~~~
 
 This is an individual assignment. No collaboration is allowed.
-
-Submitting your assignment
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-You should submit your code on Gradescope. We have set up an autograder
-that will test your implementation. You are allowed to make multiple
-submissions and we will use the latest submission to grade your lab.
-
-.. code-block:: sh
-
-   bash submit.sh <name>
-
-**Important**
-
-Do not add additional files to the zip file, use the script above.
 
 Grading
 ~~~~~~~

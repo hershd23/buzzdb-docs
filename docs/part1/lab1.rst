@@ -162,7 +162,7 @@ The skeleton code provided to you has the following directory structure:
 7. :file:`script/*, third_party/*, .clang-format, .clang-tidy` : supporting build scripts (You need not modify this file)
 
  
-Instructions for execution
+Build Instructions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -194,7 +194,7 @@ To run the test suite in verbose mode use
 
 Remove the `verbose` flag to only get summary information instead of detailed test output that is normally suppressed. Please refer to `ctest manual <https://cmake.org/cmake/help/latest/manual/ctest.1.html#ctest-1>`__.
 
-  
+
 
 
 
