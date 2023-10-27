@@ -190,3 +190,14 @@ epub_copyright = copyright
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
 
+html_css_files = [
+                    "algolia.css",
+                    "https://cdn.jsdelivr.net/npm/@docsearch/css@3"]
+
+
+def setup(app):
+    app.add_js_file("https://cdn.jsdelivr.net/npm/@docsearch/js@3.3.3/dist/umd/index.js",defer="defer")
+    app.add_js_file("js/algolia.js",defer="defer")
+     
+
+
