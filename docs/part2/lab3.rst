@@ -7,8 +7,6 @@
 Assignment 3: Concurrency Control
 ===================================
 
-**Due: 3/18/2023 11:59 PM EST**
-
 Project Description
 -------------------
 In this lab, you will implement a simple two-phase locking to ensure isolation and atomicity of the transactions. 

@@ -7,8 +7,6 @@
 Assignment 4: Query Optimizer
 ==============================
 
-**Due: 4/21/2022 11:59 PM EST**
-
 Project Description
 -------------------
 In this lab, you will implement a query optimizer on top of BuzzDB. The main tasks include implementing a selectivity estimation framework and a cost-based optimizer. You have freedom as to exactly what you implement, but we recommend using something similar to the Selinger cost-based optimizer discussed in class.

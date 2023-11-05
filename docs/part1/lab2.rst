@@ -1,10 +1,6 @@
 Assignment 2: Buffer Manager
 ==================================
 
-**Assigned: 09/11/2022**
-
-**Due: 09/29/2022 11:59 PM EDT**
-
 For the second lab, you will implement the buffer manager that uses the
 2Q replacement strategy. We have provided you with a set of
 unimplemented functions. You will need to fill in these functions.

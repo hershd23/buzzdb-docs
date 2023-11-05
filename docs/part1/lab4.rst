@@ -1,9 +1,5 @@
 Assignment 4: Operators
-=======================  
-
-**Assigned: 10/27/2022**
-
-**Due: 11/10/2022 11:59 PM EDT**    
+=======================   
 
 In the fourth lab, you will be implementing physical operators using the iterator model. 
 

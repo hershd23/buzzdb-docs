@@ -7,8 +7,6 @@
 Assignment 2: Logging And Recovery
 ==================================
 
-**Due: 21 February 2023 11:59 PM EST**
-
 Project Description
 -------------------
 The goal of the lab is to implement ``Logging`` and ``Recovery`` mechanism in buzzdb. You need to implement a write ahead logging (WAL) under No-Force/Steal policy. You need to log every page-level write operation and transaction command.
