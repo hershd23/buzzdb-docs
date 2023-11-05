@@ -7,8 +7,6 @@
 Assignment 1: C++ Tutorial
 ==========================
 
-**Due: 02/01/2023 11:59 PM EST**
-
 Project Description
 -------------------
 The goal of this assignment is to help you brush up your C++ programming skills, and exercise your skills in Data Structure and Algorithm Design. In this assignment, you are to develop a ``word locator`` program written in C++, which will allow a user to check if a specified (re)occurrence of a specified query word appears in the input text file.

@@ -1,10 +1,6 @@
 Assignment 1: External Sort
 =======================================
 
-**Assigned: 08/25/2022**
-
-**Due: 09/08/2022 11:59 PM EDT**
-
 In the programming assignments for this course, you will be implementing a the components of a toy database management system codenamed BuzzDB. All the labs are written in `C++ <https://en.cppreference.com/w/>`__.
 
 In the first assignment, you will implement the `external sort algorithm <https://en.wikipedia.org/wiki/External_sorting>`__. This algorithm allows us to sort a large dataset that does not fit into the main memory of the server.
