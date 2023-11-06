@@ -3,13 +3,10 @@ Assignment 3: B+-Tree
 
 For the third lab, you will implement the B+Tree data structure.
 
-Getting started
----------------
-
-**Start by downloading the code for lab 3 from Canvas.**
+.. include:: ../shared/getting_started.rst
 
 Description
-~~~~~~~~~~~
+-----------
 
 In this lab, you will implement a B+-Tree index for your database using
 the header ``src/include/index/btree.h``.
@@ -26,14 +23,10 @@ described in the lecture. We added a fake buffer manager that allows you
 to test your code without I/O, so you can focus only on implementing the
 B+-Tree.    
 
-Environment Setup
-----------------
-
-**NOTE** : Before jumping into the assignment, make sure to setup the development environment `following the instructions given here <https://buzzdb-docs.readthedocs.io/part1/setup.html>`__.
-
+.. include:: ../shared/environment_setup.rst
 
 Implementation Details
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 
 The index should be implemented as C++ template that accepts the
 parameters **key type**, **value type**, **comparator** and **page
@@ -46,58 +39,7 @@ You can test your implementation using the tests in
 ``test/unit/index/btree_test.cc``. The tests will instantiate your
 B+-Tree as ``BTree<uint64_t, uint64_t, std::less<uint64_t>, 1024>``.
 
-Logistics
----------
-
-You must submit your code (see below) as well as an one-page writeup (in a file named `REPORT.md`) describing your solution. In the writeup, mention: (1) the design decisions you made, and (2) the missing components in your code. We will award partial credits based on this writeup (if you are unable to finish the implementation before the due date and/or if it fails any test cases).
-
-
-Submitting your assignment 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-You should submit your code as a zip file via Gradescope. We have set up an autograder that will test your implementation. You are allowed to make multiple submissions and we will use the latest submission to grade your lab.
-
-.. code-block:: sh
-
-  bash submit.sh <name>
-
-> :warning: **WARNING** Do not add additional files to the zip file, use the ``submit.sh`` script.  
-
-Build instructions:
-~~~~~~~~~~~~~~~~~~~
-
-Enter BuzzDB's directory and run
-
-.. code-block:: sh
-
-    mkdir build
-    cd build
-    cmake -DCMAKE_BUILD_TYPE=Release ..
-    make
-
-We treat compiler warnings as errors. Your project will fail to build if there are any compiler warnings.
-
-
-Testing Instructions
-~~~~~~~~~~~~~~~~~~~~
-To run the test suite in verbose mode use
-
-.. code-block:: sh
-
-  ctest --verbose
-
-Remove the `verbose` flag to only get summary information instead of detailed test
-output that is normally suppressed. Please refer to `ctest manual <https://cmake.org/cmake/help/latest/manual/ctest.1.html#ctest-1>`__.
-
-We have provided all the test cases for this lab. Gradescope will only
-test your code against these test-cases.
-
-Similar to labs 1 and 2, your implementation will be checked for memory
-leaks. You can check for memory leaks using valgrind.
-
-.. code-block:: sh
-
-    ctest -V -R btree_test_valgrind
+.. include:: ../shared/logistics.rst
 
 Detailed Instructions
 ---------------------
@@ -135,8 +77,8 @@ Following are some of the important members from ``InnerNode`` and ``LeafNode`` 
 * ``std::vector<KeyT> get_key_vector()`` - Returns the keys (Used only while testing your implementation). -
 * ``std::vector<uint64_t> get_child_vector()`` - Returns the child page ids (Used only while testing your implementation).
 
-Algorithmic details
-~~~~~~~~~~~~~~~~~~~
+Implementation details
+----------------------
 
 This is a rough outline of the steps you need to follow to implement the
 above methods.
@@ -189,7 +131,7 @@ above methods.
 Additional References
 ---------
 
-`Check out this cool visualization of B+ trees <https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html>`
+Check out this cool visualization of `B+ trees <https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html>`__.
 
 General Clarifications
 ---------
@@ -252,17 +194,7 @@ General Clarifications
    inner node can store kCapacity-1 keys and kCapacity pointers
    Do not use the last slot in keys for inner node.
 
-
-Collaboration
-~~~~~~~~~~~~~
-
-This is an individual assignment. No collaboration is allowed.
-
-
-Grading
-~~~~~~~
-
-100% of your grade will be based on whether or not your code passes the autograder test suite. We will award partial marks for submissions that fail the autograder test suite (based on the writeup).
+.. include::../shared/collaboration_grading.rst
 
 FAQs
 ---------

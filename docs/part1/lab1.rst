@@ -7,19 +7,15 @@
 Assignment 1: C++ Tutorial
 ==========================
 
-Project Description
+Description
 -------------------
 The goal of this assignment is to help you brush up your C++ programming skills, and exercise your skills in Data Structure and Algorithm Design. In this assignment, you are to develop a ``word locator`` program written in C++, which will allow a user to check if a specified (re)occurrence of a specified query word appears in the input text file.
 
 CS4420 students can use the unordered map data structure from Stl. CS6422 students are required to use a Tree-based data structure. The code submissions will be checked after submission to ensure that this is followed.
 
-Environment Setup
-----------------
+.. include:: ../shared/environment_setup.rst
 
-**NOTE** : Before jumping into the assignment, make sure to setup the development environment `following the instructions given here <https://buzzdb-docs.readthedocs.io/part1/setup.html>`__.
-
-
-Program Specification
+Implementation Details
 -----------------------
 For this programming assignment, you are provided with a skeleton code which you are expected to complete and submit. You are expected to fill the :command:`execute` function of :command:`CommandExecutor` class, present in these files: :file:`buzzdb/src/tutorial/tutorial.cc` and :file:`buzzdb/src/include/tutorial/tutorial.h`. You are free to add your own helper functions and classes to complete the assignment. Please don’t change the signature of the constructor and execute function. The execute function is expected to accept one of the following commands:
 
@@ -140,8 +136,7 @@ Your main design task is to pick a **tree-based** data structure (6422 students 
 
 For this assignment, I am not concerned with the efficiency of the load command. However, you do have a restriction on the amount of space that you can use for running your program. The memory footprint of your program, which includes the memory used by your code and the data structure that you build, should not exceed four times the size of the input load file, when measured in bytes. Don't worry about exceeding this limit on very small files. For example, it is okay if your program exceeds this limit when loading the small sample load file sample.txt, but on the large file wrnpc.txt it should meet this requirement. You can use the command ``ps -l`` to check the program size. If you are not familiar with ``ps``, please read the `man` page.
 
-
-Code Description
+Code structure
 -----------------
 The skeleton code provided to you has the following directory structure:
 
@@ -159,76 +154,7 @@ The skeleton code provided to you has the following directory structure:
 
 7. :file:`script/*, third_party/*, .clang-format, .clang-tidy` : supporting build scripts (You need not modify this file)
 
- 
-Build Instructions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. include:: ../shared/logistics.rst
 
-Download the handout shared via Canvas. The handout contains the skeleton code and the test files.
-
-Create a folder called data in test/unit/ and add the test files to it. The file in the example can be used with the name sample.txt. The large data file wrnpc.txt is hidden and is evaluated only when submitted to the Gradescope. So please ignore if that test fails in the local system.
-
-.. highlight:: bash
-   
-
-.. code-block:: bash
-   
-   [vm] $ cd buzzdb-cpp_tutorial 
-   [vm] $ mkdir build 
-   [vm] $ cd build
-   [vm] $ cmake -DCMAKE_BUILD_TYPE=Release ..
-   [vm] $ make
-   [vm] $ ctest
-
-We treat compiler warnings as errors. Your project will fail to build if there are any compiler warnings.
-
-Testing Instructions
-~~~~~~~~~~~~~~~~~~~~
-To run the test suite in verbose mode use
-
-.. code-block:: sh
-
-  ctest --verbose
-
-Remove the `verbose` flag to only get summary information instead of detailed test output that is normally suppressed. Please refer to `ctest manual <https://cmake.org/cmake/help/latest/manual/ctest.1.html#ctest-1>`__.
-
-
-
-
-
-General Instructions
-----------------------
-
-Your program must be written only in C++. Your coding style should have well-defined classes and clean interfaces. The code should be well-documented. Each file should start with a header describing the purpose of the file and should also contain your name, GT UserID, and GT email address.
-
-Testing for correctness involves more than just seeing if a few test cases produce the correct output. There are certain types of errors (memory errors and memory leaks) that usually surface after the system has been running for a longer period of time. 
-You should use `valgrind` to isolate such errors. Command to run `valgrind` can be found here: https://buzzdb-docs.readthedocs.io/resources/tools.html#valgrind
-You will get a listing of memory errors in your program. If you have programmed in Java you should keep in mind that C++ does not have automatic garbage collection, so each new must ultimately be matched by a corresponding delete. Otherwise all the memory in the system might be used up. Valgrind can be used to detect such memory leaks as well. More information about valgrind can be found at: http://www.valgrind.org/docs/manual/index.html.
-
-In case you encounter any issues when running the code, you can also use debuggers to identify and fix them. Debuggers are tools that allow you to execute your code step by step, inspect the values of variables, set breakpoints, and more. Some popular debuggers for C++ are `gdb`, `lldb`, and `Visual Studio`. You can find more information about how to use debuggers here: https://buzzdb-docs.readthedocs.io/resources/tools.html#debuggers
-
-
-.. _submit:
-
-Submitting Your Assignment
----------------------------
-
-.. code-block:: bash
-
-   bash submit.sh <name>
-
-You will be submitting your assignment on Gradescope. You are expected to run :file:`submit.sh` and submit the generated zip to the autograder. The autograder tests on a larger file as well. This larger file is not shared to encourage learning. 
-
-You can use :file:`REPORT.md` to describe the following design and program criteria (**optional**). In case you don't complete all the testcases, we will award you partial points based on the report.
-
-1. Explain your choice of the data structure that you implemented. Did you consider any other data structures besides the one that you implemented? How did you arrive at your final choice of the data structure?
-
-2. What is the complexity of your implementation of the locate command in terms of the number of words in the file that you are querying? For the complexity, we are only interested in the big-O analysis.
-
-3. What is the space complexity of your data structure in terms of the number of words in the input file? In other words, using the big-O notation what is the expected average size of your data structure in terms of the number of words.
-
-
-Grading
----------
-
-The maximum score on this assignment is 100. If you get 100 on the autograder that is your score. If you get score less than 100 we will award partial points based on the report.
+.. include::../shared/collaboration_grading.rst
