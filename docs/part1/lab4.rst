@@ -38,7 +38,7 @@ Implementation Details
 
 Add your implementation to the files `src/include/operators/operators.h` and `src/operators/operators.cc`. There you can find the `Register` class and one class for each operator. All definitions for the methods that you should implement are provided. You can add new member functions and member variables to all classes as needed.
 
-Your implementation should pass all tests starting with `OperatorsTest`. All other tests are optional and not required to pass to get full points for this task. 
+Your implementation should pass all tests starting with `OperatorsTest`. The tests `AdvancedOperatorsTest` and `BonusOperatorsTest` are not mandatory for this assignment. You can complete the assignment without passing these tests and still receive full marks. These tests are only for your own learning and practice. They do not give you any extra credit.
 
 .. include:: ../shared/logistics.rst
 
