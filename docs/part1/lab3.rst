@@ -77,7 +77,7 @@ Following are some of the important members from ``InnerNode`` and ``LeafNode`` 
 * ``std::vector<KeyT> get_key_vector()`` - Returns the keys (Used only while testing your implementation). -
 * ``std::vector<uint64_t> get_child_vector()`` - Returns the child page ids (Used only while testing your implementation).
 
-Implementation details
+Algorithm details
 ----------------------
 
 This is a rough outline of the steps you need to follow to implement the
