@@ -70,6 +70,35 @@ test cases (The ones with their name starting with "Multithread").
 However, for students in CS6422, passing all test cases is mandatory to
 obtain full credit for the assignment.
 
+
+Algorithm details
+----------------------
+
+This is a rough outline of the steps you can follow to implement the
+above methods.
+
+-  fix_page
+
+   1. First check if page is in LRU queue. If found, lock the frame and return.
+   2. Search for page in FIFO queue. If it is found, save page in LRU queue and delete from FIFO. Lock the frame and return.
+   3. If the page is not found in either queue, find a free slot.
+         1. If the current page counter is less than the capacity, simply increment the counter to find the free frame id.
+         2. If the page counter exceeds the capacity, check if we can find a free slot (i.e use counter for the frame is 0) in FIFO queue first or the LRU queue.
+         3. If we are unable to find a free slot, throw buffer full error.
+   4. Once we find a free frame id, lock the frame, read the corresponding page data, push it into the FIFO queue and return.
+   5. NOTE :
+         1. Make sure that the locking / unlocking is done based on the type of access that is needed (i.e shared or exclusive)
+         2. Each lock needs to increment the frame use counter. Similarly each unlock needs to decrement the use counter.
+         3. If we find a free slot that is dirty after exceeding the capacity, we need to write the data in the frame before resetting it. This write needs to be done under an exclusive lock.
+
+
+-  unfix_page
+
+   1. Mark the page as dirty if not already done so.
+   2. Decrement the use counter for the frame.
+   3. Unlock the frame. 
+
+
 General Clarifications
 ----------------------
 
