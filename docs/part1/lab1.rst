@@ -1,160 +1,148 @@
-.. role:: bash(code)
-   :language: bash
-
-.. include:: ../.colors.rst
-
-
-Assignment 1: C++ Tutorial
-==========================
+Assignment 1: C++ Crash Course
+==============================
 
 Description
--------------------
-The goal of this assignment is to help you brush up your C++ programming skills, and exercise your skills in Data Structure and Algorithm Design. In this assignment, you are to develop a ``word locator`` program written in C++, which will allow a user to check if a specified (re)occurrence of a specified query word appears in the input text file.
+-----------
 
-CS4420 students can use the unordered map data structure from Stl. CS6422 students are required to use a Tree-based data structure. The code submissions will be checked after submission to ensure that this is followed.
-
-.. include:: ../shared/environment_setup.rst
+The goal of this assignment is to help you brush up on your C++
+programming skills and exercise your skills in Data Structure and
+Algorithm Design. In this assignment, you are to develop a program
+written in C++ that will allow us to extract the required information
+from the provided input CSV files. This is a variant of a flat-file
+database implementation, and you are expected to implement the provided
+empty functions to return the expected output.
 
 Implementation Details
------------------------
-For this programming assignment, you are provided with a skeleton code which you are expected to complete and submit. You are expected to fill the :command:`execute` function of :command:`CommandExecutor` class, present in these files: :file:`buzzdb/src/tutorial/tutorial.cc` and :file:`buzzdb/src/include/tutorial/tutorial.h`. You are free to add your own helper functions and classes to complete the assignment. Please don’t change the signature of the constructor and execute function. The execute function is expected to accept one of the following commands:
+----------------------
 
-1. ``"load <filename>"``: This command loads the specified file. The file may be specified by either an absolute or a relative pathname. Running this command should result in your program parsing and storing the words in this file in a data structure that can be queried using the locate command (described below). A word is defined as a sequence of upper and lower case letters in the English alphabet (i.e. characters ’a’ to ’z’, and ’A’ to ’Z’), numbers, and the apostrophe. All other characters are considered as white space and will therefore be treated as terminating a word. Two successive load commands should be treated as if there is an intermediate ``"new"`` command (see below) in between the two commands.
+For this programming assignment, you are provided with skeleton code
+that you are expected to complete and submit. You are expected to fill
+in the methods present in the ``FlatFile`` class. You are free to add
+your own helper functions and classes to complete the assignment. Please
+do not change the signature of any functions in the ``FlatFile`` class.
+Here are some more details to help with this assignment:
 
-2. ``"locate <word> <n>"``: This command outputs the number of the word, counting from the beginning of the file, of the n :superscript:`th` occurrence of the word. Word numbering starts from 1, so the first word in the load file has a word number of 1. `The locate command is case insensitive`, i.e. to match the word in the locate command with a word in the load file you should use a case-insensitive string comparison method. If there are no matches for the locate command, print ``No matching entry``.
+1. **Input Files**: There are three input files in CSV format:
+   ``users.csv``, ``posts.csv``, and ``engagements.csv``. These contain
+   data related to user profiles, their social media posts, and
+   engagements on those posts.
 
-   The syntax of the locate command is ``"locate <word> <n>"``. The ``<word>`` parameter will have a whitespace before and after it, and ``<n>`` should be an integer greater than 0.
+2. **Function Signatures**: Do not change the function signatures.
+   Complete the missing implementations as instructed in the inline
+   comments to get the desired output. For example, the ``loadFlatFile``
+   function is expected to load the data present in the input CSV files
+   into memory by creating objects of appropriate classes and storing
+   them in relevant data structures for optimal updating and querying.
+   Similarly, complete all the empty functions.
 
-   As an example, the following are legal commands: ``"locate sing 3"`` and ``"locate  sing  3"`` Both locate the 3rd occurrence of ``sing``, but the second command has a few additional blank spaces around the parameter ``sing``.
+3. **Data Structures**: You are free to use any data structures as long
+   as the implementation passes the provided test cases unless
+   explicitly mentioned to use a specific data structure. In such cases,
+   the submitted code will be manually checked for compliance.
 
-   The following commands are not legal: ``"locate sing3"``, ``"locate sing 3q"``. The first command does not specify a parameter `<n>`, and in the second command the parameter `<n>` is not an integer. Please note that the command ``"locate sing23 4"`` is a legal command for locating the fourth occurrence of the word ``sing23``.
+4. **Single File Implementation**: To make understanding the assignment
+   code simpler, all the classes and logic are implemented in a single
+   C++ file. The main function contains all the test cases that you need
+   to pass. Please review all test case code to understand what is being
+   tested for each function. This will give you ideas about what is
+   expected from the function implementations.
 
-3. ``"new"``: This command resets the word list to the original (empty) state.
+5. **Class Definitions**: The skeleton code contains definitions of
+   ``User``, ``Post``, and ``Engagement`` classes. You are expected to
+   use these while loading the CSV data into memory.
 
-4. ``"end"``: This command terminates the program.
+6. **Building the Code**: We only have one C++ file that contains all
+   the code for this assignment. This can be built using the following
+   command:
+   ``sh     g++ -fdiagnostics-color -std=c++17 -O3 -Wall -Werror -Wextra <file_name.cpp> -o <output_name.out>``
+   We treat compiler warnings as errors. Your project will fail to build
+   if there are any compiler warnings.
 
-Here are some of the corner cases that you need to handle:
+7. **Testing Instructions**: To run any particular test case, use:
+   ``sh     ./<output_name.out> <test_number>`` For example,
+   ``./a.out 2`` runs the second test case. Not providing any test
+   number runs all the test cases one by one. We have provided all the
+   test cases for this lab. Gradescope will only test your code against
+   these test cases. Your implementation will also be checked for memory
+   leaks. You can check for memory leaks using Valgrind with:
+   ``sh     valgrind --leak-check=yes <output_name.out> ...<args>``
 
-- If a bad command is entered, print the precise string ``ERROR: Invalid command``, and go to the next prompt. Examples of bad commands are: ``"find word 7"`` and ``"locate song"``. Other examples of bad command include the locate command having a word that is not legal as per the definition above. For example ``ra#s`` and ``rats!`` are invalid word parameters.
-- Note that if an incorrect load command is entered, such as ``"load"`` (no filename) then your data structure should not be reset. In other words, if you have a previously loaded file, subsequent locate commands should still query that previously loaded file. Similarly if the load command specifies an invalid file name, then you should not reset the data structure. In both cases of the invalid load command outlined above, please print the standard error message ``ERROR: Invalid command``.
-- If there is extraneous content in the command, such as ``"locate word 5 17"`` or ``"new 12"``, print out the standard error message: ``ERROR: Invalid command``
-- All the command keywords are case insensitive, so ``"LoCATe sing 2"`` is a valid command, and should be treated as ``"locate sing 2"``.
-- Note that all of the characters apart from the alphabet, digits and apostrophe are considered as whitespace. So a term such as ``this.that`` should be treated as two
-  separate occurences of the words ``this`` and ``that``.
+Functions to be Completed
+-------------------------
 
+You need to complete the following functions in the ``FlatFile`` class:
 
-Example
----------------
+1. **Constructor:**
+   ``cpp     FlatFile(std::string users_csv_path, std::string posts_csv_path, std::string engagements_csv_path)``
 
-Given the following sample text file, sample.txt:
+   -  Initialize the class and load the CSV files.
+   -  Example:
+      ``cpp      FlatFile flatFile("users.csv", "posts.csv", "engagements.csv");``
 
-.. topic::  sample.txt
+2. **Destructor:** ``cpp     ~FlatFile()``
 
-   Sing a song of sixpence,
+   -  Properly clean up any resources used by the class.
 
-   A pocket full of rye;
-   
-   Four and twenty blackbirds
-   
-   Baked in a pie.
-   
-   When the pie was opened,
-   
-   They all began to sing.
-   
-   Now, wasn't that a dainty dish
-   
-   To set before the King?
+3. **loadFlatFile:** ``cpp     void loadFlatFile()``
 
-   The King was in his countinghouse,
-   
-   Counting out his money;
-   
-   The Queen was in the parlor
-   
-   Eating bread and honey.
-   
-   The maid was in the garden,
-   
-   Hanging out the clothes.
-   
-   Along there came a big black bird[[
-   
-   And snipped off her nose!
+   -  Load the provided CSV files into the corresponding maps (Single
+      threaded).
 
+4. **loadFlatFile_MultiThread:**
+   ``cpp     void loadFlatFile_MultiThread()``
 
-The following is a sample run:
+   -  Load the provided CSV files into the corresponding maps (Multi
+      threaded). This method should be thread-safe.
 
-.. topic::  Sample Run
+5. **incrementPostViews:**
+   ``cpp     bool incrementPostViews(int post_id, int views_count)``
 
-   > load data/sample.txt 
+   -  Increase the views count for the post associated with the post_id
+      by views_count. This method should be thread-safe.
 
-   > locate song 1
-   
-   3
-   
-   > locate Song 1
-   
-   3
-   
-   > locate SoNg 1
-   
-   3
-   
-   > locate pie 1
-   
-   18
-   
-   > locate pie 2
-   
-   21
-   
-   > locate pie 3
-   
-   No matching entry 
-   
-   > locate prince
-   
-   ERROR: Invalid command 
-   
-   > locate prince 1
-   
-   No matching entry
-   
-   > new
-   
-   > locate song 1
-   
-   No matching entry
-   
-   > end
+6. **addEngagementRecord:**
+   ``cpp     void addEngagementRecord(Engagement& record)``
 
+   -  Insert a new engagement record into the engagements map.
 
-Design Task
----------------
-Your main design task is to pick a **tree-based** data structure (6422 students `do not use a hash-based index structure!`. 4420 students can.) that allows `efficient` execution of the locate command. You may have several design choices, and I want you to pick the most efficient data structure that you can think of.
+7. **getAllUserComments:**
+   ``cpp     std::vector<std::pair<int, std::string>> getAllUserComments(int user_id)``
 
-For this assignment, I am not concerned with the efficiency of the load command. However, you do have a restriction on the amount of space that you can use for running your program. The memory footprint of your program, which includes the memory used by your code and the data structure that you build, should not exceed four times the size of the input load file, when measured in bytes. Don't worry about exceeding this limit on very small files. For example, it is okay if your program exceeds this limit when loading the small sample load file sample.txt, but on the large file wrnpc.txt it should meet this requirement. You can use the command ``ps -l`` to check the program size. If you are not familiar with ``ps``, please read the `man` page.
+   -  Return all the comments made by the user across all the posts,
+      ordered by post ID and comment.
 
-Code structure
------------------
-The skeleton code provided to you has the following directory structure:
+8. **getAllEngagementsByLocation:**
+   ``cpp     std::pair<int, int> getAllEngagementsByLocation(std::string location)``
 
-1. :file:`src/tutorial/tutorial.cc` and :file:`src/include/tutorial/tutorial.h`: Your code goes here. Please don’t change signature of the constructor and existing functions.
+   -  Return the count of all engagements (likes and comments) for all
+      users from a given location.
 
-2. :file:`test/unit/tutorial/tutorial_test.cc`: Unit test for testing the implementation. (You can add more testcase)
+9. **updateUserName:**
+   ``cpp     bool updateUserName(int user_id, std::string new_username)``
 
-3. :file:`test/unit/data/*`: Sample text files to test your implementation. (You can add new .txt files to test your implementation)
+   -  Update the username for the given user_id across all files where
+      it appears.
 
-4. :file:`submit.sh`: script to generate zip file which you need to upload to Gradescope
+Additional Guidance
+-------------------
 
-5. :file:`REPORT.md`: Add design related information. See :ref:`submit <submit>` instruction for more information.
+-  **Thread Safety:** Ensure that the functions
+   ``loadFlatFile_MultiThread`` and ``incrementPostViews`` are
+   thread-safe. You might want to use mutexes or other synchronization
+   mechanisms to achieve this.
 
-6. :file:`CMakeLists.txt`: CMake file for building the project (You need not modify this file)
+-  **CSV Parsing:** You can use standard C++ libraries such as
+   ``fstream`` and ``sstream`` for reading and parsing CSV files. Make
+   sure to handle edge cases such as empty fields or malformed CSV
+   lines.
 
-7. :file:`script/*, third_party/*, .clang-format, .clang-tidy` : supporting build scripts (You need not modify this file)
+-  **Error Handling:** Implement robust error handling in your
+   functions. For example, if an invalid ``post_id`` or ``user_id`` is
+   provided, ensure that your functions return appropriate values or
+   handle the error gracefully.
 
+-  **Testing:** Thoroughly test your implementation against the provided
+   test cases. Make sure to understand the test case requirements by
+   reviewing the main function.
 
-.. include:: ../shared/logistics.rst
-
-.. include::../shared/collaboration_grading.rst
+Good luck with your assignment!
