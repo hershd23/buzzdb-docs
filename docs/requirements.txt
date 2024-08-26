@@ -2,22 +2,22 @@
 Pygments==2.11.2
 
 # Sphinx
-setuptools==41.0.1
-docutils==0.15
-mock==1.0.1
-pillow==9.0.1
-alabaster>=0.7,<0.8,!=0.7.5
-commonmark==0.8.1
-recommonmark==0.5.0
+setuptools
+docutils
+mock
+pillow
+alabaster
+commonmark
+recommonmark
 sphinx
 readthedocs-sphinx-ext
-sphinx-book-theme==0.3.3
-sphinx-sitemap==2.2.0
-sphinx-external-toc==0.3.0
-sphinx-thebe==0.1.1
-sphinx-jsonschema==1.17.2
-sphinx_multiversion==0.2.4
-furo==2022.4.7
+sphinx-book-theme
+sphinx-sitemap
+sphinx-external-toc
+sphinx-thebe
+sphinx-jsonschema
+sphinx_multiversion
+furo
 
 # MyST
 myst-parser==0.15.2
