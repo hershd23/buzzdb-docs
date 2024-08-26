@@ -1,5 +1,5 @@
 # Syntax highlighting
-Pygments==2.11.2
+Pygments
 
 # Sphinx
 setuptools
@@ -20,5 +20,5 @@ sphinx_multiversion
 furo
 
 # MyST
-myst-parser==0.15.2
-myst-nb==0.13.1
+myst-parser
+myst-nb
