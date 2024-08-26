@@ -9,7 +9,7 @@ pillow
 alabaster
 commonmark
 recommonmark
-sphinx
+sphinx==5.0.0
 readthedocs-sphinx-ext
 sphinx-book-theme
 sphinx-sitemap
