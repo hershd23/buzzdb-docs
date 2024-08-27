@@ -54,18 +54,18 @@ Here are some more details to help with this assignment:
 6. **Building the Code**: We only have one C++ file that contains all
    the code for this assignment. This can be built using the following
    command:
-   ``sh     g++ -fdiagnostics-color -std=c++17 -O3 -Wall -Werror -Wextra <file_name.cpp> -o <output_name.out>``
+   ``g++ -fdiagnostics-color -std=c++17 -O3 -Wall -Werror -Wextra <file_name.cpp> -o <output_name.out>``
    We treat compiler warnings as errors. Your project will fail to build
    if there are any compiler warnings.
 
 7. **Testing Instructions**: To run any particular test case, use:
-   ``sh     ./<output_name.out> <test_number>`` For example,
+   ``./<output_name.out> <test_number>`` For example,
    ``./a.out 2`` runs the second test case. Not providing any test
    number runs all the test cases one by one. We have provided all the
    test cases for this lab. Gradescope will only test your code against
    these test cases. Your implementation will also be checked for memory
    leaks. You can check for memory leaks using Valgrind with:
-   ``sh     valgrind --leak-check=yes <output_name.out> ...<args>``
+   ``valgrind --leak-check=yes <output_name.out> ...<args>``
 
 Functions to be Completed
 -------------------------
@@ -73,52 +73,52 @@ Functions to be Completed
 You need to complete the following functions in the ``FlatFile`` class:
 
 1. **Constructor:**
-   ``cpp     FlatFile(std::string users_csv_path, std::string posts_csv_path, std::string engagements_csv_path)``
+   ``FlatFile(std::string users_csv_path, std::string posts_csv_path, std::string engagements_csv_path)``
 
    -  Initialize the class and load the CSV files.
    -  Example:
-      ``cpp      FlatFile flatFile("users.csv", "posts.csv", "engagements.csv");``
+      ``FlatFile flatFile("users.csv", "posts.csv", "engagements.csv");``
 
-2. **Destructor:** ``cpp     ~FlatFile()``
+2. **Destructor:** ``~FlatFile()``
 
    -  Properly clean up any resources used by the class.
 
-3. **loadFlatFile:** ``cpp     void loadFlatFile()``
+3. **loadFlatFile:** ``void loadFlatFile()``
 
    -  Load the provided CSV files into the corresponding maps (Single
       threaded).
 
 4. **loadFlatFile_MultiThread:**
-   ``cpp     void loadFlatFile_MultiThread()``
+   ``void loadFlatFile_MultiThread()``
 
    -  Load the provided CSV files into the corresponding maps (Multi
       threaded). This method should be thread-safe.
 
 5. **incrementPostViews:**
-   ``cpp     bool incrementPostViews(int post_id, int views_count)``
+   ``bool incrementPostViews(int post_id, int views_count)``
 
    -  Increase the views count for the post associated with the post_id
       by views_count. This method should be thread-safe.
 
 6. **addEngagementRecord:**
-   ``cpp     void addEngagementRecord(Engagement& record)``
+   ``void addEngagementRecord(Engagement& record)``
 
    -  Insert a new engagement record into the engagements map.
 
 7. **getAllUserComments:**
-   ``cpp     std::vector<std::pair<int, std::string>> getAllUserComments(int user_id)``
+   ``std::vector<std::pair<int, std::string>> getAllUserComments(int user_id)``
 
    -  Return all the comments made by the user across all the posts,
       ordered by post ID and comment.
 
 8. **getAllEngagementsByLocation:**
-   ``cpp     std::pair<int, int> getAllEngagementsByLocation(std::string location)``
+   ``std::pair<int, int> getAllEngagementsByLocation(std::string location)``
 
    -  Return the count of all engagements (likes and comments) for all
       users from a given location.
 
 9. **updateUserName:**
-   ``cpp     bool updateUserName(int user_id, std::string new_username)``
+   ``bool updateUserName(int user_id, std::string new_username)``
 
    -  Update the username for the given user_id across all files where
       it appears.
