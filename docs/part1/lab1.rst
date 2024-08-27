@@ -75,7 +75,7 @@ You need to complete the following functions in the ``FlatFile`` class:
 1. **Constructor:**
    ``cpp     FlatFile(std::string users_csv_path, std::string posts_csv_path, std::string engagements_csv_path)``
 
-   -  Initialize the class and load the CSV files.
+   -  Initialize the class and load the CSV file paths.
    -  Example:
       ``cpp      FlatFile flatFile("users.csv", "posts.csv", "engagements.csv");``
 
